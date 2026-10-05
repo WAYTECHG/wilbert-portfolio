@@ -4,7 +4,6 @@
   "buildCommand": "",
   "installCommand": "",
   "outputDirectory": "dist",
-  "public": false,
   "headers": [
     {
       "source": "/(.*)",
