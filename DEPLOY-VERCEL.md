@@ -1,47 +1,39 @@
-# Publish Wilbert's portfolio on Vercel
+# Update your existing portfolio on Vercel
 
-This is a static portfolio. No build, backend, API key, or paid domain is required.
+Use your existing GitHub repository and Vercel project, `wilbert-andrew-yonathan`.
 
-## Using the Vercel CLI
+1. Extract `Wilbert_Portfolio_Vercel.zip`. Open its `wilbert-portfolio` folder.
+2. In the existing GitHub repository, replace files inside `dist` with the updated `dist` contents. Include every new JavaScript/CSS file and the entire `assets` folder. Upload files/folders, not the ZIP. Keep `index.html` inside `dist`.
+3. Replace root `vercel.json` with the included version. Keep it beside `dist`, not inside it. Commit to the Vercel-linked production branch.
+4. Open your existing Vercel project and check Deployments for the new commit. A linked production branch normally deploys automatically. Otherwise, create a deployment from the updated production branch.
+5. Open the actual production URL returned by Vercel in a private/incognito window to verify public access.
 
-1. Extract the package and open PowerShell in the extracted `wilbert-portfolio` folder (the folder containing `vercel.json` and `dist`).
-2. Run `npx vercel login` and finish the account sign-in in your browser.
-3. Run `npx vercel link`. Select your personal Hobby account. Create a new project called `wilbert-andrew-yonathan` unless that name is already used in your account. Use `./` as the code directory and keep the supplied settings.
-4. Run `npx vercel --prod`.
-5. Copy the production address returned by Vercel. A preferred address is `wilbert-andrew-yonathan.vercel.app`; the exact address depends on availability. The earlier ChatGPT-hosted address is not needed for this deployment.
-6. Open the production link in an incognito window to check that visitors can reach it without signing in. If Vercel shows an authentication wall, inspect the project's Settings > Deployment Protection and ensure the production deployment is publicly accessible; preview protection can stay enabled.
+Do not create a second project with the same name. Do not add the unsupported `public` field to `vercel.json`.
 
-Keep the project on the free Hobby plan. A personal domain purchase is optional.
+| Setting | Value |
+| --- | --- |
+| Framework | Other |
+| Root directory | Repository root |
+| Output directory | `dist` |
+| Build command | Empty |
+| Install command | Empty |
+| Environment variables | None |
 
-## Using GitHub and the Vercel dashboard
+CLI alternative: from the extracted folder run `npx vercel login`, then `npx vercel link`. Select your existing project. Run `npx vercel --prod` and use its returned URL.
 
-1. Create a repository under your GitHub account. You can keep it private. Upload `dist`, `vercel.json`, `.vercelignore`, and this guide. Do not upload the ZIP itself.
-2. In Vercel, choose Add New > Project and import that repository.
-3. Use project name `wilbert-andrew-yonathan` (subject to availability), Framework Preset `Other`, Root Directory `./`, and Output Directory `dist`. Leave Build Command and Install Command blank.
-4. Deploy, then open the production URL. Future GitHub updates can deploy automatically.
+## New in this package
 
-## Test the published site
+A dark animated starfield with blue/orange accents and soft white reading cards, solid contours, a skippable detection opening dissolving into blocks, a portfolio chatbot and a real project-image gallery with sources. The chatbot uses verified local content and needs no paid AI API. No visitor login or webcam permission is needed.
 
-- Main navigation reaches the correct sections on desktop and mobile.
-- Vision-desk controls switch between underwater, agriculture, and inspection.
-- Search `YOLO`, `PyTorch`, or `MRI`; combine searches with Research / Applications.
-- Save projects, enable Shortlist, refresh, and verify the saved selection stays on that device.
-- Discuss selected opens a draft addressed to `30587wilbertandrewtyonathan@gmail.com`. It does not send anything automatically.
-- Press Ctrl+K (Windows) or Command+K (Mac) to search sections and projects.
-- Open the 30-second introduction and its project links.
-- Change marine benchmark metrics and open the case study to see trade-offs and credits.
-- Copy email, download the resume, and test GitHub, LinkedIn, and the marine demo link.
-- Turn motion off and verify keyboard navigation and Escape dismissal for dialogs.
+New files: `palette.css`, `space.css`, `studio.css`, `media.js`, `assistant.js`, `experience.js`, and `assets/project-images/`. Existing files also changed: update the complete `dist` folder.
 
-## Editing
+## Check after deployment
 
-Profile and availability: `dist/index.html`. Project details and reported metrics: `dist/projects.js`. Core style: `dist/styles.css`. Distinct vision-desk style: `dist/identity.css`. New interactive features: `dist/features.js`. Core navigation and dialogs: `dist/app.js`. Downloadable resume: `dist/Wilbert_Yonathan_Resume.pdf`.
+- Watch or skip the opening, then replay from the hero. Turn motion off to stop animations. Reduced-motion preferences skip the opening.
+- Open Ask about Wilbert. Try Summarize Wilbert, Compare marine and paddy, What did he contribute to DefectRAG?, What are its tools?, and Awards. Check links, Escape and Clear chat.
+- Swipe/scroll the gallery, enlarge an image, use left/right arrows and inspect the original source.
+- Explore the vision desk, project orbit and case-study dialogs. Captions distinguish reference inputs from recorded outputs.
+- Search/filter projects, save a shortlist and open an email draft. Recipient: `30587wilbertandrewtyonathan@gmail.com`.
+- Test Ctrl/Command+K, mobile navigation, email copy, résumé, GitHub and LinkedIn links.
 
-Project visuals are conceptual illustrations, not real inference output. Research in progress is labeled. The group project and upstream work retain attribution.
-
-
-## Update an existing Vercel portfolio
-
-Upload the contents of `dist` from the new package into the existing GitHub `dist` folder, preserving its name and paths. Replace root `vercel.json` with the supplied version. Commit to the linked production branch; Vercel can deploy the Git update automatically. Reuse your existing Vercel project instead of creating another with the same name. Check the latest deployment for the new Git commit, then open the production URL in a private browser window. If automation does not start a deployment, use the existing project's Deployments page to deploy the updated production branch.
-
-New files: `dist/motion.css` and `dist/motion.js`. Also update `index.html`, `app.js`, `features.js`, and `projects.js`. The package contains the complete site so earlier required files remain included. No API keys or environment variables are required. The invalid `public` configuration field has been removed.
+Real marine/paddy output photos are not published in the available demo repositories, so those previews show recorded results and source/demo links. Other projects show genuine repository imagery/evaluation figures. The opening is a stylized animation, not live inference.

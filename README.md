@@ -1,38 +1,38 @@
 # Wilbert Yonathan — AI & Computer Vision portfolio
 
-Public, responsive portfolio. Buildless HTML, CSS and JavaScript with no runtime dependencies or third-party analytics.
+A public, responsive internship portfolio built with HTML, CSS and JavaScript. No build step, visitor account, API key, or paid chatbot service is required.
 
-## Update content
+## Content and appearance
 
-- `dist/index.html`: personal introduction, education, achievements, internship availability and contact links.
-- `dist/projects.js`: project descriptions, metrics, contributions, credits and demo URLs. Project diagrams are illustrative SVG schematics, not screenshots or inference results.
-- `dist/styles.css`: theme, responsive layouts and animations.
-- `dist/app.js`: featured tabs, project filtering, accessible project dialogs, mobile navigation, clipboard, scroll navigation and motion controls.
-- `dist/Wilbert_Yonathan_Resume.pdf`: supplied resume with the portfolio contact email, LinkedIn link, and CGPA updated to 3.77. The original body is preserved.
+- `dist/index.html`: profile, education, leadership, scholarship, availability and contact.
+- `dist/projects.js`: six verified case studies, reported metrics, contributions, credits and demo links.
+- `styles.css`, `identity.css`, `motion.css`: foundational layout, typography, project orbit and transitions.
+- `studio.css`: soft white reading surfaces, blue/orange accents, solid outlines, gallery, intro and chatbot.
+- `palette.css`: the exact user-defined navy, royal blue, warm orange and soft white palette across every surface, label, control, search field and chatbot. Orange is reserved for small accents; body text retains readable contrast.
+- `space.css`: dark reference-inspired starfield backdrop and readable text over it. The canvas has depth-based drift, independent gentle twinkling, short streaks and cursor parallax, capped at 650 stars and approximately 30 fps. Reduced motion and hidden tabs stop the animation.
+- `media.js`: real project imagery, captions, source links and image viewer. Marine/PaddyLiteX use recorded metrics because real output photographs are not published in their public repositories.
+- `experience.js`: skippable opening, bounding-box animation, fading mosaic blocks, first-session playback, replay and slow vision-desk cycling.
+- `assistant.js`: a browser-local curated portfolio assistant. Recognizes topics and project names, handles project follow-ups, compares results and links to evidence. It is not a generative language model. Unknown questions receive a transparent fallback. Chat text is not sent to a server or retained after reloading.
+- `app.js`, `features.js`, `motion.js`: navigation, dialogs, filters, shortlist, clipboard, search, benchmarks and motion lifecycle.
+- `assets/project-images/`: genuine repository assets. `sources.json` records provenance and distinguishes predictions, reference inputs and evaluation charts.
+- `Wilbert_Yonathan_Resume.pdf`: supplied résumé, with the requested contact email, LinkedIn link and updated CGPA.
 
-## Content provenance
+All website files above are inside `dist`. Contact email: `30587wilbertandrewtyonathan@gmail.com` (exact latest user-provided address).
 
-Profile and leadership content: supplied resume, `Wilbert_Yonathan_Resume.pdf`. Current year, CGPA, internship start date and duration: user's more recent statements. Marine metrics and upstream attribution: supplied marine-project README. Paddy research and DefectRAG: user-provided project history; ongoing work is labeled and finalized results are not invented. Res UCN is identified as a group project. Clinical use is outside the educational MRI prototype's scope.
+## Provenance
 
-Project repositories, current methods, and recorded metrics were reviewed from the public WAYTECHG GitHub account on 5 October 2026. Every main project links to its specific repository. PaddyLiteX results come from `config/models.json`: test data recorded 30 September 2026, 803 images, 2,466 objects, nine classes, and one run per model. FER2013 CNN accuracy comes from `json_files/test_results_CNN.json` (65.62%). Res UCN group authors are credited. The Streamlit Alzheimer prototype is labeled as needing further implementation validation. Demo links are taken from the user’s current GitHub profile README; live inference availability is not guaranteed by this portfolio.
+Profile and leadership details are based on the supplied résumé and latest user statements. Public WAYTECHG repositories were reviewed on 5 October 2026. PaddyLiteX results come from `config/models.json`: 803 test images, 2,466 objects, nine classes and one run per model. FER CNN accuracy is 65.62% from `json_files/test_results_CNN.json`. Marine trade-offs and upstream DU-MobileYOLO attribution are preserved. Res UCN is credited as group coursework. The educational Alzheimer application is not presented as clinically validated.
 
-## Accessibility
+Seven genuine visual assets come from the user's repositories. The DefectRAG photograph is a normal reference input, not an inference result. FER Grad-CAM/confusion matrices, Res UCN training curves and the educational Random Forest confusion matrix are recorded outputs. YOLO validation photos include real published predicted boxes. Eigenfaces are analysis components.
 
-Semantic landmarks, skip link, visible keyboard focus, roving keyboard focus for featured tabs, native modal focus containment and Escape dismissal, focus restoration, screen-reader filter announcements, reduced-motion support and a persistent motion toggle. Copy-email gracefully falls back to text selection when clipboard access is unavailable.
+The opening combines actual face/object project outputs with stylized marine/leaf concept shapes. Its boxes are a creative animation, not live inference or newly calculated scores. The public marine Space currently includes a simulated illustrated scene; that scene is not represented as a real detection result here.
 
-## Hosting
+## Accessibility and motion
 
-Static output is in `dist`. No build step or API keys required. Sites source synchronization and publication preserve the project ID in `.openai/hosting.json`.
+Semantic landmarks, skip link, visible focus, keyboard tabs/carousel, native image/case-study dialogs with focus restoration, searchable projects and screen-reader status messages. The opening lasts about five seconds, plays once per browser-tab session, can be skipped or replayed, and is omitted for reduced/paused motion. Motion controls stop decorative effects and automatic cycles. Canvas density/pixel ratio are bounded; timers and animation frames pause when the tab is hidden. Gallery images have alt text, source captions and a keyboard image viewer.
 
-## Vision-desk redesign
+## Hosting and verification
 
-Contact: `30587wilbertandrewtyonathan@gmail.com` (exact address requested by the user). LinkedIn: the user's updated profile link. The asymmetric hero, rectangular navigation, conceptual vision desk and research comparison have an independent composition. Project search supports category and saved-only filters. Shortlists are stored locally, and their email action opens a draft without sending it. Ctrl/Command+K opens portfolio search. A recruiter dialog presents a concise introduction. Skill tags search the collection. Benchmark figures are derived from the supplied marine results table. No simulated inference scores or invented results are displayed.
+Static output: `dist`. Config: `vercel.json`. See `DEPLOY-VERCEL.md` to update the existing Vercel project. Packages exclude hosting identity, Git metadata and credentials.
 
-Vercel deployment settings are in `vercel.json`; see `DEPLOY-VERCEL.md`. Deployment packages exclude Sites identity and Git metadata.
-
-
-## Blue observatory motion update
-
-`dist/motion.css` and `dist/motion.js` add a cursor-responsive, layered blue star field, smoothly rotating hero phrases, a three-project perspective carousel, hover scaling and project transitions. The project orbit uses explicit controls, left/right/Home/End keyboard navigation, and horizontal pointer swipes; it does not auto-advance. Hero text pauses with the motion toggle, reduced-motion preferences and tab visibility. The star field caps density and pixel ratio and stops animation in background tabs. Main text remains static and readable. Five additional verified GitHub projects appear in an expandable repository shelf.
-
-Validation: JavaScript syntax, local assets/anchor/ID/config checks, DOM interaction tests for carousel/filter/search/modal/shortlist flows, animation lifecycle and cursor parallax with mocked rendering. Actual browser visual layout and real touch hardware could not be tested in this session.
+Validated syntax, assets, IDs, anchors and configuration; existing search/filter/shortlist/modal flows; carousel keyboard/swipe synchronization; chatbot answers, follow-ups, safe text rendering and links; image viewer navigation/focus; intro drawing/dissolution/skip/replay/pause/reduced-motion/visibility lifecycle. Interaction checks use a DOM and mocked canvas. Actual browser layout and real-device touch were not verified in this session.
