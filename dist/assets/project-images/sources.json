@@ -1,0 +1,72 @@
+[
+  {
+    "file": "assets/project-images/fer-gradcam.webp",
+    "source": "https://raw.githubusercontent.com/WAYTECHG/FER2013-Project/main/result_images/gradcam_CNN.png",
+    "page": "https://github.com/WAYTECHG/FER2013-Project/blob/main/result_images/gradcam_CNN.png",
+    "label": "FER Grad-CAM results",
+    "caption": "CNN activation-map mosaic published in the project repository; real analysis output, not a live demo screenshot.",
+    "width": 1164,
+    "height": 1400,
+    "bytes": 148482
+  },
+  {
+    "file": "assets/project-images/fer-confusion.webp",
+    "source": "https://raw.githubusercontent.com/WAYTECHG/FER2013-Project/main/result_images/confusion_CNN.png",
+    "page": "https://github.com/WAYTECHG/FER2013-Project/blob/main/result_images/confusion_CNN.png",
+    "label": "FER CNN confusion matrix",
+    "caption": "Recorded model evaluation figure published in the project repository.",
+    "width": 797,
+    "height": 701,
+    "bytes": 16820
+  },
+  {
+    "file": "assets/project-images/defectrag-reference.webp",
+    "source": "https://raw.githubusercontent.com/WAYTECHG/DefectRAG/main/cloud/references/breakfast_box/normal_reference_01.jpg",
+    "page": "https://github.com/WAYTECHG/DefectRAG/blob/main/cloud/references/breakfast_box/normal_reference_01.jpg",
+    "label": "DefectRAG normal reference photo",
+    "caption": "Breakfast-box image included in the demo\u2019s MVTec LOCO normal reference bank; sample input, not a model prediction.",
+    "width": 1200,
+    "height": 960,
+    "bytes": 120142
+  },
+  {
+    "file": "assets/project-images/object-detection-validation.webp",
+    "source": "https://raw.githubusercontent.com/WAYTECHG/Object-Detection-Yolov8/main/runs/detect/train4/val_batch0_pred.jpg",
+    "page": "https://github.com/WAYTECHG/Object-Detection-Yolov8/blob/main/runs/detect/train4/val_batch0_pred.jpg",
+    "label": "YOLO validation predictions",
+    "caption": "Annotated validation-batch predictions published in the project repository.",
+    "width": 1400,
+    "height": 1400,
+    "bytes": 385094
+  },
+  {
+    "file": "assets/project-images/face-eigenfaces.webp",
+    "source": "https://raw.githubusercontent.com/WAYTECHG/Face-Recognition/main/image/eigenface.png",
+    "page": "https://github.com/WAYTECHG/Face-Recognition/blob/main/image/eigenface.png",
+    "label": "Eigenface analysis",
+    "caption": "Eigenface components published in the face recognition repository; analysis visualization, not individual portrait or inference screenshot.",
+    "width": 1400,
+    "height": 1103,
+    "bytes": 122900
+  },
+  {
+    "file": "assets/project-images/resucn-training.webp",
+    "source": "https://raw.githubusercontent.com/WAYTECHG/Res_UCN-Resnet-Unified-Convolution-Network/main/Res_UCN.ipynb",
+    "page": "https://github.com/WAYTECHG/Res_UCN-Resnet-Unified-Convolution-Network/blob/main/Res_UCN.ipynb",
+    "label": "ResUCN recorded training history",
+    "caption": "Actual loss and accuracy chart embedded in the public project notebook; restored training history, not a live demo screenshot.",
+    "width": 1165,
+    "height": 547,
+    "bytes": 57352
+  },
+  {
+    "file": "assets/project-images/alzheimer-evaluation.webp",
+    "source": "https://raw.githubusercontent.com/WAYTECHG/Alzheimer-Detection/main/alzheimer_prediction.ipynb",
+    "page": "https://github.com/WAYTECHG/Alzheimer-Detection/blob/main/alzheimer_prediction.ipynb",
+    "label": "Clinical ML coursework evaluation",
+    "caption": "Random Forest confusion matrix embedded in the project notebook; educational model evaluation, not clinical validation.",
+    "width": 533,
+    "height": 460,
+    "bytes": 13844
+  }
+]

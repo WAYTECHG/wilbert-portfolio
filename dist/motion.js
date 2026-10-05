@@ -28,7 +28,7 @@
   const featured=['marine','paddy','defectrag'];
   const projects=featured.map(id=>window.PORTFOLIO_PROJECTS.find(p=>p.id===id));
   const stage=$('#deck-stage');
-  stage.innerHTML=projects.map((p,i)=>`<button class="deck-card" data-deck="${p.id}" aria-pressed="${i===0}" aria-label="Select ${escape(p.title)}"><span class="deck-card-top"><span>${String(i+1).padStart(2,'0')} / ${escape(p.category)}</span><span aria-hidden="true">↗</span></span><span class="deck-art">${window.projectIllustration(p.id,'orbit')}</span><span class="deck-card-copy"><span class="project-kicker">${escape(p.status)}</span><strong>${escape(p.title)}</strong><span class="deck-description">${escape(p.description)}</span><span class="deck-tags">${p.tags.slice(0,3).map(escape).join(' · ')}</span><span class="deck-visual-note">Concept illustration · explore the real code below</span></span></button>`).join('');
+  stage.innerHTML=projects.map((p,i)=>`<button class="deck-card" data-deck="${p.id}" aria-pressed="${i===0}" aria-label="Select ${escape(p.title)}"><span class="deck-card-top"><span>${String(i+1).padStart(2,'0')} / ${escape(p.category)}</span><span aria-hidden="true">↗</span></span><span class="deck-art">${window.projectVisual(p.id,'orbit')}</span><span class="deck-card-copy"><span class="project-kicker">${escape(p.status)}</span><strong>${escape(p.title)}</strong><span class="deck-description">${escape(p.description)}</span><span class="deck-tags">${p.tags.slice(0,3).map(escape).join(' · ')}</span><span class="deck-visual-note">${escape(window.projectMedia(p.id).label)} · source linked below</span></span></button>`).join('');
   let selected=0;
   function syncDeck(id){
     const index=featured.indexOf(id);if(index<0)return;selected=index;

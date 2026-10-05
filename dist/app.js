@@ -1,7 +1,7 @@
 'use strict';
 (() => {
   const projects=window.PORTFOLIO_PROJECTS;
-  const illustration=window.projectIllustration;
+  const illustration=window.projectVisual;
   const $=selector=>document.querySelector(selector);
   const $$=selector=>Array.from(document.querySelectorAll(selector));
   const escape=text=>String(text).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -9,7 +9,7 @@
   const metrics=project=>`<div class="feature-metrics">${project.metrics.map(([value,label])=>`<div><strong>${escape(value)}</strong><small>${escape(label)}</small></div>`).join('')}</div>`;
   const projectById=id=>projects.find(p=>p.id===id);
   const grid=$('#project-grid');
-  grid.innerHTML=projects.map((p,index)=>`<article class="project-card" data-category="${p.category}"><div class="card-art"><span class="visual-caption">CONCEPT VISUAL / ${String(index+1).padStart(2,'0')}</span>${illustration(p.id,'card')}</div><div class="card-content"><div class="project-kicker">${escape(p.kicker)}</div><h3>${escape(p.title)}</h3><p>${escape(p.description)}</p>${tags(p)}<div class="card-bottom"><span>${escape(p.year)}</span><button data-project="${p.id}" aria-label="Read case study: ${escape(p.title)}">Read story ↗</button></div></div></article>`).join('');
+  grid.innerHTML=projects.map((p,index)=>`<article class="project-card" data-category="${p.category}"><div class="card-art"><span class="visual-caption">${escape(window.projectMedia(p.id).label)} / ${String(index+1).padStart(2,'0')}</span>${illustration(p.id,'card')}</div><div class="card-content"><div class="project-kicker">${escape(p.kicker)}</div><h3>${escape(p.title)}</h3><p>${escape(p.description)}</p>${tags(p)}<div class="card-bottom"><span>${escape(p.year)}</span><button data-project="${p.id}" aria-label="Read case study: ${escape(p.title)}">Read story ↗</button></div></div></article>`).join('');
   const featuredTabs=$$('[data-featured]');
   let activeFeatured='marine';
   function showFeatured(id){
@@ -19,7 +19,7 @@
     activeFeatured=id;
     featuredTabs.forEach(tab=>{const selected=tab.dataset.featured===id;tab.setAttribute('aria-selected',selected);tab.tabIndex=selected?0:-1;});
     $('#featured-panel').setAttribute('aria-labelledby','tab-'+id);
-    $('#featured-panel').innerHTML=`<div class="featured-panel-inner"><div class="feature-art"><span class="visual-caption">${escape(p.short)} / CONCEPT VISUAL</span>${illustration(p.id,'featured')}<div class="visual-footer"><span>ILLUSTRATIVE SCHEMATIC</span><span>${escape(p.year)}</span></div></div><div class="feature-copy"><div class="project-kicker">${escape(p.kicker)}</div><h3>${escape(p.title)}</h3><p>${escape(p.description)}</p>${metrics(p)}<div class="feature-links"><button class="case-button" data-project="${p.id}">Explore case study ↗</button>${p.demo?`<a class="demo-link" href="${escape(p.demo)}" target="_blank" rel="noopener noreferrer">Open demo ↗</a>`:''}<a class="demo-link repository-link" href="${escape(p.repository)}" target="_blank" rel="noopener noreferrer">Source code ↗</a></div></div></div>`;
+    $('#featured-panel').innerHTML=`<div class="featured-panel-inner"><div class="feature-art"><span class="visual-caption">${escape(window.projectMedia(p.id).label)}</span>${illustration(p.id,'featured')}<div class="visual-footer"><a href="${escape(window.projectMedia(p.id).source)}" target="_blank" rel="noopener noreferrer">View original source ↗</a><span>${escape(p.year)}</span></div></div><div class="feature-copy"><div class="project-kicker">${escape(p.kicker)}</div><h3>${escape(p.title)}</h3><p>${escape(p.description)}</p>${metrics(p)}<div class="feature-links"><button class="case-button" data-project="${p.id}">Explore case study ↗</button>${p.demo?`<a class="demo-link" href="${escape(p.demo)}" target="_blank" rel="noopener noreferrer">Open demo ↗</a>`:''}<a class="demo-link repository-link" href="${escape(p.repository)}" target="_blank" rel="noopener noreferrer">Source code ↗</a></div></div></div>`;
     const panel=$('#featured-panel');
     if(previous!==id&&!document.documentElement.classList.contains('no-motion')&&panel.animate){
       const direction=featuredTabs.findIndex(t=>t.dataset.featured===id)>=featuredTabs.findIndex(t=>t.dataset.featured===previous)?1:-1;
@@ -53,10 +53,10 @@
   document.addEventListener('click',event=>{
     const button=event.target.closest('[data-project]');if(!button)return;
     const p=projectById(button.dataset.project);if(!p)return;lastFocus=button;
-    $('#dialog-content').innerHTML=`<div class="dialog-body"><div class="project-kicker">${escape(p.status)}</div><h2 id="dialog-title">${escape(p.title)}</h2>${tags(p)}<h3>The problem</h3><p class="dialog-summary">${escape(p.summary)}</p>${metrics(p)}<h3>My contribution</h3><ul>${p.contributions.map(item=>`<li>${escape(item)}</li>`).join('')}</ul><h3>Outcome & trade-offs</h3><p>${escape(p.outcome)}</p>${p.table?`<table class="dialog-table"><caption class="sr-only">${escape(p.tableCaption||'URPC2020 test-set comparison, using the project split')}</caption><thead><tr>${p.table[0].map(cell=>`<th scope="col">${escape(cell)}</th>`).join('')}</tr></thead><tbody>${p.table.slice(1).map(row=>`<tr>${row.map((cell,index)=>index===0?`<th scope="row">${escape(cell)}</th>`:`<td>${escape(cell)}</td>`).join('')}</tr>`).join('')}</tbody></table>`:''}<h3>What I learned</h3><p>${escape(p.learning)}</p><h3>Context & credits</h3><p class="dialog-note">${escape(p.credit)}${p.upstream?` <a class="demo-link" href="${escape(p.upstream)}" target="_blank" rel="noopener noreferrer">View upstream work ↗</a>`:''}</p><div class="feature-links">${p.demo?`<a class="case-button" href="${escape(p.demo)}" target="_blank" rel="noopener noreferrer">Open live demo ↗</a>`:''}<a class="demo-link repository-link" href="${escape(p.repository)}" target="_blank" rel="noopener noreferrer">View project repository ↗</a></div></div>`;
-    dialog.showModal();dialog.scrollTop=0;document.body.style.overflow='hidden';$('.dialog-close').focus();
+    $('#dialog-content').innerHTML=`<div class="dialog-body"><div class="project-kicker">${escape(p.status)}</div><h2 id="dialog-title">${escape(p.title)}</h2>${tags(p)}${window.projectPhotoFigure(p.id)}<h3>The problem</h3><p class="dialog-summary">${escape(p.summary)}</p>${metrics(p)}<h3>My contribution</h3><ul>${p.contributions.map(item=>`<li>${escape(item)}</li>`).join('')}</ul><h3>Outcome & trade-offs</h3><p>${escape(p.outcome)}</p>${p.table?`<table class="dialog-table"><caption class="sr-only">${escape(p.tableCaption||'URPC2020 test-set comparison, using the project split')}</caption><thead><tr>${p.table[0].map(cell=>`<th scope="col">${escape(cell)}</th>`).join('')}</tr></thead><tbody>${p.table.slice(1).map(row=>`<tr>${row.map((cell,index)=>index===0?`<th scope="row">${escape(cell)}</th>`:`<td>${escape(cell)}</td>`).join('')}</tr>`).join('')}</tbody></table>`:''}<h3>What I learned</h3><p>${escape(p.learning)}</p><h3>Context & credits</h3><p class="dialog-note">${escape(p.credit)}${p.upstream?` <a class="demo-link" href="${escape(p.upstream)}" target="_blank" rel="noopener noreferrer">View upstream work ↗</a>`:''}</p><div class="feature-links">${p.demo?`<a class="case-button" href="${escape(p.demo)}" target="_blank" rel="noopener noreferrer">Open live demo ↗</a>`:''}<a class="demo-link repository-link" href="${escape(p.repository)}" target="_blank" rel="noopener noreferrer">View project repository ↗</a></div></div>`;
+    dialog.showModal();dialog.scrollTop=0;document.body.style.overflow='hidden';dialog.querySelector('.dialog-close').focus();
   });
-  $('.dialog-close').addEventListener('click',()=>dialog.close());
+  dialog.querySelector('.dialog-close').addEventListener('click',()=>dialog.close());
   dialog.addEventListener('click',event=>{if(event.target!==dialog)return;const r=dialog.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)dialog.close();});
   dialog.addEventListener('close',()=>{document.body.style.overflow='';lastFocus?.focus();});
   const menu=$('.menu-toggle');
@@ -101,10 +101,13 @@
   function resizeCanvas(){
     width=window.innerWidth;height=window.innerHeight;
     const dpr=Math.min(devicePixelRatio||1,2);canvas.width=width*dpr;canvas.height=height*dpr;ctx?.setTransform(dpr,0,0,dpr,0,0);
-    dots=Array.from({length:Math.min(190,Math.max(45,Math.floor(width*height/7500)))},()=>({x:Math.random()*width,y:Math.random()*height,depth:Math.random(),size:Math.random()>.94?1.9:Math.random()*.9+.35,speed:Math.random()*.15+.03,alpha:Math.random()*.55+.16,phase:Math.random()*Math.PI*2}));
+    dots=Array.from({length:Math.min(650,Math.max(90,Math.floor(width*height/1800)))},()=>{
+      const depth=Math.random(),bright=Math.random()>.965;
+      return {x:Math.random()*width,y:Math.random()*height,depth,size:bright?1.3+depth*.75:.25+depth*.75,speed:.025+depth*.1,alpha:bright?.65:Math.random()*.34+.13,phase:Math.random()*Math.PI*2,period:2200+Math.random()*4200,warm:Math.random()<.07,bright};
+    });
   }
   function draw(time=0){
-    raf=0;if(!ctx)return;
+    raf=0;if(!ctx||document.hidden)return;
     if(!paused&&time-lastFrame<32){requestDraw();return;}
     const step=lastFrame?Math.min((time-lastFrame)/16.67,3):1;lastFrame=time;
     const tx=pointer.active?(pointer.x-width/2)/width:0,ty=pointer.active?(pointer.y-height/2)/height:0;
@@ -113,18 +116,27 @@
     document.documentElement.style.setProperty('--space-y',paused?'0px':pointer.sy*45+'px');
     ctx.clearRect(0,0,width,height);
     dots.forEach(p=>{
-      if(!paused){p.y-=p.speed*step;p.x+=.015*step;if(p.y<0)p.y=height;if(p.x>width)p.x=0;}
-      const x=(p.x+pointer.sx*(16+p.depth*55)+width)%width,y=(p.y+pointer.sy*(16+p.depth*55)+height)%height;
+      if(!paused){
+        p.x+=(p.x-width*.5)*.000045*(.4+p.depth)*step;
+        p.y+=((p.y-height*.5)*.000045*(.4+p.depth)-p.speed)*step;
+        if(p.x<0)p.x=width;if(p.x>width)p.x=0;if(p.y<0)p.y=height;if(p.y>height)p.y=0;
+      }
+      const x=(p.x+pointer.sx*(10+p.depth*60)+width)%width,y=(p.y+pointer.sy*(10+p.depth*60)+height)%height;
       const dist=pointer.active?Math.hypot(x-pointer.x,y-pointer.y):1000;
-      const sparkle=paused?1:.85+Math.sin(time/1800+p.phase)*.15;
-      ctx.fillStyle=`rgba(129,187,255,${Math.min(.95,p.alpha*sparkle+(dist<170?(1-dist/170)*.28:0))})`;
+      const sparkle=paused?.8:.68+Math.sin(time/p.period+p.phase)*.32;
+      const alpha=Math.min(.82,p.alpha*sparkle+(dist<160?(1-dist/160)*.12:0));
+      const color=p.warm?'245,154,87':p.depth>.65?'244,247,252':'229,237,248';
+      if(p.bright){ctx.fillStyle=`rgba(${color},${alpha*.09})`;ctx.beginPath();ctx.arc(x,y,p.size*3.2,0,Math.PI*2);ctx.fill();}
+      ctx.fillStyle=`rgba(${color},${alpha})`;
       ctx.beginPath();ctx.arc(x,y,p.size,0,Math.PI*2);ctx.fill();
-      if(p.size>1.7){ctx.strokeStyle='rgba(116,189,255,.18)';ctx.beginPath();ctx.moveTo(x-4,y);ctx.lineTo(x+4,y);ctx.moveTo(x,y-4);ctx.lineTo(x,y+4);ctx.stroke();}
-      if(dist<125&&!paused&&pointer.active){ctx.strokeStyle=`rgba(98,173,255,${(1-dist/125)*.18})`;ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(pointer.x,pointer.y);ctx.stroke();}
+      if(p.depth>.78){
+        const angle=Math.atan2(y-height*.5,x-width*.5),length=.5+p.depth*1.4;
+        ctx.strokeStyle=`rgba(${color},${alpha*.28})`;ctx.lineWidth=.6;ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x-Math.cos(angle)*length,y-Math.sin(angle)*length);ctx.stroke();
+      }
     });
     if(!paused&&!document.hidden)requestDraw();
   }
-  function requestDraw(){if(!raf&&ctx)raf=requestAnimationFrame(draw);}
+  function requestDraw(){if(!raf&&ctx&&!document.hidden)raf=requestAnimationFrame(draw);}
   window.addEventListener('pointermove',event=>{if(event.pointerType==='touch'||paused)return;pointer.x=event.clientX;pointer.y=event.clientY;pointer.active=true;},{passive:true});
   document.addEventListener('pointerleave',()=>{pointer.active=false;});
   window.addEventListener('resize',()=>{resizeCanvas();requestDraw();});

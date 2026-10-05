@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#06080d">
+  <meta name="theme-color" content="#0B1628">
   <meta name="description" content="Wilbert Andrew Yonathan — fourth-year AI Engineering student at XMUM. Explore computer vision research, lightweight detectors, AI applications and internship availability from 29 March 2027.">
   <meta property="og:title" content="Wilbert Yonathan · AI & Computer Vision">
   <meta property="og:description" content="Computer vision. Clear experiments. Useful applications. Explore the work of Wilbert Andrew Yonathan.">
@@ -13,15 +13,22 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="identity.css">
   <link rel="stylesheet" href="motion.css">
+  <link rel="stylesheet" href="studio.css">
+  <link rel="stylesheet" href="space.css">
+  <link rel="stylesheet" href="palette.css">
   <script src="projects.js" defer></script>
+  <script src="media.js" defer></script>
   <script src="app.js" defer></script>
   <script src="features.js" defer></script>
   <script src="motion.js" defer></script>
+  <script src="assistant.js" defer></script>
+  <script src="experience.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
   <div class="scroll-progress" aria-hidden="true"></div>
   <div class="space-nebula" aria-hidden="true"></div>
+  <div class="space-contours" aria-hidden="true"><i class="space-orbit"></i><i class="space-orbit"></i><i class="space-orbit"></i></div>
   <canvas id="particles" aria-hidden="true"></canvas>
   <header class="header">
     <a class="brand" href="#home" aria-label="Wilbert Yonathan home"><span class="monogram">W<span>.</span></span><span class="brand-copy">Wilbert Yonathan<small>AI & COMPUTER VISION</small></span></a>
@@ -39,14 +46,15 @@
           <p class="build-line"><span>I build</span><span class="build-symbol" aria-hidden="true">◇</span><span class="build-words" aria-hidden="true"><span id="build-word" class="gradient">lightweight detectors</span></span><span class="sr-only">lightweight detectors, visual inspection tools, and interactive AI applications.</span></p>
           <p class="hero-description">Computer vision. Clear experiments. Useful applications.<br>I'm a fourth-year AI Engineering student turning curiosity into efficient models and experiences people can explore.</p>
           <div class="hero-cta"><a class="button" href="#projects">Discover the work <span aria-hidden="true">↗</span></a><button class="button button-secondary" id="recruiter-open">The 30-second version <span aria-hidden="true">+</span></button></div>
+          <button class="intro-replay" id="intro-replay"><span aria-hidden="true">▷</span> Replay the vision opening</button>
           <div class="hero-credentials"><span>XMUM <small>AI Engineering</small></span><span>3.77 / 4.00 <small>Current CGPA</small></span><span>Selangor <small>Based in Malaysia</small></span></div>
         </div>
         <div class="vision-lab" aria-labelledby="lab-title">
-          <div class="lab-top"><span class="lab-window-dots" aria-hidden="true"><i></i><i></i><i></i></span><span id="lab-title">THE VISION DESK</span><span class="lab-version">01.26</span></div>
+          <div class="lab-top"><span class="lab-window-dots" aria-hidden="true"><i></i><i></i><i></i></span><span id="lab-title">THE VISION DESK</span><span class="lab-live"><i aria-hidden="true"></i> IN MOTION</span></div>
           <div class="lab-preview" id="lab-preview"><div class="lab-grid" aria-hidden="true"></div><div id="lab-art"></div><span class="lab-coordinate lab-coordinate-top" aria-hidden="true">X / 024</span><span class="lab-coordinate lab-coordinate-bottom" aria-hidden="true">Y / 016</span><div class="lab-crosshair" aria-hidden="true"></div></div>
-          <div class="lab-controls" role="group" aria-label="Explore computer vision fields"><button data-lab="marine" class="active" aria-pressed="true">Underwater</button><button data-lab="paddy" aria-pressed="false">Agriculture</button><button data-lab="defectrag" aria-pressed="false">Inspection</button></div>
-          <div class="lab-note"><span class="status-dot"></span><p id="lab-note" aria-live="polite" aria-atomic="true">Explore the places my computer vision work takes me.</p></div>
-          <div class="lab-bottom"><span>INTERACTIVE CONCEPT VISUAL · NO INFERENCE</span><a href="#projects">Meet the projects ↗</a></div>
+          <div class="lab-controls" role="group" aria-label="Explore real project imagery"><button data-lab="objects" class="active" aria-pressed="true">Object detection</button><button data-lab="fer" aria-pressed="false">Facial emotion</button><button data-lab="defectrag" aria-pressed="false">Inspection</button></div>
+          <div class="lab-note"><span class="status-dot"></span><p id="lab-note">Explore the places my computer vision work takes me.</p></div>
+          <div class="lab-bottom"><span>REAL PROJECT ASSETS · RECORDED OUTPUTS</span><a href="#project-evidence">Inspect the originals ↗</a></div>
         </div>
       </div>
       <div class="hero-foot"><span>COMPUTER VISION / EFFICIENT DEEP LEARNING / APPLIED AI</span><a href="#projects">EXPLORE BELOW <span aria-hidden="true">↓</span></a></div>
@@ -62,6 +70,7 @@
     <section class="section projects-section" id="projects" aria-labelledby="projects-title">
       <div class="section-label"><span>02 / SELECTED WORK</span><span class="label-line"></span><span class="section-count">RESEARCH → REAL APPLICATIONS</span></div>
       <div class="section-heading reveal"><div><h2 id="projects-title">A closer look<br><span class="gradient">at the work.</span></h2><p>Models, experiments, and applications.<br>Explore the problem, my contribution, and what I learned.</p></div><a class="text-link" href="https://github.com/WAYTECHG" target="_blank" rel="noopener noreferrer">Explore GitHub <span>↗</span></a></div>
+      <div class="project-evidence reveal" id="project-evidence" aria-labelledby="evidence-title"><div class="evidence-heading"><div><span class="project-kicker">STRAIGHT FROM THE REPOSITORIES</span><h3 id="evidence-title">Inside the actual experiments.</h3><p>Real prediction outputs, reference photographs, and recorded evaluation figures. Swipe through, then select an image to inspect its source.</p></div><span class="evidence-count">07 FRAMES ↔</span></div><div id="evidence-gallery" class="evidence-gallery" tabindex="0" aria-label="Real project images. Scroll horizontally to explore."></div><p class="evidence-footnote">Marine and PaddyLiteX show their recorded metrics below; real output photos are not currently published in their demo repositories.</p></div>
       <div class="project-deck reveal" role="region" aria-roledescription="carousel" aria-label="Selected computer vision projects">
         <div class="deck-header"><span class="project-kicker">PROJECT ORBIT</span><span class="deck-hint">Swipe, use the arrows, or select a card</span></div>
         <div class="deck-stage" id="deck-stage" tabindex="0" aria-label="Project cards. Use left and right arrow keys to explore."></div>
@@ -88,6 +97,10 @@
   <footer class="footer"><a class="footer-brand" href="#home">W<span>.</span></a><span>© 2026 Wilbert Andrew Yonathan</span><span>Observation → Experiment → Application</span><a href="#home">Back to top ↑</a></footer>
   <nav class="section-dots" aria-label="Section shortcuts"><a href="#home" aria-label="Home" class="active"><span>Home</span></a><a href="#about" aria-label="About"><span>About</span></a><a href="#projects" aria-label="Projects"><span>Projects</span></a><a href="#skills" aria-label="Skills"><span>Skills</span></a><a href="#milestones" aria-label="Milestones"><span>Milestones</span></a><a href="#contact" aria-label="Contact"><span>Contact</span></a></nav>
   <button class="motion-toggle" aria-label="Pause animations" aria-pressed="false"><span aria-hidden="true">Ⅱ</span><span class="motion-label">Motion</span></button>
+  <button class="assistant-launch" id="assistant-launch" aria-expanded="false" aria-controls="assistant-panel"><span aria-hidden="true">✧</span><span>Ask about Wilbert</span><i aria-hidden="true"></i></button>
+  <section class="assistant-panel" id="assistant-panel" hidden aria-labelledby="assistant-title"><div class="assistant-header"><span class="assistant-emblem" aria-hidden="true">W.</span><div><h2 id="assistant-title">Portfolio assistant</h2><p>Your guide to Wilbert’s work</p></div><button class="assistant-close" id="assistant-close" aria-label="Close portfolio assistant">×</button></div><div class="assistant-thread" id="assistant-thread" role="log" aria-label="Portfolio conversation" aria-live="polite" aria-relevant="additions"></div><div class="chat-suggestions" role="group" aria-label="Suggested questions"><button data-chat-prompt="Summarize Wilbert">Quick summary</button><button data-chat-prompt="What are his skills?">Skills</button><button data-chat-prompt="Compare marine and paddy">Compare projects</button><button data-chat-prompt="Achievements and awards">Awards</button><button data-chat-prompt="Internship availability">Availability</button></div><form class="chat-form" id="assistant-form"><label class="sr-only" for="assistant-input">Ask about Wilbert’s portfolio</label><input id="assistant-input" placeholder="Ask about a project or skill…" autocomplete="off" maxlength="1000"><button type="submit" aria-label="Send question">↑</button></form><div class="assistant-foot"><span>Answers from this portfolio</span><button class="chat-reset" id="assistant-reset">Clear chat</button></div></section>
+  <dialog class="detection-intro" id="detection-intro" aria-labelledby="intro-title" aria-describedby="intro-description"><div class="intro-top"><span class="intro-mark">W<span>.</span> / VISION IN MOTION</span><button class="intro-skip" id="intro-skip">Skip opening ↗</button></div><h2 class="intro-title" id="intro-title">Seeing beyond <span>the pixels.</span></h2><p class="intro-subtitle" id="intro-description">Faces. Objects. Oceans. Leaves. A creative opening inspired by my computer vision work.</p><div class="intro-scene"><canvas id="intro-canvas" aria-hidden="true"></canvas><span class="intro-scene-label">STYLIZED SCAN · REAL OUTPUTS + CONCEPT SHAPES</span></div><div class="intro-progress" aria-hidden="true"><i id="intro-progress"></i></div><div class="intro-footer"><span id="intro-status" aria-hidden="true">OBSERVE → LOCATE</span><span>ANIMATION · NO LIVE INFERENCE</span></div></dialog>
+  <dialog class="media-dialog" id="media-dialog" aria-labelledby="media-title" aria-describedby="media-caption"><div class="media-header"><span class="project-kicker">THE ORIGINAL WORK</span><button class="dialog-close" id="media-close" aria-label="Close image viewer">×</button><h2 id="media-title">Project image</h2></div><div id="media-content"></div><p id="media-caption"></p><div class="media-controls"><button class="deck-arrow" id="media-prev" aria-label="Previous project image">←</button><span id="media-position" aria-live="polite"></span><button class="deck-arrow" id="media-next" aria-label="Next project image">→</button><a class="demo-link" id="media-source" href="https://github.com/WAYTECHG" target="_blank" rel="noopener noreferrer">View original source ↗</a></div></dialog>
   <dialog id="project-dialog" aria-labelledby="dialog-title"><button class="dialog-close" aria-label="Close project details">×</button><div id="dialog-content"></div></dialog>
   <dialog id="quick-dialog" aria-labelledby="quick-title"><div class="quick-header"><h2 id="quick-title">Find your way.</h2><button id="quick-close" aria-label="Close portfolio search">×</button></div><label class="quick-search-label"><span class="sr-only">Search pages and projects</span><input id="quick-search" type="search" placeholder="Jump to a section or project…" autocomplete="off"></label><div id="quick-results"></div><p class="quick-footer">Use Tab to explore · Esc to close</p></dialog>
   <dialog id="recruiter-dialog" aria-labelledby="recruiter-title"><button id="recruiter-close" class="dialog-close" aria-label="Close quick introduction">×</button><div class="dialog-body"><span class="project-kicker">THE 30-SECOND VERSION</span><h2 id="recruiter-title">Meet your next AI intern.</h2><p class="dialog-summary">Wilbert Andrew Yonathan · Fourth-year AI Engineering student at Xiamen University Malaysia. Indonesian, based in Selangor.</p><div class="recruiter-facts"><div><small>Focus</small><strong>Computer vision & efficient deep learning</strong></div><div><small>Availability</small><strong>29 March 2027 · 3–6 months</strong></div><div><small>Education</small><strong>CGPA 3.77 / 4.00 · expected graduation 2027</strong></div><div><small>What I bring</small><strong>PyTorch experiments, model adaptation, evaluation, and AI interfaces</strong></div></div><h3>Three places to start</h3><div class="recruiter-projects"><button data-recruiter-project="marine">Marine detection <span>75.36% mAP@0.5 · 4.37M parameters ↗</span></button><button data-recruiter-project="paddy">PaddyLiteX <span>82.26% mAP@0.5 · 3.91M parameters ↗</span></button><button data-recruiter-project="defectrag">DefectRAG <span>Visual anomaly inspection with reference memory ↗</span></button></div><div class="feature-links"><a class="case-button" href="mailto:30587wilbertandrewtyonathan@gmail.com?subject=Internship%20opportunity%20for%20Wilbert">Contact Wilbert ↗</a><a class="demo-link" href="Wilbert_Yonathan_Resume.pdf" download>Download résumé ↓</a></div></div></dialog>
