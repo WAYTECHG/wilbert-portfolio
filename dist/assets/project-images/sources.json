@@ -68,5 +68,35 @@
     "width": 533,
     "height": 460,
     "bytes": 13844
+  },
+  {
+    "file": "assets/project-images/defectrag-frontpage.webp",
+    "source": "https://huggingface.co/spaces/Wizzas/defectrag-inference",
+    "page": "https://huggingface.co/spaces/Wizzas/defectrag-inference",
+    "label": "defectrag demo front page",
+    "caption": "Website front-page screenshot supplied by Wilbert on 5 October 2026; interface preview, not inference output.",
+    "width": 1582,
+    "height": 832,
+    "bytes": 53128
+  },
+  {
+    "file": "assets/project-images/marine-frontpage.webp",
+    "source": "https://huggingface.co/spaces/Wizzas/Marine-Object-Detection",
+    "page": "https://huggingface.co/spaces/Wizzas/Marine-Object-Detection",
+    "label": "marine demo front page",
+    "caption": "Website front-page screenshot supplied by Wilbert on 5 October 2026; interface preview, not inference output.",
+    "width": 1600,
+    "height": 834,
+    "bytes": 125068
+  },
+  {
+    "file": "assets/project-images/paddy-frontpage.webp",
+    "source": "https://huggingface.co/spaces/Wizzas/PaddyLiteX",
+    "page": "https://huggingface.co/spaces/Wizzas/PaddyLiteX",
+    "label": "paddy demo front page",
+    "caption": "Website front-page screenshot supplied by Wilbert on 5 October 2026; interface preview, not inference output.",
+    "width": 1600,
+    "height": 778,
+    "bytes": 52826
   }
 ]

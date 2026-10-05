@@ -12,19 +12,26 @@
     ferMatrix:{file:root+'fer-confusion.webp',label:'Recorded FER evaluation',alt:'CNN confusion matrix for seven facial emotion classes',caption:'Actual CNN confusion matrix committed in the FER2013 repository.',source:'https://github.com/WAYTECHG/FER2013-Project/blob/main/result_images/confusion_CNN.png',width:797,height:701}
   };
   media.mri=media.alzheimer;
+  const frontpages={
+    marine:{file:root+'marine-frontpage.webp',label:'Demo website front page',alt:'Marine Vision Lab front page with Intelligence Below the surface heading and underwater research preview',caption:'Marine Vision Lab website front page, from the screenshot supplied by Wilbert. This shows the demo interface, not a detection result.',source:'https://huggingface.co/spaces/Wizzas/Marine-Object-Detection',width:1600,height:834},
+    paddy:{file:root+'paddy-frontpage.webp',label:'Demo website front page',alt:'PaddyLiteX detection studio front page with A closer look A clearer comparison heading',caption:'PaddyLiteX website front page, from the screenshot supplied by Wilbert. The leaf graphic belongs to the demo interface; it is not a model prediction.',source:'https://huggingface.co/spaces/Wizzas/PaddyLiteX',width:1600,height:778},
+    defectrag:{file:root+'defectrag-frontpage.webp',label:'Demo website front page',alt:'DefectRAG quality review workspace front page with Review with clarity Trace the evidence heading',caption:'DefectRAG website front page, from the screenshot supplied by Wilbert. This shows the inspection interface, not a measured anomaly result.',source:'https://huggingface.co/spaces/Wizzas/defectrag-inference',width:1582,height:832}
+  };
+  Object.entries(frontpages).forEach(([id,m])=>{media[id+'Site']=m;});
   const missing={marine:{label:'Recorded research results',source:'https://github.com/WAYTECHG/GhostConv-and-SimSPPF-Integration-for-Marine-Organism-Detection'},paddy:{label:'Recorded thesis results',source:'https://github.com/WAYTECHG/PaddyLiteX-demo/blob/main/config/models.json'}};
   window.PortfolioMedia=media;
-  window.projectMedia=id=>media[id]||missing[id];
+  window.projectMedia=id=>frontpages[id]||media[id]||missing[id];
   const photo=(m,context)=>`<img class="project-photo" src="${esc(m.file)}" alt="${esc(m.alt)}" width="${m.width}" height="${m.height}" loading="${context==='hero'?'eager':'lazy'}" decoding="async">`;
   window.projectVisual=function(id,context=''){
+    if(frontpages[id]&&context!=='hero')return photo(frontpages[id],context);
     if(media[id])return photo(media[id],context);
     const p=window.PORTFOLIO_PROJECTS.find(p=>p.id===id);if(!p)return '';
     return `<div class="recorded-visual"><div class="result-orbit" aria-hidden="true"><i></i><i></i><i></i></div><span class="recorded-label">${id==='marine'?'URPC2020 / TEST RESULTS':'PADDYLITEX / TEST RESULTS'}</span><strong>${id==='marine'?'75.36':'82.26'}<small>% mAP@0.5</small></strong><div class="recorded-metrics"><span>${id==='marine'?'4.37M':'3.91M'}<small>parameters</small></span><span>${id==='marine'?'11.5':'16.3'}<small>GFLOPs</small></span></div><span class="recorded-note">${id==='marine'?'GhostConv + SimSPPF adaptation':'DenseLiteX + SPPF + C2PSA'}<br>Recorded results · demo linked below</span></div>`;
   };
   // Retained call signature keeps every existing project interaction working.
   window.projectIllustration=window.projectVisual;
-  window.projectPhotoFigure=id=>{const m=media[id];return m?`<figure class="dialog-media">${photo(m,'dialog')}<figcaption>${esc(m.caption)} <a href="${esc(m.source)}" target="_blank" rel="noopener noreferrer">Original source ↗</a></figcaption></figure>`:'';};
-  const gallery=[['objects','YOLO, in the frame'],['fer','What the CNN sees'],['defectrag','The normal reference'],['resucn','Following the training'],['faces','Faces, decomposed'],['alzheimer','Evaluating a classifier'],['ferMatrix','Beyond overall accuracy']];
+  window.projectPhotoFigure=id=>{const m=frontpages[id]||media[id];return m?`<figure class="dialog-media">${photo(m,'dialog')}<figcaption>${esc(m.caption)} <a href="${esc(m.source)}" target="_blank" rel="noopener noreferrer">${frontpages[id]?'Visit demo':'Original source'} ↗</a></figcaption></figure>`:'';};
+  const gallery=[['objects','YOLO, in the frame'],['fer','What the CNN sees'],['defectrag','The normal reference'],['resucn','Following the training'],['faces','Faces, decomposed'],['alzheimer','Evaluating a classifier'],['ferMatrix','Beyond overall accuracy'],['marineSite','Marine Vision Lab'],['paddySite','PaddyLiteX studio'],['defectragSite','DefectRAG workspace']];
   if(typeof document==='undefined')return;
   const $=s=>document.querySelector(s);
   $('#evidence-gallery').innerHTML=gallery.map(([id,title])=>{const m=media[id];return `<button class="evidence-card" data-evidence="${id}" aria-label="Enlarge ${esc(title)}"><span class="evidence-image">${photo(m,'gallery')}</span><span class="evidence-copy"><span>${esc(m.label)}</span><strong>${esc(title)} <i aria-hidden="true">↗</i></strong></span></button>`;}).join('');

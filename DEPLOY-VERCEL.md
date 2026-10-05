@@ -25,7 +25,7 @@ CLI alternative: from the extracted folder run `npx vercel login`, then `npx ver
 
 A dark animated starfield with blue/orange accents and soft white reading cards, solid contours, a skippable detection opening dissolving into blocks, a portfolio chatbot and a real project-image gallery with sources. The chatbot uses verified local content and needs no paid AI API. No visitor login or webcam permission is needed.
 
-New files: `palette.css`, `space.css`, `studio.css`, `media.js`, `assistant.js`, `experience.js`, and `assets/project-images/`. Existing files also changed: update the complete `dist` folder.
+New files: `refinements.css`, `palette.css`, `space.css`, `studio.css`, `media.js`, `assistant.js`, `experience.js`, and `assets/project-images/`. Existing files also changed: update the complete `dist` folder.
 
 ## Check after deployment
 
@@ -36,4 +36,6 @@ New files: `palette.css`, `space.css`, `studio.css`, `media.js`, `assistant.js`,
 - Search/filter projects, save a shortlist and open an email draft. Recipient: `30587wilbertandrewtyonathan@gmail.com`.
 - Test Ctrl/Command+K, mobile navigation, email copy, résumé, GitHub and LinkedIn links.
 
-Real marine/paddy output photos are not published in the available demo repositories, so those previews show recorded results and source/demo links. Other projects show genuine repository imagery/evaluation figures. The opening is a stylized animation, not live inference.
+Marine, PaddyLiteX, and DefectRAG highlights now use front-page screenshots supplied by Wilbert. The ten-frame gallery preserves the original seven repository outputs and adds those three interface screenshots. Captions distinguish interfaces from model results. The opening remains a stylized animation, not live inference.
+
+The toolkit strip loops smoothly, decorative metric rings rotate while the numbers stay upright, and motion can be paused. The research comparison switches between Marine and PaddyLiteX; PaddyLiteX supports default YOLOv8n and DenseNet121 baselines, showing both accuracy gains and increased cost when applicable.
