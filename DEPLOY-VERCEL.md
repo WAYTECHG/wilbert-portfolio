@@ -6,9 +6,9 @@ This is a static portfolio. No build, backend, API key, or paid domain is requir
 
 1. Extract the package and open PowerShell in the extracted `wilbert-portfolio` folder (the folder containing `vercel.json` and `dist`).
 2. Run `npx vercel login` and finish the account sign-in in your browser.
-3. Run `npx vercel link`. Select your personal Hobby account. Create a new project called `wilbert-yonathan` unless that name is already used in your account. Use `./` as the code directory and keep the supplied settings.
+3. Run `npx vercel link`. Select your personal Hobby account. Create a new project called `wilbert-andrew-yonathan` unless that name is already used in your account. Use `./` as the code directory and keep the supplied settings.
 4. Run `npx vercel --prod`.
-5. Copy the production address returned by Vercel. A preferred address is `wilbert-yonathan.vercel.app`; the exact address depends on availability. The earlier ChatGPT-hosted address is not needed for this deployment.
+5. Copy the production address returned by Vercel. A preferred address is `wilbert-andrew-yonathan.vercel.app`; the exact address depends on availability. The earlier ChatGPT-hosted address is not needed for this deployment.
 6. Open the production link in an incognito window to check that visitors can reach it without signing in. If Vercel shows an authentication wall, inspect the project's Settings > Deployment Protection and ensure the production deployment is publicly accessible; preview protection can stay enabled.
 
 Keep the project on the free Hobby plan. A personal domain purchase is optional.
@@ -17,7 +17,7 @@ Keep the project on the free Hobby plan. A personal domain purchase is optional.
 
 1. Create a repository under your GitHub account. You can keep it private. Upload `dist`, `vercel.json`, `.vercelignore`, and this guide. Do not upload the ZIP itself.
 2. In Vercel, choose Add New > Project and import that repository.
-3. Use project name `wilbert-yonathan` (subject to availability), Framework Preset `Other`, Root Directory `./`, and Output Directory `dist`. Leave Build Command and Install Command blank.
+3. Use project name `wilbert-andrew-yonathan` (subject to availability), Framework Preset `Other`, Root Directory `./`, and Output Directory `dist`. Leave Build Command and Install Command blank.
 4. Deploy, then open the production URL. Future GitHub updates can deploy automatically.
 
 ## Test the published site
@@ -38,3 +38,10 @@ Keep the project on the free Hobby plan. A personal domain purchase is optional.
 Profile and availability: `dist/index.html`. Project details and reported metrics: `dist/projects.js`. Core style: `dist/styles.css`. Distinct vision-desk style: `dist/identity.css`. New interactive features: `dist/features.js`. Core navigation and dialogs: `dist/app.js`. Downloadable resume: `dist/Wilbert_Yonathan_Resume.pdf`.
 
 Project visuals are conceptual illustrations, not real inference output. Research in progress is labeled. The group project and upstream work retain attribution.
+
+
+## Update an existing Vercel portfolio
+
+Upload the contents of `dist` from the new package into the existing GitHub `dist` folder, preserving its name and paths. Replace root `vercel.json` with the supplied version. Commit to the linked production branch; Vercel can deploy the Git update automatically. Reuse your existing Vercel project instead of creating another with the same name. Check the latest deployment for the new Git commit, then open the production URL in a private browser window. If automation does not start a deployment, use the existing project's Deployments page to deploy the updated production branch.
+
+New files: `dist/motion.css` and `dist/motion.js`. Also update `index.html`, `app.js`, `features.js`, and `projects.js`. The package contains the complete site so earlier required files remain included. No API keys or environment variables are required. The invalid `public` configuration field has been removed.

@@ -11,12 +11,23 @@
   const grid=$('#project-grid');
   grid.innerHTML=projects.map((p,index)=>`<article class="project-card" data-category="${p.category}"><div class="card-art"><span class="visual-caption">CONCEPT VISUAL / ${String(index+1).padStart(2,'0')}</span>${illustration(p.id,'card')}</div><div class="card-content"><div class="project-kicker">${escape(p.kicker)}</div><h3>${escape(p.title)}</h3><p>${escape(p.description)}</p>${tags(p)}<div class="card-bottom"><span>${escape(p.year)}</span><button data-project="${p.id}" aria-label="Read case study: ${escape(p.title)}">Read story ↗</button></div></div></article>`).join('');
   const featuredTabs=$$('[data-featured]');
+  let activeFeatured='marine';
   function showFeatured(id){
     const p=projectById(id);
+    if(!p)return;
+    const previous=activeFeatured;
+    activeFeatured=id;
     featuredTabs.forEach(tab=>{const selected=tab.dataset.featured===id;tab.setAttribute('aria-selected',selected);tab.tabIndex=selected?0:-1;});
     $('#featured-panel').setAttribute('aria-labelledby','tab-'+id);
-    $('#featured-panel').innerHTML=`<div class="featured-panel-inner"><div class="feature-art"><span class="visual-caption">${escape(p.short)} / CONCEPT VISUAL</span>${illustration(p.id,'featured')}<div class="visual-footer"><span>ILLUSTRATIVE SCHEMATIC</span><span>${escape(p.year)}</span></div></div><div class="feature-copy"><div class="project-kicker">${escape(p.kicker)}</div><h3>${escape(p.title)}</h3><p>${escape(p.description)}</p>${metrics(p)}<div class="feature-links"><button class="case-button" data-project="${p.id}">Explore case study ↗</button>${p.demo?`<a class="demo-link" href="${escape(p.demo)}" target="_blank" rel="noopener noreferrer">Open demo ↗</a>`:''}</div></div></div>`;
+    $('#featured-panel').innerHTML=`<div class="featured-panel-inner"><div class="feature-art"><span class="visual-caption">${escape(p.short)} / CONCEPT VISUAL</span>${illustration(p.id,'featured')}<div class="visual-footer"><span>ILLUSTRATIVE SCHEMATIC</span><span>${escape(p.year)}</span></div></div><div class="feature-copy"><div class="project-kicker">${escape(p.kicker)}</div><h3>${escape(p.title)}</h3><p>${escape(p.description)}</p>${metrics(p)}<div class="feature-links"><button class="case-button" data-project="${p.id}">Explore case study ↗</button>${p.demo?`<a class="demo-link" href="${escape(p.demo)}" target="_blank" rel="noopener noreferrer">Open demo ↗</a>`:''}<a class="demo-link repository-link" href="${escape(p.repository)}" target="_blank" rel="noopener noreferrer">Source code ↗</a></div></div></div>`;
+    const panel=$('#featured-panel');
+    if(previous!==id&&!document.documentElement.classList.contains('no-motion')&&panel.animate){
+      const direction=featuredTabs.findIndex(t=>t.dataset.featured===id)>=featuredTabs.findIndex(t=>t.dataset.featured===previous)?1:-1;
+      panel.animate([{opacity:.25,transform:`translateX(${direction*26}px)`},{opacity:1,transform:'translateX(0)'}],{duration:420,easing:'cubic-bezier(.2,.7,.2,1)'});
+    }
+    document.dispatchEvent(new CustomEvent('portfolio:featured',{detail:{id}}));
   }
+  window.PortfolioFeatured={select:showFeatured,current:()=>activeFeatured};
   showFeatured('marine');
   featuredTabs.forEach((tab,index)=>{
     tab.addEventListener('click',()=>showFeatured(tab.dataset.featured));
@@ -42,7 +53,7 @@
   document.addEventListener('click',event=>{
     const button=event.target.closest('[data-project]');if(!button)return;
     const p=projectById(button.dataset.project);if(!p)return;lastFocus=button;
-    $('#dialog-content').innerHTML=`<div class="dialog-body"><div class="project-kicker">${escape(p.status)}</div><h2 id="dialog-title">${escape(p.title)}</h2>${tags(p)}<h3>The problem</h3><p class="dialog-summary">${escape(p.summary)}</p>${metrics(p)}<h3>My contribution</h3><ul>${p.contributions.map(item=>`<li>${escape(item)}</li>`).join('')}</ul><h3>Outcome & trade-offs</h3><p>${escape(p.outcome)}</p>${p.table?`<table class="dialog-table"><caption class="sr-only">URPC2020 test-set comparison, using the project split</caption><thead><tr>${p.table[0].map(cell=>`<th scope="col">${escape(cell)}</th>`).join('')}</tr></thead><tbody>${p.table.slice(1).map(row=>`<tr>${row.map((cell,index)=>index===0?`<th scope="row">${escape(cell)}</th>`:`<td>${escape(cell)}</td>`).join('')}</tr>`).join('')}</tbody></table>`:''}<h3>What I learned</h3><p>${escape(p.learning)}</p><h3>Context & credits</h3><p class="dialog-note">${escape(p.credit)}${p.upstream?` <a class="demo-link" href="${escape(p.upstream)}" target="_blank" rel="noopener noreferrer">View upstream work ↗</a>`:''}</p><div class="feature-links">${p.demo?`<a class="case-button" href="${escape(p.demo)}" target="_blank" rel="noopener noreferrer">Open live demo ↗</a>`:''}<a class="demo-link" href="https://github.com/WAYTECHG" target="_blank" rel="noopener noreferrer">My GitHub ↗</a></div></div>`;
+    $('#dialog-content').innerHTML=`<div class="dialog-body"><div class="project-kicker">${escape(p.status)}</div><h2 id="dialog-title">${escape(p.title)}</h2>${tags(p)}<h3>The problem</h3><p class="dialog-summary">${escape(p.summary)}</p>${metrics(p)}<h3>My contribution</h3><ul>${p.contributions.map(item=>`<li>${escape(item)}</li>`).join('')}</ul><h3>Outcome & trade-offs</h3><p>${escape(p.outcome)}</p>${p.table?`<table class="dialog-table"><caption class="sr-only">${escape(p.tableCaption||'URPC2020 test-set comparison, using the project split')}</caption><thead><tr>${p.table[0].map(cell=>`<th scope="col">${escape(cell)}</th>`).join('')}</tr></thead><tbody>${p.table.slice(1).map(row=>`<tr>${row.map((cell,index)=>index===0?`<th scope="row">${escape(cell)}</th>`:`<td>${escape(cell)}</td>`).join('')}</tr>`).join('')}</tbody></table>`:''}<h3>What I learned</h3><p>${escape(p.learning)}</p><h3>Context & credits</h3><p class="dialog-note">${escape(p.credit)}${p.upstream?` <a class="demo-link" href="${escape(p.upstream)}" target="_blank" rel="noopener noreferrer">View upstream work ↗</a>`:''}</p><div class="feature-links">${p.demo?`<a class="case-button" href="${escape(p.demo)}" target="_blank" rel="noopener noreferrer">Open live demo ↗</a>`:''}<a class="demo-link repository-link" href="${escape(p.repository)}" target="_blank" rel="noopener noreferrer">View project repository ↗</a></div></div>`;
     dialog.showModal();dialog.scrollTop=0;document.body.style.overflow='hidden';$('.dialog-close').focus();
   });
   $('.dialog-close').addEventListener('click',()=>dialog.close());
@@ -63,9 +74,9 @@
   });
   const reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
   let paused=reduced.matches;
-  try{const pref=localStorage.getItem('portfolio-motion');if(pref!==null)paused=pref==='paused';}catch{}
+  try{const pref=localStorage.getItem('portfolio-motion');if(pref==='paused')paused=true;}catch{}
   const motionButton=$('.motion-toggle');
-  function applyMotion(){document.documentElement.classList.toggle('no-motion',paused);motionButton.setAttribute('aria-pressed',paused);motionButton.setAttribute('aria-label',paused?'Enable animations':'Pause animations');motionButton.firstElementChild.textContent=paused?'▶':'Ⅱ';}
+  function applyMotion(){document.documentElement.classList.toggle('no-motion',paused);motionButton.setAttribute('aria-pressed',paused);motionButton.setAttribute('aria-label',paused?'Enable animations':'Pause animations');motionButton.firstElementChild.textContent=paused?'▶':'Ⅱ';document.dispatchEvent(new CustomEvent('portfolio:motion',{detail:{paused}}));}
   applyMotion();
   motionButton.addEventListener('click',()=>{paused=!paused;applyMotion();try{localStorage.setItem('portfolio-motion',paused?'paused':'running');}catch{};toast(paused?'Animations paused.':'Animations enabled.');if(!paused)requestDraw();});
   reduced.addEventListener('change',event=>{paused=event.matches;applyMotion();if(!paused)requestDraw();});
@@ -85,14 +96,39 @@
   }
   window.addEventListener('scroll',()=>{if(!ticking){ticking=true;requestAnimationFrame(updateScroll);}},{passive:true});window.addEventListener('resize',updateScroll);updateScroll();
   const canvas=$('#particles');const ctx=canvas.getContext('2d');
-  let dots=[],width=0,height=0,frame=0,raf=0;
-  const pointer={x:-1000,y:-1000};
-  function resizeCanvas(){width=window.innerWidth;height=window.innerHeight;const dpr=Math.min(devicePixelRatio||1,2);canvas.width=width*dpr;canvas.height=height*dpr;ctx?.setTransform(dpr,0,0,dpr,0,0);dots=Array.from({length:Math.min(95,Math.floor(width*height/12000))},()=>({x:Math.random()*width,y:Math.random()*height,size:Math.random()>.95?2:Math.random()*.8+.3,speed:Math.random()*.15+.04,alpha:Math.random()*.35+.08}));}
-  function draw(){raf=0;if(!ctx)return;ctx.clearRect(0,0,width,height);dots.forEach(p=>{if(!paused){p.y-=p.speed;if(p.y<0)p.y=height;}const dist=Math.hypot(p.x-pointer.x,p.y-pointer.y);ctx.fillStyle=`rgba(94,155,241,${Math.min(.85,p.alpha+(dist<170?(1-dist/170)*.45:0))})`;ctx.fillRect(p.x,p.y,p.size,p.size);if(dist<115&&!paused){ctx.strokeStyle=`rgba(81,149,244,${(1-dist/115)*.12})`;ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(pointer.x,pointer.y);ctx.stroke();}});frame++;if(!paused&&!document.hidden)requestDraw();}
+  let dots=[],width=0,height=0,raf=0,lastFrame=0;
+  const pointer={x:0,y:0,active:false,sx:0,sy:0};
+  function resizeCanvas(){
+    width=window.innerWidth;height=window.innerHeight;
+    const dpr=Math.min(devicePixelRatio||1,2);canvas.width=width*dpr;canvas.height=height*dpr;ctx?.setTransform(dpr,0,0,dpr,0,0);
+    dots=Array.from({length:Math.min(190,Math.max(45,Math.floor(width*height/7500)))},()=>({x:Math.random()*width,y:Math.random()*height,depth:Math.random(),size:Math.random()>.94?1.9:Math.random()*.9+.35,speed:Math.random()*.15+.03,alpha:Math.random()*.55+.16,phase:Math.random()*Math.PI*2}));
+  }
+  function draw(time=0){
+    raf=0;if(!ctx)return;
+    if(!paused&&time-lastFrame<32){requestDraw();return;}
+    const step=lastFrame?Math.min((time-lastFrame)/16.67,3):1;lastFrame=time;
+    const tx=pointer.active?(pointer.x-width/2)/width:0,ty=pointer.active?(pointer.y-height/2)/height:0;
+    if(!paused){pointer.sx+=(tx-pointer.sx)*.045*step;pointer.sy+=(ty-pointer.sy)*.045*step;}
+    document.documentElement.style.setProperty('--space-x',paused?'0px':pointer.sx*55+'px');
+    document.documentElement.style.setProperty('--space-y',paused?'0px':pointer.sy*45+'px');
+    ctx.clearRect(0,0,width,height);
+    dots.forEach(p=>{
+      if(!paused){p.y-=p.speed*step;p.x+=.015*step;if(p.y<0)p.y=height;if(p.x>width)p.x=0;}
+      const x=(p.x+pointer.sx*(16+p.depth*55)+width)%width,y=(p.y+pointer.sy*(16+p.depth*55)+height)%height;
+      const dist=pointer.active?Math.hypot(x-pointer.x,y-pointer.y):1000;
+      const sparkle=paused?1:.85+Math.sin(time/1800+p.phase)*.15;
+      ctx.fillStyle=`rgba(129,187,255,${Math.min(.95,p.alpha*sparkle+(dist<170?(1-dist/170)*.28:0))})`;
+      ctx.beginPath();ctx.arc(x,y,p.size,0,Math.PI*2);ctx.fill();
+      if(p.size>1.7){ctx.strokeStyle='rgba(116,189,255,.18)';ctx.beginPath();ctx.moveTo(x-4,y);ctx.lineTo(x+4,y);ctx.moveTo(x,y-4);ctx.lineTo(x,y+4);ctx.stroke();}
+      if(dist<125&&!paused&&pointer.active){ctx.strokeStyle=`rgba(98,173,255,${(1-dist/125)*.18})`;ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(pointer.x,pointer.y);ctx.stroke();}
+    });
+    if(!paused&&!document.hidden)requestDraw();
+  }
   function requestDraw(){if(!raf&&ctx)raf=requestAnimationFrame(draw);}
-  window.addEventListener('pointermove',event=>{pointer.x=event.clientX;pointer.y=event.clientY;},{passive:true});
-  document.addEventListener('pointerleave',()=>{pointer.x=-1000;pointer.y=-1000;});
+  window.addEventListener('pointermove',event=>{if(event.pointerType==='touch'||paused)return;pointer.x=event.clientX;pointer.y=event.clientY;pointer.active=true;},{passive:true});
+  document.addEventListener('pointerleave',()=>{pointer.active=false;});
   window.addEventListener('resize',()=>{resizeCanvas();requestDraw();});
-  document.addEventListener('visibilitychange',()=>{if(!document.hidden)requestDraw();else if(raf){cancelAnimationFrame(raf);raf=0;}});
+  document.addEventListener('visibilitychange',()=>{if(!document.hidden){lastFrame=0;requestDraw();}else if(raf){cancelAnimationFrame(raf);raf=0;}});
+  document.addEventListener('portfolio:motion',()=>{pointer.active=false;pointer.sx=0;pointer.sy=0;lastFrame=0;requestDraw();});
   resizeCanvas();requestDraw();
 })();

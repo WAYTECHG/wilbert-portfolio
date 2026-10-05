@@ -14,7 +14,7 @@ Public, responsive portfolio. Buildless HTML, CSS and JavaScript with no runtime
 
 Profile and leadership content: supplied resume, `Wilbert_Yonathan_Resume.pdf`. Current year, CGPA, internship start date and duration: user's more recent statements. Marine metrics and upstream attribution: supplied marine-project README. Paddy research and DefectRAG: user-provided project history; ongoing work is labeled and finalized results are not invented. Res UCN is identified as a group project. Clinical use is outside the educational MRI prototype's scope.
 
-Public profile links use the supplied resume URLs. Marine demo URL uses the supplied project README. Exact public project repository URLs were not available, so code buttons go to the confirmed GitHub profile rather than invented repositories.
+Project repositories, current methods, and recorded metrics were reviewed from the public WAYTECHG GitHub account on 5 October 2026. Every main project links to its specific repository. PaddyLiteX results come from `config/models.json`: test data recorded 30 September 2026, 803 images, 2,466 objects, nine classes, and one run per model. FER2013 CNN accuracy comes from `json_files/test_results_CNN.json` (65.62%). Res UCN group authors are credited. The Streamlit Alzheimer prototype is labeled as needing further implementation validation. Demo links are taken from the user’s current GitHub profile README; live inference availability is not guaranteed by this portfolio.
 
 ## Accessibility
 
@@ -29,3 +29,10 @@ Static output is in `dist`. No build step or API keys required. Sites source syn
 Contact: `30587wilbertandrewtyonathan@gmail.com` (exact address requested by the user). LinkedIn: the user's updated profile link. The asymmetric hero, rectangular navigation, conceptual vision desk and research comparison have an independent composition. Project search supports category and saved-only filters. Shortlists are stored locally, and their email action opens a draft without sending it. Ctrl/Command+K opens portfolio search. A recruiter dialog presents a concise introduction. Skill tags search the collection. Benchmark figures are derived from the supplied marine results table. No simulated inference scores or invented results are displayed.
 
 Vercel deployment settings are in `vercel.json`; see `DEPLOY-VERCEL.md`. Deployment packages exclude Sites identity and Git metadata.
+
+
+## Blue observatory motion update
+
+`dist/motion.css` and `dist/motion.js` add a cursor-responsive, layered blue star field, smoothly rotating hero phrases, a three-project perspective carousel, hover scaling and project transitions. The project orbit uses explicit controls, left/right/Home/End keyboard navigation, and horizontal pointer swipes; it does not auto-advance. Hero text pauses with the motion toggle, reduced-motion preferences and tab visibility. The star field caps density and pixel ratio and stops animation in background tabs. Main text remains static and readable. Five additional verified GitHub projects appear in an expandable repository shelf.
+
+Validation: JavaScript syntax, local assets/anchor/ID/config checks, DOM interaction tests for carousel/filter/search/modal/shortlist flows, animation lifecycle and cursor parallax with mocked rendering. Actual browser visual layout and real touch hardware could not be tested in this session.

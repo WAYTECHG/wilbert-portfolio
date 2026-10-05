@@ -1,11 +1,345 @@
 'use strict';
 window.PORTFOLIO_PROJECTS = [
-  {id:'marine', title:'Marine organism detection', short:'Marine detection', category:'research', year:'2026', status:'Completed research · demo available', kicker:'FEATURED / LIGHTWEIGHT OBJECT DETECTION', description:'Adapting DU-MobileYOLO with GhostConv and SimSPPF to detect underwater organisms with a better accuracy–complexity trade-off.', tags:['PyTorch','GhostConv','SimSPPF','URPC2020'], metrics:[['75.36%','mAP@0.5'],['4.37M','Parameters'],['11.5','GFLOPs']], demo:'https://huggingface.co/spaces/Wizzas/Marine-Object-Detection', summary:'Underwater imagery makes detection challenging, and an efficient detector needs to balance accuracy with model complexity. I adapted an existing lightweight detector and tested the effects of selected architectural changes on the URPC2020 split.', contributions:['Integrated GhostConv into selected 3×3 convolutions in Multi-Concat blocks and replaced the original pooling structure with SimSPPF.','Preserved the original Deformable Upsampling mechanism from DU-MobileYOLO.','Compared retrained baselines and ablation variants, documenting accuracy, precision, recall, parameters, and GFLOPs.','Prepared an interactive marine detection demonstration on Hugging Face Spaces.'], outcome:'Compared with the retrained DU-MobileYOLO baseline, the final variant increased mAP@0.5 by 1.13 percentage points and reduced parameters from 4.70M to 4.37M (about 7.0%). Precision and mAP@0.5:0.95 decreased slightly; the experiment shows a trade-off rather than improvement on every metric.', learning:'Small, targeted changes can improve an efficiency–accuracy balance. Ablations matter: the strongest mAP@0.5 result is not necessarily the strongest result under stricter localization criteria.', credit:'Base detector and Deformable Upsampling: DU-MobileYOLO by its original authors. GhostConv and SimSPPF are established components; my work is their integration, adaptation, evaluation, and demonstration.', upstream:'https://github.com/ZERO-SPACE-X/DU-MobileYOLO', table:[['Metric','DU-MobileYOLO','GhostConv + SimSPPF'],['mAP@0.5','74.23%','75.36%'],['mAP@0.5:0.95','41.01%','40.71%'],['Parameters','4.70M','4.37M'],['GFLOPs','12.1','11.5'],['Precision','80.95%','79.16%'],['Recall','66.34%','67.18%']]},
-  {id:'paddy', title:'Lightweight paddy disease detection', short:'Paddy research', category:'research', year:'2026–present', status:'Final-year research · in progress', kicker:'FINAL-YEAR PROJECT / AGRICULTURAL AI', description:'Exploring custom DenseNet-derived backbones in YOLOv8n for efficient paddy disease detection, with controlled baseline and ablation comparisons.', tags:['YOLOv8n','DenseNet','Computer vision','Ablations'], metrics:[['YOLOv8n','Detector framework'],['Backbone','Research focus'],['Ongoing','Evaluation']], summary:'My final-year project explores efficient computer vision for paddy disease detection. It has progressed from DenseNet-based image classification toward object detection with YOLOv8n and custom lightweight backbones.', contributions:['Prepared and cleaned agricultural image data, with attention to duplicates and leakage-free evaluation.','Integrated DenseNet-derived backbone designs into the YOLOv8n detection framework.','Kept the detector neck unchanged so experiments focus on the backbone modifications.','Structured baseline comparisons and ablations to study both performance and model complexity.'], outcome:'Research and evaluation are ongoing. The portfolio will be updated with finalized test-set results when the experiments and analysis are complete.', learning:'A fair architecture comparison depends on more than a promising model: consistent training, clean splits, and clearly scoped ablations are essential.', credit:'YOLOv8 and DenseNet are established architectures. This project investigates their adaptation and lightweight backbone design for paddy disease detection.'},
-  {id:'defectrag', title:'DefectRAG', short:'DefectRAG', category:'application', year:'2026–present', status:'Application · in development', kicker:'APPLIED AI / VISUAL INSPECTION + MEMORY', description:'An anomaly inspection application combining visual localization, reference examples, and retrieval-backed context for explainable inspection.', tags:['DINOv3','FastAPI','RAG','Neo4j','Docker'], metrics:[['5','LOCO categories'],['Vision','Anomaly localization'],['RAG','Reference memory']], summary:'DefectRAG explores how visual anomaly detection can be paired with reference memory and explanation. The application is being developed around MVTec LOCO AD, moving from model and feature workflows toward an interactive inspection experience.', contributions:['Prepared visual feature and reference-gallery workflows for five MVTec LOCO AD categories.','Trained lightweight anomaly heads using a frozen DINOv3 feature extractor.','Built an API and web application workflow for image inspection and reference-backed context.','Worked on cloud memory with Neo4j and media integration, alongside Docker-based deployment.'], outcome:'In development. The model, cloud integration, and inspection interface are being refined; no finalized benchmark or production-reliability claim is made here.', learning:'A working AI application requires the full path to behave consistently: image handling, model inference, retrieved context, API responses, and the visitor interface.', credit:'Uses established DINOv3 features and MVTec LOCO AD data. Visual localization and explanation quality depend on the completed model and reference-memory pipeline.'},
-  {id:'resucn', title:'Res UCN', short:'Res UCN', category:'research', year:'2025–2026', status:'Completed coursework · group project', kicker:'ARCHITECTURE EXPERIMENT / IMAGE CLASSIFICATION', description:'A group project exploring unified convolutions and a custom activation in ResNet-18 for a more compact CIFAR-10 classifier.', tags:['ResNet-18','CIFAR-10','PyTorch','Quinsh'], metrics:[['91.45%','Classification accuracy'],['69%','Fewer parameters'],['CIFAR-10','Dataset']], summary:'ResNet Unified Convolution Network (Res UCN) is a group project investigating a more compact ResNet-18 classifier. The work combined unified convolutions with experiments on a custom Quinsh activation.', contributions:['Contributed to ResNet-18 architecture optimization through unified convolution experiments.','Worked on a custom Quinsh activation and its integration into the classifier.','Participated in training, comparison, and analysis of the resulting CIFAR-10 model.'], outcome:'The project reported 91.45% classification accuracy on CIFAR-10 and a 69% reduction in model parameters relative to the ResNet-18 baseline used in the coursework.', learning:'Compression needs to be evaluated alongside predictive performance. Architectural changes should be supported by controlled comparisons and clear reporting.', credit:'Group coursework project building on the established ResNet architecture. The reported outcomes belong to the project; this portfolio describes my contributions to that work.'},
-  {id:'fer', title:'Facial expression recognition', short:'Expression recognition', category:'application', year:'2025', status:'Completed coursework · webcam pipeline', kicker:'REAL-TIME VISION / EMOTION CLASSIFICATION', description:'A custom FER2013 CNN connected to a webcam pipeline with OpenCV face detection and on-screen expression predictions.', tags:['CNN','FER2013','OpenCV','Webcam'], metrics:[['66%','Reported accuracy'],['CNN','Custom classifier'],['OpenCV','Face detection']], summary:'This project connects facial expression classification to live camera input. A custom CNN was trained on FER2013 and integrated with OpenCV Haar Cascade face detection for a real-time webcam workflow.', contributions:['Developed and trained a custom CNN for facial expression classification.','Compared the classifier with ResNet50, MobileNetV2, and VGG16 under the project’s evaluation settings.','Integrated face detection, preprocessing, and emotion prediction into a webcam inference pipeline.'], outcome:'The custom CNN reported approximately 66% accuracy on FER2013 in the coursework evaluation.', learning:'A trained image classifier and a live camera experience have different demands. Cropping, preprocessing, and consistent inference handling become important parts of the system.', credit:'FER2013 is the established dataset used for the coursework. Predictions describe dataset expression categories; they are not a reliable reading of a person’s internal emotional state.'},
-  {id:'mri', title:'MRI classification application', short:'MRI application', category:'application', year:'2024', status:'Completed educational prototype', kicker:'AI APPLICATION / INTERACTIVE VISUALIZATION', description:'A Streamlit prototype connecting pretrained image classifiers to an interactive MRI upload and prediction interface.', tags:['Streamlit','Deep learning','MRI','Python'], metrics:[['Streamlit','User interface'],['MRI','Image input'],['Prototype','Educational scope']], summary:'An educational Alzheimer’s disease prediction prototype using MRI image classification. The focus was an end-to-end interface that made an image model accessible through a simple web application.', contributions:['Developed a Streamlit application for MRI image upload and classification.','Integrated pretrained deep learning models into an inference workflow.','Added interactive prediction visualization to make the model output easier to inspect.'], outcome:'A completed educational application prototype demonstrating model-to-interface integration. Clinical validation and medical use were outside the project’s scope.', learning:'A clear input and output flow helps people inspect a model’s behavior, but a usable interface does not establish clinical reliability.', credit:'Educational prototype using pretrained deep learning models. It is not a clinically validated diagnostic system.'}
+  {
+    "id": "marine",
+    "title": "Marine organism detection",
+    "short": "Marine detection",
+    "category": "research",
+    "year": "2026",
+    "status": "Completed research · demo available",
+    "kicker": "FEATURED / LIGHTWEIGHT OBJECT DETECTION",
+    "description": "Adapting DU-MobileYOLO with GhostConv and SimSPPF to detect underwater organisms with a better accuracy–complexity trade-off.",
+    "tags": [
+      "PyTorch",
+      "GhostConv",
+      "SimSPPF",
+      "URPC2020"
+    ],
+    "metrics": [
+      [
+        "75.36%",
+        "mAP@0.5"
+      ],
+      [
+        "4.37M",
+        "Parameters"
+      ],
+      [
+        "11.5",
+        "GFLOPs"
+      ]
+    ],
+    "demo": "https://huggingface.co/spaces/Wizzas/Marine-Object-Detection",
+    "summary": "Underwater imagery makes detection challenging, and an efficient detector needs to balance accuracy with model complexity. I adapted an existing lightweight detector and tested the effects of selected architectural changes on the URPC2020 split.",
+    "contributions": [
+      "Integrated GhostConv into selected 3×3 convolutions in Multi-Concat blocks and replaced the original pooling structure with SimSPPF.",
+      "Preserved the original Deformable Upsampling mechanism from DU-MobileYOLO.",
+      "Compared retrained baselines and ablation variants, documenting accuracy, precision, recall, parameters, and GFLOPs.",
+      "Prepared an interactive marine detection demonstration on Hugging Face Spaces."
+    ],
+    "outcome": "Compared with the retrained DU-MobileYOLO baseline, the final variant increased mAP@0.5 by 1.13 percentage points and reduced parameters from 4.70M to 4.37M (about 7.0%). Precision and mAP@0.5:0.95 decreased slightly; the experiment shows a trade-off rather than improvement on every metric.",
+    "learning": "Small, targeted changes can improve an efficiency–accuracy balance. Ablations matter: the strongest mAP@0.5 result is not necessarily the strongest result under stricter localization criteria.",
+    "credit": "Base detector and Deformable Upsampling: DU-MobileYOLO by its original authors. GhostConv and SimSPPF are established components; my work is their integration, adaptation, evaluation, and demonstration.",
+    "upstream": "https://github.com/ZERO-SPACE-X/DU-MobileYOLO",
+    "table": [
+      [
+        "Metric",
+        "DU-MobileYOLO",
+        "GhostConv + SimSPPF"
+      ],
+      [
+        "mAP@0.5",
+        "74.23%",
+        "75.36%"
+      ],
+      [
+        "mAP@0.5:0.95",
+        "41.01%",
+        "40.71%"
+      ],
+      [
+        "Parameters",
+        "4.70M",
+        "4.37M"
+      ],
+      [
+        "GFLOPs",
+        "12.1",
+        "11.5"
+      ],
+      [
+        "Precision",
+        "80.95%",
+        "79.16%"
+      ],
+      [
+        "Recall",
+        "66.34%",
+        "67.18%"
+      ]
+    ],
+    "repository": "https://github.com/WAYTECHG/GhostConv-and-SimSPPF-Integration-for-Marine-Organism-Detection"
+  },
+  {
+    "id": "paddy",
+    "title": "PaddyLiteX · paddy disease detection",
+    "short": "PaddyLiteX",
+    "category": "research",
+    "year": "2026–present",
+    "status": "Final-year thesis · reported test results",
+    "kicker": "FINAL-YEAR PROJECT / AGRICULTURAL AI",
+    "description": "A custom DenseLiteX backbone with SPPF and C2PSA in YOLOv8n, evaluated against default YOLOv8n and a DenseNet121 backbone.",
+    "tags": [
+      "YOLOv8n",
+      "DenseLiteX",
+      "SPPF",
+      "C2PSA",
+      "PyTorch",
+      "Ablations"
+    ],
+    "metrics": [
+      [
+        "82.26%",
+        "Reported mAP@0.5"
+      ],
+      [
+        "58.54%",
+        "mAP@0.5:0.95"
+      ],
+      [
+        "3.91M",
+        "Parameters"
+      ]
+    ],
+    "summary": "My final-year project moved from DenseNet image classification toward efficient paddy disease object detection. The published demo repository records a held-out test evaluation of 803 images, 2,466 objects and nine classes on 30 September 2026, with one experimental run per model.",
+    "contributions": [
+      "Prepared and cleaned agricultural image data, with attention to duplicates and leakage-free evaluation.",
+      "Developed the custom DenseLiteX backbone and integrated SPPF and C2PSA into the YOLOv8n backbone path.",
+      "Kept the detector neck unchanged so comparisons focus on backbone modifications.",
+      "Compared default YOLOv8n, DenseNet121, and the proposed backbone, plus component ablations; built an interactive detection demo."
+    ],
+    "outcome": "The proposed model reports 82.26% mAP@0.5 and 58.54% mAP@0.5:0.95 with 3,905,069 parameters. It uses 61.1% fewer parameters than the DenseNet121-backed detector and improves its mAP@0.5 by 1.02 percentage points. Against default YOLOv8n, mAP@0.5 improves by 1.47 points, but parameters and GFLOPs increase. Results come from one run per model; they do not establish repeated-run variance.",
+    "learning": "A fair architecture comparison depends on more than a promising model: consistent training, clean splits, and clearly scoped ablations are essential.",
+    "credit": "YOLOv8 and DenseNet are established architectures. My work adapts their backbone path with DenseLiteX, SPPF, and C2PSA for paddy detection. Figures are recorded in config/models.json in my demo repository; research and documentation continue.",
+    "repository": "https://github.com/WAYTECHG/PaddyLiteX-demo",
+    "demo": "https://huggingface.co/spaces/Wizzas/PaddyLiteX",
+    "tableCaption": "PaddyLiteX held-out test results, 803 images and nine classes; one run per model",
+    "table": [
+      [
+        "Metric",
+        "YOLOv8n",
+        "DenseNet121 backbone",
+        "PaddyLiteX"
+      ],
+      [
+        "mAP@0.5",
+        "80.79%",
+        "81.24%",
+        "82.26%"
+      ],
+      [
+        "mAP@0.5:0.95",
+        "54.66%",
+        "57.13%",
+        "58.54%"
+      ],
+      [
+        "Parameters",
+        "3.01M",
+        "10.03M",
+        "3.91M"
+      ],
+      [
+        "GFLOPs",
+        "8.1",
+        "53.9",
+        "16.3"
+      ],
+      [
+        "Precision",
+        "83.68%",
+        "85.10%",
+        "82.73%"
+      ],
+      [
+        "Recall",
+        "76.61%",
+        "75.81%",
+        "79.23%"
+      ]
+    ],
+    "evidence": "https://github.com/WAYTECHG/PaddyLiteX-demo/blob/main/config/models.json"
+  },
+  {
+    "id": "defectrag",
+    "title": "DefectRAG",
+    "short": "DefectRAG",
+    "category": "application",
+    "year": "2026–present",
+    "status": "Application · in development",
+    "kicker": "APPLIED AI / VISUAL INSPECTION + MEMORY",
+    "description": "Industrial visual inspection combining DINOv3 patch comparisons, anomaly localization, normal references, and hybrid retrieval for grounded explanations.",
+    "tags": [
+      "DINOv3",
+      "FastAPI",
+      "RAG",
+      "FAISS",
+      "BM25",
+      "Neo4j",
+      "Docker"
+    ],
+    "metrics": [
+      [
+        "5",
+        "LOCO categories"
+      ],
+      [
+        "Vision",
+        "Anomaly localization"
+      ],
+      [
+        "RAG",
+        "Reference memory"
+      ]
+    ],
+    "summary": "DefectRAG connects uploaded product images to normal-reference features, anomaly overlays, visual observations, and evidence-supported inspection reports for five MVTec LOCO AD categories. Its GitHub README documents both local and cloud paths; deployment reliability is still being refined.",
+    "contributions": [
+      "Built feature extraction and normal-reference memory workflows for five MVTec LOCO AD categories.",
+      "Experimented with a frozen DINOv3 encoder, compact nearest-normal baseline, trained anomaly heads and fusion.",
+      "Integrated visual observations with FAISS + BM25 retrieval and grounded explanation workflows.",
+      "Built FastAPI and web interfaces; worked on cloud inspection records with Neo4j and image overlays with Cloudinary."
+    ],
+    "outcome": "The repository contains image-inspection workflows, evaluation artifacts, and a cloud demonstration entry point. I am still refining deployment and evidence coverage. Anomaly scores are research outputs, and a polished interface alone does not establish production reliability.",
+    "learning": "A working AI application requires the full path to behave consistently: image handling, model inference, retrieved context, API responses, and the visitor interface.",
+    "credit": "Uses established DINOv3 features and MVTec LOCO AD data. Visual localization and explanation quality depend on the completed model and reference-memory pipeline.",
+    "repository": "https://github.com/WAYTECHG/DefectRAG",
+    "demo": "https://huggingface.co/spaces/Wizzas/defectrag-inference"
+  },
+  {
+    "id": "resucn",
+    "title": "Res UCN",
+    "short": "Res UCN",
+    "category": "research",
+    "year": "2025–2026",
+    "status": "Completed coursework · group project",
+    "kicker": "ARCHITECTURE EXPERIMENT / IMAGE CLASSIFICATION",
+    "description": "Group research exploring compact image classification with dynamic gated convolutions, channel importance, weighted normalization, and a learnable Quinsh activation.",
+    "tags": [
+      "PyTorch",
+      "CIFAR-10",
+      "Quinsh",
+      "ADSGC",
+      "CIAC"
+    ],
+    "metrics": [
+      [
+        "91.45%",
+        "Classification accuracy"
+      ],
+      [
+        "69%",
+        "Fewer parameters"
+      ],
+      [
+        "CIFAR-10",
+        "Dataset"
+      ]
+    ],
+    "summary": "A group coursework project inspired by residual-network design. The repository documents dynamic-scale gated convolution (ADSGC), channel importance assignment (CIAC), weighted BatchNorm, Quinsh activation, and an energy–entropy stopping mechanism.",
+    "contributions": [
+      "Contributed to the group’s compact convolutional architecture experiments and comparisons.",
+      "Worked on the custom Quinsh activation and its integration into image classification.",
+      "Participated in training and analysis of the CIFAR-10 results."
+    ],
+    "outcome": "The project reported 91.45% classification accuracy on CIFAR-10 and a 69% reduction in model parameters relative to the ResNet-18 baseline used in the coursework.",
+    "learning": "Compression needs to be evaluated alongside predictive performance. Architectural changes should be supported by controlled comparisons and clear reporting.",
+    "credit": "Group authors: Wilbert Andrew Yonathan, Chua Kian Hoong, Edward Ooi Wee Xue, Derol Chong Chung Kit, Wang Xinyi, and Siah Jieh Sheng. Outcomes are reported in the group repository, building on established residual-network ideas.",
+    "repository": "https://github.com/WAYTECHG/Res_UCN-Resnet-Unified-Convolution-Network"
+  },
+  {
+    "id": "fer",
+    "title": "Facial expression recognition",
+    "short": "Expression recognition",
+    "category": "application",
+    "year": "2025",
+    "status": "Completed coursework · webcam pipeline",
+    "kicker": "REAL-TIME VISION / EMOTION CLASSIFICATION",
+    "description": "A custom TensorFlow/Keras CNN compared with VGG16, MobileNetV2 and ResNet50 on FER2013, with Grad-CAM and an OpenCV inference workflow.",
+    "tags": [
+      "TensorFlow",
+      "Keras",
+      "CNN",
+      "FER2013",
+      "OpenCV",
+      "Grad-CAM"
+    ],
+    "metrics": [
+      [
+        "65.62%",
+        "Recorded CNN test accuracy"
+      ],
+      [
+        "4",
+        "Compared classifiers"
+      ],
+      [
+        "OpenCV",
+        "Face detection"
+      ]
+    ],
+    "summary": "This project connects facial expression classification to live camera input. A custom CNN was trained on FER2013 and integrated with OpenCV Haar Cascade face detection for a real-time webcam workflow.",
+    "contributions": [
+      "Developed and trained a custom CNN for facial expression classification.",
+      "Compared the classifier with ResNet50, MobileNetV2, and VGG16 under the project’s evaluation settings.",
+      "Integrated face detection, preprocessing, and emotion prediction into a webcam inference pipeline."
+    ],
+    "outcome": "The committed test_results_CNN.json records test accuracy of 0.6561716, or 65.62%. Confusion matrices, class reports and Grad-CAM artifacts support a closer look at class-level behavior.",
+    "learning": "Model comparisons need consistent preprocessing and class-level analysis. Live input also makes cropping and image handling part of the prediction pipeline.",
+    "credit": "FER2013 is the established dataset used for the coursework. Predictions describe dataset expression categories; they are not a reliable reading of a person’s internal emotional state.",
+    "repository": "https://github.com/WAYTECHG/FER2013-Project",
+    "evidence": "https://github.com/WAYTECHG/FER2013-Project/blob/main/json_files/test_results_CNN.json"
+  },
+  {
+    "id": "mri",
+    "title": "Alzheimer classification prototype",
+    "short": "MRI application",
+    "category": "application",
+    "year": "2024",
+    "status": "Educational prototype · further validation needed",
+    "kicker": "AI APPLICATION / INTERACTIVE VISUALIZATION",
+    "description": "A multi-page Streamlit learning project combining structured-data model comparisons, an MRI upload interface, and exploratory visualizations.",
+    "tags": [
+      "Streamlit",
+      "scikit-learn",
+      "MRI",
+      "Python",
+      "Classification"
+    ],
+    "metrics": [
+      [
+        "Streamlit",
+        "User interface"
+      ],
+      [
+        "MRI",
+        "Image input"
+      ],
+      [
+        "Prototype",
+        "Educational scope"
+      ]
+    ],
+    "summary": "The GitHub repository documents a Streamlit prototype with separate structured-data and MRI pages, a chatbot page, and model-comparison notebooks. It is an educational interface project, with further validation needed before presenting the inference flow as reliable.",
+    "contributions": [
+      "Built a multi-page Streamlit interface for structured data, MRI upload and explanatory views.",
+      "Compared classical machine-learning classifiers and documented evaluation workflows.",
+      "Connected saved model artifacts to application pages as a learning exercise."
+    ],
+    "outcome": "An educational prototype and model-comparison repository. The MRI input path needs further implementation validation; this portfolio does not present it as a clinically validated or deployment-ready diagnostic tool.",
+    "learning": "A clear input and output flow helps people inspect a model’s behavior, but a usable interface does not establish clinical reliability.",
+    "credit": "Educational machine-learning coursework and interface work. Clinical validation and real medical use are outside its scope.",
+    "repository": "https://github.com/WAYTECHG/Alzheimer-Detection"
+  }
 ];
 window.projectIllustration = function(id, suffix='') {
   const u=id+suffix;
