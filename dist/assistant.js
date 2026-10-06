@@ -5,10 +5,10 @@
   const normalize=s=>String(s).toLowerCase().normalize('NFKD').replace(/[–—]/g,' ').replace(/[^a-z0-9+.% ]/g,' ').replace(/\s+/g,' ').trim();
   const section=(id,label)=>({href:'#'+id,label});
   const projectLink=p=>({project:p.id,label:p.short+' case study'});
-  const projectLinks=p=>[projectLink(p),{href:p.repository,label:'GitHub source ↗'},...(p.demo?[{href:p.demo,label:'Open demo ↗'}]:[])];
+  const projectLinks=p=>[projectLink(p),{href:p.repository,label:'GitHub source'},...(p.demo?[{href:p.demo,label:'Open demo'}]:[])];
   const profile="Wilbert Andrew Yonathan is an Indonesian fourth-year AI Engineering student at Xiamen University Malaysia, based in Selangor. His current CGPA is 3.77 / 4.00, with expected graduation in 2027. He focuses on computer vision, efficient deep learning, careful model evaluation, and usable AI applications.";
   const skills="His toolkit covers Python, PyTorch, TensorFlow/Keras, OpenCV, YOLO, CNNs, DenseNet and ResNet; NumPy, Pandas, scikit-learn, Matplotlib, C/C++ and Git; and applications with FastAPI, Streamlit, Gradio, Docker, Hugging Face, Neo4j and retrieval-augmented generation. The strongest evidence is in the project repositories and case studies.";
-  const awards="Academic recognition: XMUM Merit Scholarship for three consecutive years (2023–2025), Dean's List, and a current CGPA of 3.77 / 4.00.\n\nLeadership: Head of Photography & Videography for Love in Action (2026); Head of General Affairs at XMUM AI Club (2025), coordinating logistics and collaborators for a national-level AI event; General Affairs member at AIESEC XMUM (2024).";
+  const awards="Academic recognition: XMUM Merit Scholarship for four consecutive years (2023–2026), Dean's List, and a current CGPA of 3.77 / 4.00.\n\nLeadership: Head of Photography & Videography for Love in Action (2026); Head of General Affairs at XMUM AI Club (2025), coordinating logistics and collaborators for a national-level AI event; General Affairs member at AIESEC XMUM (2024).";
   const availability="Wilbert is seeking an AI Engineering or Computer Vision internship starting 29 March 2027, for 3–6 months. Malaysia is preferred, and he is also open to relevant part-time opportunities.\n\nContact: "+email;
   const aliases={marine:['marine','underwater','organism','ghostconv','sim sppf','du mobileyolo','urpc','sea'],paddy:['paddy','paddylitex','leaf','leaves','agriculture','agricultural','rice','denselitex','thesis','final year project'],defectrag:['defectrag','defect rag','inspection','anomaly','anomalies','industrial','rag','dino','qwen'],resucn:['resucn','res ucn','cifar','unified convolution'],fer:['fer2013','fer','emotion','emotions','facial expression','grad cam'],mri:['alzheimer','mri','clinical','dementia']};
   const matchWord=(q,w)=>(' '+q+' ').includes(' '+w+' ');
@@ -42,8 +42,8 @@
     if(about){parts.push(profile);links.push(section('about','About & education'));}
     if(skill){parts.push(skills);links.push(section('skills','Explore the toolkit'),section('projects','See skills in projects'));}
     if(award){parts.push(awards);links.push(section('milestones','Awards & leadership'));}
-    if(contact){parts.push(availability);links.push({href:'mailto:'+email,label:'Email Wilbert ↗'},{href:'Wilbert_Yonathan_Resume.pdf',label:'Read résumé ↗'});}
-    if(wantsProjects||demo){parts.push('Six case studies: '+projects.map(p=>p.title).join('; ')+'.\n\nThe portfolio also links to Eigenfaces/Fisherfaces, YOLO webcam detection, grammar checking, news classification and forecasting experiments on GitHub. Ask about a project by name to explore its contribution, tools, results and trade-offs.');links.push(section('projects','Explore all projects'),...projects.slice(0,3).map(projectLink),{href:'https://github.com/WAYTECHG',label:'GitHub profile ↗'});}
+    if(contact){parts.push(availability);links.push({href:'mailto:'+email,label:'Email Wilbert'},{href:'Wilbert_Yonathan_Resume.pdf',label:'Read résumé'});}
+    if(wantsProjects||demo){parts.push('Six case studies: '+projects.map(p=>p.title).join('; ')+'.\n\nThe portfolio also links to Eigenfaces/Fisherfaces, YOLO webcam detection, grammar checking, news classification and forecasting experiments on GitHub. Ask about a project by name to explore its contribution, tools, results and trade-offs.');links.push(section('projects','Explore all projects'),...projects.slice(0,3).map(projectLink),{href:'https://github.com/WAYTECHG',label:'GitHub profile'});}
     if(parts.length)return {text:parts.join('\n\n'),links,projectIds:[]};
     if(has(q,['hi','hello','hey','help','thanks','thank you']))return {text:'Hi! I can help you explore Wilbert’s background, skills, projects, awards and internship availability. Try “Summarize Wilbert”, “Compare marine and paddy”, or “What did he contribute to DefectRAG?”',links:[section('projects','Browse projects')],projectIds:[]};
     return {text:'I don’t have a verified answer to that in this portfolio. I can summarize Wilbert’s skills, projects, education, awards and availability. For something personal or a detail not listed here, contact Wilbert directly.',links:[section('contact','Contact Wilbert')],projectIds:context.projectIds||[]};
@@ -71,6 +71,5 @@
   $('#assistant-reset').addEventListener('click',()=>{reset();input.focus();});
   panel.addEventListener('keydown',e=>{if(e.key==='Escape'){e.preventDefault();close();}});
   thread.addEventListener('click',e=>{const b=e.target.closest('[data-chat-project]');if(b){const id=b.dataset.chatProject;close();document.querySelector(`.project-card [data-project="${id}"]`)?.click();}else{const a=e.target.closest('a[href^="#"]');if(a){close();const sectionNode=document.querySelector(a.getAttribute('href'));const heading=sectionNode?.querySelector('h1,h2');if(heading){heading.tabIndex=-1;heading.focus({preventScroll:true});}}}});
-  document.addEventListener('portfolio:intro-open',()=>{if(!panel.hidden)close();});
   reset();
 })();

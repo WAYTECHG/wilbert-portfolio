@@ -30,7 +30,7 @@
   };
   // Retained call signature keeps every existing project interaction working.
   window.projectIllustration=window.projectVisual;
-  window.projectPhotoFigure=id=>{const m=frontpages[id]||media[id];return m?`<figure class="dialog-media">${photo(m,'dialog')}<figcaption>${esc(m.caption)} <a href="${esc(m.source)}" target="_blank" rel="noopener noreferrer">${frontpages[id]?'Visit demo':'Original source'} ↗</a></figcaption></figure>`:'';};
+  window.projectPhotoFigure=id=>{const m=frontpages[id]||media[id];return m?`<figure class="dialog-media">${photo(m,'dialog')}<figcaption>${esc(m.caption)} <a href="${esc(m.source)}" target="_blank" rel="noopener noreferrer">${frontpages[id]?'Visit demo':'Original source'}</a></figcaption></figure>`:'';};
   const gallery=[['objects','YOLO, in the frame'],['fer','What the CNN sees'],['defectrag','The normal reference'],['resucn','Following the training'],['faces','Faces, decomposed'],['alzheimer','Evaluating a classifier'],['ferMatrix','Beyond overall accuracy'],['marineSite','Marine Vision Lab'],['paddySite','PaddyLiteX studio'],['defectragSite','DefectRAG workspace']];
   if(typeof document==='undefined')return;
   const $=s=>document.querySelector(s);

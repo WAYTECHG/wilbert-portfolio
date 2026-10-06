@@ -23,19 +23,27 @@ CLI alternative: from the extracted folder run `npx vercel login`, then `npx ver
 
 ## New in this package
 
-A dark animated starfield with blue/orange accents and soft white reading cards, solid contours, a skippable detection opening dissolving into blocks, a portfolio chatbot and a real project-image gallery with sources. The chatbot uses verified local content and needs no paid AI API. No visitor login or webcam permission is needed.
+A dark animated starfield with blue/orange accents and soft white reading cards, solid contours, a portfolio chatbot and a real project-image gallery with sources. The chatbot uses verified local content and needs no paid AI API. No visitor login or webcam permission is needed.
 
-New files: `refinements.css`, `palette.css`, `space.css`, `studio.css`, `media.js`, `assistant.js`, `experience.js`, and `assets/project-images/`. Existing files also changed: update the complete `dist` folder.
+New files: `detection.css`, `detection.js`, `opening.css`, `opening.js`, `glass.css`, `glass.js`, `refinements.css`, `palette.css`, `space.css`, `studio.css`, `media.js`, `assistant.js`, `experience.js`, and `assets/project-images/`. Existing files also changed: update the complete `dist` folder.
 
 ## Check after deployment
 
-- Watch or skip the opening, then replay from the hero. Turn motion off to stop animations. Reduced-motion preferences skip the opening.
+- A brief blue laser traces WAY, then split panels reveal the portfolio. Skip intro or Escape opens the page immediately; deep links and reduced-motion settings bypass it. There is no motion switch. Animation runs by default; operating-system reduced-motion settings remain supported.
 - Open Ask about Wilbert. Try Summarize Wilbert, Compare marine and paddy, What did he contribute to DefectRAG?, What are its tools?, and Awards. Check links, Escape and Clear chat.
 - Swipe/scroll the gallery, enlarge an image, use left/right arrows and inspect the original source.
-- Explore the vision desk, project orbit and case-study dialogs. Captions distinguish reference inputs from recorded outputs.
+- Expand Explore the three highlights or Inside the experiments to use the vision desk and project orbit. Open case-study dialogs from any project card. Captions distinguish reference inputs from recorded outputs.
 - Search/filter projects, save a shortlist and open an email draft. Recipient: `30587wilbertandrewtyonathan@gmail.com`.
 - Test Ctrl/Command+K, mobile navigation, email copy, résumé, GitHub and LinkedIn links.
 
-Marine, PaddyLiteX, and DefectRAG highlights now use front-page screenshots supplied by Wilbert. The ten-frame gallery preserves the original seven repository outputs and adds those three interface screenshots. Captions distinguish interfaces from model results. The opening remains a stylized animation, not live inference.
+Marine, PaddyLiteX, and DefectRAG highlights now use front-page screenshots supplied by Wilbert. The ten-frame gallery preserves the original seven repository outputs and adds those three interface screenshots. Captions distinguish interfaces from model results. The WAY opening is a decorative wordmark animation, not live inference.
 
-The toolkit strip loops smoothly, decorative metric rings rotate while the numbers stay upright, and motion can be paused. The research comparison switches between Marine and PaddyLiteX; PaddyLiteX supports default YOLOv8n and DenseNet121 baselines, showing both accuracy gains and increased cost when applicable.
+The toolkit strip loops smoothly, decorative metric rings rotate while the numbers stay upright, and motion runs by default. The research comparison switches between Marine and PaddyLiteX; PaddyLiteX supports default YOLOv8n and DenseNet121 baselines, showing both accuracy gains and increased cost when applicable.
+
+## Recruiter-focused glass design
+
+The portfolio opens with Wilbert’s name, focus, availability, résumé, and a real PaddyLiteX front-page preview. All six projects appear as concise cards with recorded outcomes and contribution context. Extended project highlights, imagery, and research comparisons are expandable. The detection opening and motion switch have been removed; a brief skippable WAY laser opening now introduces the site. The design uses translucent navy panels, light project cards, subtle depth, iOS system typography, and mobile layouts. Update the complete `dist` directory, including `glass.css` and `glass.js`.
+
+Latest refinement: centred chatbot icon, a visible three-bar mobile menu, W-only branding, XMUM Merit Scholarship for four consecutive years (2023–2026), and Hugging Face social links to https://huggingface.co/Wizzas. The résumé and chatbot reflect the scholarship update.
+
+The hero name now cycles thin blue detection boxes across Wilbert, Andrew and Yonathan. Circular targeting briefly tracks section headings during navigation, without delaying links or blocking clicks. Both effects respect reduced motion; name tracking pauses when the hero is out of view.
