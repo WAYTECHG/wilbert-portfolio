@@ -29,13 +29,13 @@ window.PORTFOLIO_PROJECTS = [
         "GFLOPs"
       ]
     ],
-    "demo": "https://huggingface.co/spaces/Wizzas/Marine-Object-Detection",
+    "demo": "https://marine-object-detection.onrender.com",
     "summary": "Underwater imagery makes detection challenging, and an efficient detector needs to balance accuracy with model complexity. I adapted an existing lightweight detector and tested the effects of selected architectural changes on the URPC2020 split.",
     "contributions": [
       "Integrated GhostConv into selected 3×3 convolutions in Multi-Concat blocks and replaced the original pooling structure with SimSPPF.",
       "Preserved the original Deformable Upsampling mechanism from DU-MobileYOLO.",
       "Compared retrained baselines and ablation variants, documenting accuracy, precision, recall, parameters, and GFLOPs.",
-      "Prepared an interactive marine detection demonstration on Hugging Face Spaces."
+      "Prepared an interactive marine detection demonstration hosted on Render."
     ],
     "outcome": "Compared with the retrained DU-MobileYOLO baseline, the final variant increased mAP@0.5 by 1.13 percentage points and reduced parameters from 4.70M to 4.37M (about 7.0%). Precision and mAP@0.5:0.95 decreased slightly; the experiment shows a trade-off rather than improvement on every metric.",
     "learning": "Small, targeted changes can improve an efficiency–accuracy balance. Ablations matter: the strongest mAP@0.5 result is not necessarily the strongest result under stricter localization criteria.",
@@ -214,6 +214,51 @@ window.PORTFOLIO_PROJECTS = [
     "credit": "Uses established DINOv3 features and MVTec LOCO AD data. Visual localization and explanation quality depend on the completed model and reference-memory pipeline.",
     "repository": "https://github.com/WAYTECHG/DefectRAG",
     "demo": "https://huggingface.co/spaces/Wizzas/defectrag-inference"
+  },
+  {
+    "id": "dpickleball",
+    "title": "dPickleball reinforcement learning agent",
+    "short": "dPickleball",
+    "category": "research",
+    "year": "2026",
+    "status": "Completed coursework · team competition",
+    "kicker": "REINFORCEMENT LEARNING / COMPETITIVE GAMEPLAY",
+    "description": "PPO agents trained with curriculum learning, reward shaping and league self-play in the Unity dPickleBall environment.",
+    "tags": [
+      "PPO",
+      "PyTorch",
+      "Reinforcement learning",
+      "Unity ML-Agents",
+      "Python",
+      "Self-play"
+    ],
+    "metrics": [
+      [
+        "2nd / 13",
+        "Team competition finish"
+      ],
+      [
+        "PPO",
+        "Policy optimization"
+      ],
+      [
+        "Self-play",
+        "Competitive training"
+      ]
+    ],
+    "summary": "A group project for AIT306 Deep Reinforcement Learning at Xiamen University Malaysia. Agents learn movement and paddle rotation in the supplied dPickleBall simulation, progressing from wall-based curriculum training to competitive league self-play.",
+    "contributions": [
+      "Trained and optimized an independent PPO-based agent.",
+      "Experimented with reward and penalty configurations to improve gameplay behavior.",
+      "Contributed candidate policies and compared their performance through iterative testing and team evaluation.",
+      "Participated in selecting the strongest candidate for the final team submission."
+    ],
+    "outcome": "The team placed second among 13 competing teams, as reported in the project repository. RealFT was selected as the final competition agent after internal round-robin evaluation; my independently trained agent was one of the evaluated candidates.",
+    "learning": "Reward design, curriculum difficulty and opponent diversity shape the behaviors an agent learns. Candidate policies need competitive evaluation alongside training rewards.",
+    "credit": "Collaborative XMUM coursework. The environment is provided by the original dPickleBall project; my contribution focused on agent training, experimentation and evaluation.",
+    "upstream": "https://github.com/dPickleball/dPickleBallEnv",
+    "repository": "https://github.com/WAYTECHG/dpickleball-reinforcement-learning-agent",
+    "video": "https://www.youtube.com/live/CitFn9FK12s"
   },
   {
     "id": "resucn",

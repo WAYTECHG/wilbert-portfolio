@@ -1,131 +1,40 @@
-<h1 align="center">Wilbert Andrew Yonathan</h1>
+# Wilbert Yonathan — AI & Computer Vision portfolio
 
-<p align="center">
-  <strong>Computer Vision · Deep Learning · Efficient AI · RAG Applications</strong><br>
-  Fourth-year AI Engineering student at Xiamen University Malaysia
-</p>
+A public, responsive internship portfolio built with HTML, CSS and JavaScript. No build step, visitor account, API key, or paid chatbot service is required.
 
-<p align="center">
-  <img src="assets/way-dashboard.gif" width="1000" alt="Animated WAY research dashboard: blue tracking rings, a scanning wordmark and three featured projects. Decorative animation, not live inference.">
-</p>
+## Content and appearance
 
-<p align="center">
-  <a href="https://wilbert-andrew-yonathan.vercel.app/"><img src="https://img.shields.io/badge/Portfolio-2563EB?style=for-the-badge&amp;logo=vercel&amp;logoColor=white" alt="Visit my portfolio website"></a>
-  <a href="https://www.linkedin.com/in/wilbert-andrew-yonathan-85562326a/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&amp;logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cmVjdCB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHJ4PSIyIiBmaWxsPSIjMEE2NkMyIi8%2BPHRleHQgeD0iMyIgeT0iMTkiIGZpbGw9IndoaXRlIiBmb250LWZhbWlseT0iQXJpYWwsc2Fucy1zZXJpZiIgZm9udC1zaXplPSIyMCIgZm9udC13ZWlnaHQ9ImJvbGQiPmluPC90ZXh0Pjwvc3ZnPg%3D%3D" alt="Connect on LinkedIn"></a>
-  <a href="https://github.com/WAYTECHG"><img src="https://img.shields.io/badge/GitHub-12233B?style=for-the-badge&amp;logo=github&amp;logoColor=white" alt="Explore my GitHub repositories"></a>
-  <a href="https://huggingface.co/Wizzas"><img src="https://img.shields.io/badge/Hugging_Face-FFD21E?style=for-the-badge&amp;logo=huggingface&amp;logoColor=black" alt="Try my Hugging Face demos"></a>
-  <a href="mailto:30587wilbertandrewyonathan@gmail.com"><img src="https://img.shields.io/badge/Email-2563EB?style=for-the-badge&amp;logo=gmail&amp;logoColor=white" alt="Contact me by email"></a>
-</p>
+- `dist/index.html`: profile, education, leadership, scholarship, availability and contact.
+- `dist/projects.js`: six verified case studies, reported metrics, contributions, credits and demo links.
+- `styles.css`, `identity.css`, `motion.css`: foundational layout, typography, project orbit and transitions.
+- `studio.css`: soft white reading surfaces, blue/orange accents, solid outlines, gallery and chatbot.
+- `palette.css`: the exact user-defined navy, royal blue, warm orange and soft white palette across every surface, label, control, search field and chatbot. Orange is reserved for small accents; body text retains readable contrast.
+- `space.css`: dark reference-inspired starfield backdrop and readable text over it. The canvas has depth-based drift, independent gentle twinkling, short streaks and cursor parallax, capped at 650 stars and approximately 30 fps. Reduced motion and hidden tabs stop the animation.
+- `media.js`: real project imagery, captions, source links and image viewer. Marine/PaddyLiteX use recorded metrics because real output photographs are not published in their public repositories.
+- `experience.js`: slow vision-desk cycling.
+- `detection.css`, `detection.js`: continuous word-by-word name detection outlines and a brief circular navigation reticle that follows the destination heading. These are decorative computer-vision references, not real detection or confidence scores. Native navigation is unchanged; the effects respect reduced motion and pause outside the visible page.
+- `opening.css`, `opening.js`: a roughly 2.5-second blue laser draws the WAY wordmark, then two panels split to reveal the portfolio. Skip intro and Escape dismiss it immediately; reduced motion, deep links and hidden tabs bypass it. No image assets or external dependencies are needed.
+- `assistant.js`: a browser-local curated portfolio assistant. Recognizes topics and project names, handles project follow-ups, compares results and links to evidence. It is not a generative language model. Unknown questions receive a transparent fallback. Chat text is not sent to a server or retained after reloading.
+- `app.js`, `features.js`, `motion.js`: navigation, dialogs, filters, shortlist, clipboard, search, benchmarks and motion lifecycle.
+- `assets/project-images/`: genuine repository assets. `sources.json` records provenance and distinguishes predictions, reference inputs and evaluation charts.
+- `Wilbert_Yonathan_Resume.pdf`: supplied résumé, with the requested contact email, LinkedIn link and updated CGPA.
 
-<p align="center">
-  <a href="#at-a-glance">Overview</a> ·
-  <a href="#featured-projects">Projects</a> ·
-  <a href="#technical-toolkit">Skills</a> ·
-  <a href="#leadership">Leadership</a> ·
-  <a href="#lets-connect">Contact</a>
-</p>
+All website files above are inside `dist`. Contact email: `30587wilbertandrewtyonathan@gmail.com` (exact latest user-provided address).
 
-## At a glance
+## Provenance
 
-| Education | Academic record | Internship availability |
-| :--- | :--- | :--- |
-| Fourth-year AI Engineering · XMUM | **CGPA 3.77 / 4.00** | **29 March 2027 · 3–6 months** |
+Profile and leadership details are based on the supplied résumé and latest user statements. Public WAYTECHG repositories were reviewed on 5 October 2026. PaddyLiteX results come from `config/models.json`: 803 test images, 2,466 objects, nine classes and one run per model. FER CNN accuracy is 65.62% from `json_files/test_results_CNN.json`. Marine trade-offs and upstream DU-MobileYOLO attribution are preserved. Res UCN is credited as group coursework. The educational Alzheimer application is not presented as clinically validated.
 
-I develop computer vision models and turn experiments into interactive applications. My work focuses on balancing detection quality with model size and computational cost, with reproducible comparisons behind the results.
+Seven genuine visual assets come from the user's repositories. The DefectRAG photograph is a normal reference input, not an inference result. FER Grad-CAM/confusion matrices, Res UCN training curves and the educational Random Forest confusion matrix are recorded outputs. YOLO validation photos include real published predicted boxes. Eigenfaces are analysis components.
 
-I also explore visual defect inspection with reference retrieval and retrieval-augmented generation (RAG), connecting image analysis with relevant evidence and explanations.
+The WAY opening is a decorative wordmark animation, not live inference. The public marine Space currently includes a simulated illustrated scene; that scene is not represented as a real detection result here.
 
-**Academic recognition:** Dean’s List and XMUM Merit Scholarship for four consecutive years, **2023–2026**.
+## Accessibility and motion
 
-**Open to:** AI Engineering and Computer Vision internships, plus part-time or project-based collaboration, subject to availability and applicable work-authorisation requirements.
+Semantic landmarks, skip link, visible focus, keyboard tabs/carousel, native image/case-study dialogs with focus restoration, searchable projects and screen-reader status messages. Animation runs by default; there is no motion switch. The short WAY opening is skippable and respects reduced motion. Operating-system reduced-motion preferences remain supported. Canvas density/pixel ratio are bounded; timers and animation frames pause when the tab is hidden. Gallery images have alt text, source captions and a keyboard image viewer.
 
-**[Visit my portfolio](https://wilbert-andrew-yonathan.vercel.app/)** for project case studies, research comparisons and interactive previews.
+## Hosting and verification
 
-## Featured projects
+Static output: `dist`. Config: `vercel.json`. See `DEPLOY-VERCEL.md` to update the existing Vercel project. Packages exclude hosting identity, Git metadata and credentials.
 
-### 01 / WAYTECHG Marine
-
-**Underwater object detection · Lightweight architecture research**
-
-An underwater detection project built on **DU-MobileYOLO**, exploring GhostConv and SimSPPF through model comparisons and an interactive demonstration.
-
-- **My contribution:** Lightweight model modifications, experimental evaluation and a model-comparison interface.
-- **Engineering focus:** Detection quality, parameter count and clear attribution of upstream work.
-- **Tools:** Python · PyTorch · YOLO · OpenCV
-
-[Explore the repository](https://github.com/WAYTECHG/GhostConv-and-SimSPPF-Integration-for-Marine-Organism-Detection) · [Try the live demo](https://huggingface.co/spaces/Wizzas/Marine-Object-Detection)
-
-<details>
-<summary><strong>What to look for</strong></summary>
-
-The architecture changes, baseline comparisons and trade-offs between model complexity and detection performance. My contributions build on the upstream DU-MobileYOLO architecture; the original work is credited separately.
-
-</details>
-
-### 02 / PaddyLiteX
-
-**Paddy disease detection · Final-year thesis**
-
-Research into **YOLOv8n with custom DenseNet-based backbones**, including DenseLiteX, SPPF and C2PSA. The study uses baseline comparisons and ablation experiments to examine detection performance and model complexity.
-
-- **My contribution:** Backbone development, baseline comparisons and ablation experiments.
-- **Engineering focus:** Consistent dataset splits, reproducibility and transparent experimental conditions.
-- **Tools:** Python · PyTorch · YOLO · OpenCV
-
-[Explore the repository](https://github.com/WAYTECHG/PaddyLiteX-demo) · [Try the live demo](https://huggingface.co/spaces/Wizzas/PaddyLiteX)
-
-<details>
-<summary><strong>What to look for</strong></summary>
-
-The backbone design, the comparison with standard YOLOv8n and DenseNet121-based baselines, and how each architecture component contributes to the final model. Accuracy and computational requirements should be read together.
-
-</details>
-
-### 03 / DefectRAG
-
-**Visual defect inspection · Application in development**
-
-An ongoing application combining visual anomaly detection with reference retrieval and retrieval-supported explanations on **MVTec LOCO AD**.
-
-- **My contribution:** Reference-feature pipelines, anomaly-head experiments and web application integration.
-- **Engineering focus:** DINOv3 features, visual reference retrieval and evidence-supported inspection explanations.
-- **Tools:** Python · PyTorch · FastAPI · Docker
-
-[Explore the repository](https://github.com/WAYTECHG/DefectRAG) · [Try the live demo](https://huggingface.co/spaces/Wizzas/defectrag-inference)
-
-<details>
-<summary><strong>What to look for</strong></summary>
-
-How visual features and reference information support the inspection workflow. This project is still in development; performance evaluation and validation remain part of the ongoing work.
-
-</details>
-
-## Technical toolkit
-
-| Area | Tools and project experience |
-| :--- | :--- |
-| **Programming** | Python |
-| **Deep learning** | PyTorch · CNNs · YOLO · DenseNet · ResNet |
-| **Computer vision** | OpenCV · Classification · Object detection · Visual anomaly detection |
-| **Retrieval and language models** | RAG · Embeddings · Reference retrieval |
-| **Applications** | Streamlit · FastAPI · Docker · Git · GitHub |
-| **Evaluation** | Dataset preparation · Leakage prevention · Baseline comparisons · Ablation studies |
-
-## Leadership
-
-<details>
-<summary><strong>Coordination, production and community involvement</strong></summary>
-
-- **Head of Photography and Videography, Community Service** — Pre-production, directing, production, asset management and editing.
-- **Head of General Affairs, XMUM AI Club** — Project coordination, logistics and team communication.
-- **AIESEC involvement** — Committee collaboration and fundraising-event support.
-
-</details>
-
-## Let’s connect
-
-Interested in an internship conversation or an AI development project?
-
-**[View my portfolio](https://wilbert-andrew-yonathan.vercel.app/)** · **[Connect on LinkedIn](https://www.linkedin.com/in/wilbert-andrew-yonathan-85562326a/)** · **[Email me](mailto:30587wilbertandrewyonathan@gmail.com)** · **[Explore my demos](https://huggingface.co/Wizzas)**
-
-<p align="center"><sub>Research interests: lightweight vision architectures · industrial visual inspection · applied machine learning · retrieval-supported AI applications</sub></p>
+Validated syntax, assets, IDs, anchors and configuration; existing search/filter/shortlist/modal flows; carousel keyboard/swipe synchronization; chatbot answers, follow-ups, safe text rendering and links; image viewer navigation/focus; default-on animation and reduced-motion/visibility lifecycle. Interaction checks use a DOM and mocked canvas. Actual browser layout and real-device touch were not verified in this session.

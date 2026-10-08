@@ -47,3 +47,13 @@ The portfolio opens with Wilbert’s name, focus, availability, résumé, and a 
 Latest refinement: centred chatbot icon, a visible three-bar mobile menu, W-only branding, XMUM Merit Scholarship for four consecutive years (2023–2026), and Hugging Face social links to https://huggingface.co/Wizzas. The résumé and chatbot reflect the scholarship update.
 
 The hero name now cycles thin blue detection boxes across Wilbert, Andrew and Yonathan. Circular targeting briefly tracks section headings during navigation, without delaying links or blocking clicks. Both effects respect reduced motion; name tracking pauses when the hero is out of view.
+
+## Marine + dPickleball update — 8 October 2026
+
+The seven-project collection now includes dPickleball, using the supplied competition screenshot. Its case study links to the GitHub repository and YouTube competition recording, distinguishes personal agent training from the final team submission, and reports the repository’s second-place finish among 13 teams. The gallery, search, shortlist, command menu, skills, achievements and portfolio chatbot include the project.
+
+Marine demo links now point to https://marine-object-detection.onrender.com, including the case study, featured preview and chatbot.
+
+Replace the complete dist folder in the GitHub repository linked to your existing Vercel project. Keep root vercel.json. New asset: dist/assets/project-images/dpickleball-competition.png.
+
+The current Vercel connection could not locate the production project. This package has been prepared and checked locally; it has not been deployed to https://wilbert-andrew-yonathan.vercel.app/. No new Vercel project was created.

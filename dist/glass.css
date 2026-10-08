@@ -111,3 +111,7 @@ dialog:not(.detection-intro){border-radius:28px;background:var(--white);border:1
 .assistant-launch>.chatbot-icon{display:grid;place-items:center;width:30px;height:30px;flex:none;padding:0;line-height:1;border-radius:50%;font-size:0}
 .chatbot-icon svg{display:block;width:18px;height:18px}
 .about-links,.contact-socials{flex-wrap:wrap}
+
+/* Competition link shares the card typography and blue interaction states. */
+.card-video{display:inline-flex;align-items:center;min-height:44px;margin-bottom:6px;font-size:14px;color:var(--blue)}
+.card-video:hover{color:#1D4ED8}.card-video:focus-visible{outline:2px solid #2563EB;outline-offset:3px;border-radius:4px}
