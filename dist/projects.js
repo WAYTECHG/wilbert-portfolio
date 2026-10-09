@@ -1,102 +1,11 @@
 'use strict';
 window.PORTFOLIO_PROJECTS = [
   {
-    "id": "marine",
-    "title": "Marine organism detection",
-    "short": "Marine detection",
-    "category": "research",
-    "year": "2026",
-    "status": "Completed research · demo available",
-    "kicker": "FEATURED / LIGHTWEIGHT OBJECT DETECTION",
-    "description": "Adapting DU-MobileYOLO with GhostConv and SimSPPF to detect underwater organisms with a better accuracy–complexity trade-off.",
-    "tags": [
-      "PyTorch",
-      "GhostConv",
-      "SimSPPF",
-      "URPC2020"
-    ],
-    "metrics": [
-      [
-        "75.36%",
-        "mAP@0.5"
-      ],
-      [
-        "4.37M",
-        "Parameters"
-      ],
-      [
-        "11.5",
-        "GFLOPs"
-      ]
-    ],
-    "demo": "https://marine-object-detection.onrender.com",
-    "summary": "Underwater imagery makes detection challenging, and an efficient detector needs to balance accuracy with model complexity. I adapted an existing lightweight detector and tested the effects of selected architectural changes on the URPC2020 split.",
-    "contributions": [
-      "Integrated GhostConv into selected 3×3 convolutions in Multi-Concat blocks and replaced the original pooling structure with SimSPPF.",
-      "Preserved the original Deformable Upsampling mechanism from DU-MobileYOLO.",
-      "Compared retrained baselines and ablation variants, documenting accuracy, precision, recall, parameters, and GFLOPs.",
-      "Prepared an interactive marine detection demonstration hosted on Render."
-    ],
-    "outcome": "Compared with the retrained DU-MobileYOLO baseline, the final variant increased mAP@0.5 by 1.13 percentage points and reduced parameters from 4.70M to 4.37M (about 7.0%). Precision and mAP@0.5:0.95 decreased slightly; the experiment shows a trade-off rather than improvement on every metric.",
-    "learning": "Small, targeted changes can improve an efficiency–accuracy balance. Ablations matter: the strongest mAP@0.5 result is not necessarily the strongest result under stricter localization criteria.",
-    "credit": "Base detector and Deformable Upsampling: DU-MobileYOLO by its original authors. GhostConv and SimSPPF are established components; my work is their integration, adaptation, evaluation, and demonstration.",
-    "upstream": "https://github.com/ZERO-SPACE-X/DU-MobileYOLO",
-    "table": [
-      [
-        "Metric",
-        "DU-MobileYOLO",
-        "GhostConv + SimSPPF"
-      ],
-      [
-        "mAP@0.5",
-        "74.23%",
-        "75.36%"
-      ],
-      [
-        "mAP@0.5:0.95",
-        "41.01%",
-        "40.71%"
-      ],
-      [
-        "Parameters",
-        "4.70M",
-        "4.37M"
-      ],
-      [
-        "GFLOPs",
-        "12.1",
-        "11.5"
-      ],
-      [
-        "Precision",
-        "80.95%",
-        "79.16%"
-      ],
-      [
-        "Recall",
-        "66.34%",
-        "67.18%"
-      ]
-    ],
-    "repository": "https://github.com/WAYTECHG/GhostConv-and-SimSPPF-Integration-for-Marine-Organism-Detection",
-    "searchTerms": [
-      "Git",
-      "GitHub",
-      "Python",
-      "YOLO",
-      "NumPy",
-      "Matplotlib",
-      "Gradio",
-      "Docker",
-      "Render"
-    ]
-  },
-  {
     "id": "paddy",
     "title": "PaddyLiteX · paddy disease detection",
     "short": "PaddyLiteX",
     "category": "research",
-    "year": "2026–present",
+    "year": "Apr 2026 – Present",
     "status": "Final-year thesis · reported test results",
     "kicker": "FINAL-YEAR PROJECT / AGRICULTURAL AI",
     "description": "A custom DenseLiteX backbone with SPPF and C2PSA in YOLOv8n, evaluated against default YOLOv8n and a DenseNet121 backbone.",
@@ -193,11 +102,102 @@ window.PORTFOLIO_PROJECTS = [
     ]
   },
   {
+    "id": "marine",
+    "title": "Marine organism detection",
+    "short": "Marine detection",
+    "category": "research",
+    "year": "Jun 2026 – Jul 2026",
+    "status": "Completed research · demo available",
+    "kicker": "FEATURED / LIGHTWEIGHT OBJECT DETECTION",
+    "description": "Adapting DU-MobileYOLO with GhostConv and SimSPPF to detect underwater organisms with a better accuracy–complexity trade-off.",
+    "tags": [
+      "PyTorch",
+      "GhostConv",
+      "SimSPPF",
+      "URPC2020"
+    ],
+    "metrics": [
+      [
+        "75.36%",
+        "mAP@0.5"
+      ],
+      [
+        "4.37M",
+        "Parameters"
+      ],
+      [
+        "11.5",
+        "GFLOPs"
+      ]
+    ],
+    "demo": "https://marine-object-detection.onrender.com",
+    "summary": "Underwater imagery makes detection challenging, and an efficient detector needs to balance accuracy with model complexity. I adapted an existing lightweight detector and tested the effects of selected architectural changes on the URPC2020 split.",
+    "contributions": [
+      "Integrated GhostConv into selected 3×3 convolutions in Multi-Concat blocks and replaced the original pooling structure with SimSPPF.",
+      "Preserved the original Deformable Upsampling mechanism from DU-MobileYOLO.",
+      "Compared retrained baselines and ablation variants, documenting accuracy, precision, recall, parameters, and GFLOPs.",
+      "Prepared an interactive marine detection demonstration hosted on Render."
+    ],
+    "outcome": "Compared with the retrained DU-MobileYOLO baseline, the final variant increased mAP@0.5 by 1.13 percentage points and reduced parameters from 4.70M to 4.37M (about 7.0%). Precision and mAP@0.5:0.95 decreased slightly; the experiment shows a trade-off rather than improvement on every metric.",
+    "learning": "Small, targeted changes can improve an efficiency–accuracy balance. Ablations matter: the strongest mAP@0.5 result is not necessarily the strongest result under stricter localization criteria.",
+    "credit": "Base detector and Deformable Upsampling: DU-MobileYOLO by its original authors. GhostConv and SimSPPF are established components; my work is their integration, adaptation, evaluation, and demonstration.",
+    "upstream": "https://github.com/ZERO-SPACE-X/DU-MobileYOLO",
+    "table": [
+      [
+        "Metric",
+        "DU-MobileYOLO",
+        "GhostConv + SimSPPF"
+      ],
+      [
+        "mAP@0.5",
+        "74.23%",
+        "75.36%"
+      ],
+      [
+        "mAP@0.5:0.95",
+        "41.01%",
+        "40.71%"
+      ],
+      [
+        "Parameters",
+        "4.70M",
+        "4.37M"
+      ],
+      [
+        "GFLOPs",
+        "12.1",
+        "11.5"
+      ],
+      [
+        "Precision",
+        "80.95%",
+        "79.16%"
+      ],
+      [
+        "Recall",
+        "66.34%",
+        "67.18%"
+      ]
+    ],
+    "repository": "https://github.com/WAYTECHG/GhostConv-and-SimSPPF-Integration-for-Marine-Organism-Detection",
+    "searchTerms": [
+      "Git",
+      "GitHub",
+      "Python",
+      "YOLO",
+      "NumPy",
+      "Matplotlib",
+      "Gradio",
+      "Docker",
+      "Render"
+    ]
+  },
+  {
     "id": "dpickleball",
     "title": "dPickleball reinforcement learning agent",
     "short": "dPickleball",
     "category": "research",
-    "year": "2026",
+    "year": "May 2026 – Jul 2026",
     "status": "Completed coursework · team competition",
     "kicker": "REINFORCEMENT LEARNING / COMPETITIVE GAMEPLAY",
     "description": "PPO agents trained with curriculum learning, reward shaping and league self-play in the Unity dPickleBall environment.",
@@ -251,7 +251,7 @@ window.PORTFOLIO_PROJECTS = [
     "title": "Res UCN",
     "short": "Res UCN",
     "category": "research",
-    "year": "2025–2026",
+    "year": "Oct 2025 – Dec 2025",
     "status": "Completed coursework · group project",
     "kicker": "ARCHITECTURE EXPERIMENT / IMAGE CLASSIFICATION",
     "description": "Group research exploring compact image classification with dynamic gated convolutions, channel importance, weighted normalization, and a learnable Quinsh activation.",
@@ -301,7 +301,7 @@ window.PORTFOLIO_PROJECTS = [
     "title": "Facial expression recognition",
     "short": "Expression recognition",
     "category": "application",
-    "year": "2025",
+    "year": "May 2025 – Jul 2025",
     "status": "Completed coursework · webcam pipeline",
     "kicker": "REAL-TIME VISION / EMOTION CLASSIFICATION",
     "description": "A custom TensorFlow/Keras CNN compared with VGG16, MobileNetV2 and ResNet50 on FER2013, with Grad-CAM and an OpenCV inference workflow.",
@@ -353,7 +353,7 @@ window.PORTFOLIO_PROJECTS = [
     "title": "Alzheimer classification prototype",
     "short": "MRI application",
     "category": "application",
-    "year": "2024",
+    "year": "Oct 2024 – Dec 2024",
     "status": "Educational prototype · further validation needed",
     "kicker": "AI APPLICATION / INTERACTIVE VISUALIZATION",
     "description": "A multi-page Streamlit learning project combining structured-data model comparisons, an MRI upload interface, and exploratory visualizations.",

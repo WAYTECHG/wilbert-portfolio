@@ -4,7 +4,7 @@ A responsive internship portfolio preserving the navy, royal blue, orange and so
 
 ## Included
 
-- Profile, nine relevant courses, six projects, skills, achievements, leadership and contact.
+- Profile, nine relevant courses, six projects, resume-aligned skills, language capabilities, achievements, leadership and contact.
 - Project readers with contributions, results, limitations, credits, real screenshots and shareable `#project=` links.
 - Eight original certificate images across five entries, with document selectors and downloads.
 - dPickleball source and competition video; an organizing-role certificate attached separately under leadership.
@@ -18,3 +18,5 @@ The projects are Marine detection, PaddyLiteX, dPickleball, Res UCN, facial expr
 `dist/index.html` contains the page; `projects.js` stores project content; `media.js` supplies imagery; `details.js` handles readers/viewers; `credentials.js` lists the certificate files. `details.css` extends the existing design. `assistant.js` answers from the curated portfolio.
 
 See `CERTIFICATES.md` for the document inventory and `DEPLOY-VERCEL.md` for deployment. The supplied review HTML embeds necessary assets for local review. This package has not changed the live Vercel site.
+
+Project order: PaddyLiteX, Marine, dPickleball, Res UCN, FER, Alzheimer classification. Periods follow Wilbert’s supplied dates. Languages: English, Mandarin, Indonesian, Malay and Hokkien; proficiency ratings are not inferred.
