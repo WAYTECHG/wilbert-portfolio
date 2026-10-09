@@ -20,16 +20,6 @@
     "bytes": 16820
   },
   {
-    "file": "assets/project-images/defectrag-reference.webp",
-    "source": "https://raw.githubusercontent.com/WAYTECHG/DefectRAG/main/cloud/references/breakfast_box/normal_reference_01.jpg",
-    "page": "https://github.com/WAYTECHG/DefectRAG/blob/main/cloud/references/breakfast_box/normal_reference_01.jpg",
-    "label": "DefectRAG normal reference photo",
-    "caption": "Breakfast-box image included in the demo\u2019s MVTec LOCO normal reference bank; sample input, not a model prediction.",
-    "width": 1200,
-    "height": 960,
-    "bytes": 120142
-  },
-  {
     "file": "assets/project-images/object-detection-validation.webp",
     "source": "https://raw.githubusercontent.com/WAYTECHG/Object-Detection-Yolov8/main/runs/detect/train4/val_batch0_pred.jpg",
     "page": "https://github.com/WAYTECHG/Object-Detection-Yolov8/blob/main/runs/detect/train4/val_batch0_pred.jpg",
@@ -68,16 +58,6 @@
     "width": 533,
     "height": 460,
     "bytes": 13844
-  },
-  {
-    "file": "assets/project-images/defectrag-frontpage.webp",
-    "source": "https://huggingface.co/spaces/Wizzas/defectrag-inference",
-    "page": "https://huggingface.co/spaces/Wizzas/defectrag-inference",
-    "label": "defectrag demo front page",
-    "caption": "Website front-page screenshot supplied by Wilbert on 5 October 2026; interface preview, not inference output.",
-    "width": 1582,
-    "height": 832,
-    "bytes": 53128
   },
   {
     "file": "assets/project-images/marine-frontpage.webp",

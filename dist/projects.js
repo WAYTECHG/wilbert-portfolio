@@ -193,60 +193,6 @@ window.PORTFOLIO_PROJECTS = [
     ]
   },
   {
-    "id": "defectrag",
-    "title": "DefectRAG",
-    "short": "DefectRAG",
-    "category": "application",
-    "year": "2026–present",
-    "status": "Application · in development",
-    "kicker": "APPLIED AI / VISUAL INSPECTION + MEMORY",
-    "description": "Industrial visual inspection combining DINOv3 patch comparisons, anomaly localization, normal references, and hybrid retrieval for grounded explanations.",
-    "tags": [
-      "DINOv3",
-      "FastAPI",
-      "RAG",
-      "FAISS",
-      "BM25",
-      "Neo4j",
-      "Docker"
-    ],
-    "metrics": [
-      [
-        "5",
-        "LOCO categories"
-      ],
-      [
-        "Vision",
-        "Anomaly localization"
-      ],
-      [
-        "RAG",
-        "Reference memory"
-      ]
-    ],
-    "summary": "DefectRAG connects uploaded product images to normal-reference features, anomaly overlays, visual observations, and evidence-supported inspection reports for five MVTec LOCO AD categories. Its GitHub README documents both local and cloud paths; deployment reliability is still being refined.",
-    "contributions": [
-      "Built feature extraction and normal-reference memory workflows for five MVTec LOCO AD categories.",
-      "Experimented with a frozen DINOv3 encoder, compact nearest-normal baseline, trained anomaly heads and fusion.",
-      "Integrated visual observations with FAISS + BM25 retrieval and grounded explanation workflows.",
-      "Built FastAPI and web interfaces; worked on cloud inspection records with Neo4j and image overlays with Cloudinary."
-    ],
-    "outcome": "The repository contains image-inspection workflows, evaluation artifacts, and a cloud demonstration entry point. I am still refining deployment and evidence coverage. Anomaly scores are research outputs, and a polished interface alone does not establish production reliability.",
-    "learning": "A working AI application requires the full path to behave consistently: image handling, model inference, retrieved context, API responses, and the visitor interface.",
-    "credit": "Uses established DINOv3 features and MVTec LOCO AD data. Visual localization and explanation quality depend on the completed model and reference-memory pipeline.",
-    "repository": "https://github.com/WAYTECHG/DefectRAG",
-    "demo": "https://huggingface.co/spaces/Wizzas/defectrag-inference",
-    "searchTerms": [
-      "Git",
-      "GitHub",
-      "Python",
-      "PyTorch",
-      "NumPy",
-      "Cloudinary",
-      "Hugging Face"
-    ]
-  },
-  {
     "id": "dpickleball",
     "title": "dPickleball reinforcement learning agent",
     "short": "dPickleball",

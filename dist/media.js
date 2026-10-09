@@ -4,7 +4,6 @@
   const root='assets/project-images/';
   const media={
     dpickleball:{file:root+'dpickleball-competition.png',label:'Competition screenshot',alt:'Two dPickleBall paddle agents and a ball on the blue competition court',caption:'Competition screenshot supplied by Wilbert. Watch the linked recording to see the gameplay; the team result is reported in the project repository.',source:'https://www.youtube.com/live/CitFn9FK12s',width:1305,height:726},
-    defectrag:{file:root+'defectrag-reference.webp',label:'Real reference photograph',alt:'Breakfast box with cereal, fruit and a drink, from the DefectRAG normal reference bank',caption:'A real normal reference photo included in DefectRAG’s MVTec LOCO reference bank. This is a sample input, not a model prediction.',source:'https://github.com/WAYTECHG/DefectRAG/blob/main/cloud/references/breakfast_box/normal_reference_01.jpg',width:1200,height:960},
     fer:{file:root+'fer-gradcam.webp',label:'Recorded Grad-CAM output',alt:'Facial expression images alongside CNN activation heatmaps from the FER2013 project',caption:'Actual CNN Grad-CAM result mosaic published in the FER2013 project repository.',source:'https://github.com/WAYTECHG/FER2013-Project/blob/main/result_images/gradcam_CNN.png',width:1164,height:1400},
     resucn:{file:root+'resucn-training.webp',label:'Recorded training history',alt:'Res UCN training and validation loss and accuracy curves from the project notebook',caption:'Actual loss and accuracy chart extracted from the published Res UCN notebook. This is recorded training history.',source:'https://github.com/WAYTECHG/Res_UCN-Resnet-Unified-Convolution-Network/blob/main/Res_UCN.ipynb',width:1165,height:547},
     alzheimer:{file:root+'alzheimer-evaluation.webp',label:'Recorded coursework evaluation',alt:'Random Forest confusion matrix from the Alzheimer classification coursework notebook',caption:'Actual Random Forest confusion matrix from the educational project notebook. This is coursework evaluation, not clinical validation.',source:'https://github.com/WAYTECHG/Alzheimer-Detection/blob/main/alzheimer_prediction.ipynb',width:533,height:460},
@@ -16,7 +15,6 @@
   const frontpages={
     marine:{file:root+'marine-frontpage.webp',label:'Demo website front page',alt:'Marine Vision Lab front page with Intelligence Below the surface heading and underwater research preview',caption:'Marine Vision Lab website front page, from the screenshot supplied by Wilbert. This shows the demo interface, not a detection result.',source:'https://marine-object-detection.onrender.com',width:1600,height:834},
     paddy:{file:root+'paddy-frontpage.webp',label:'Demo website front page',alt:'PaddyLiteX detection studio front page with A closer look A clearer comparison heading',caption:'PaddyLiteX website front page, from the screenshot supplied by Wilbert. The leaf graphic belongs to the demo interface; it is not a model prediction.',source:'https://huggingface.co/spaces/Wizzas/PaddyLiteX',width:1600,height:778},
-    defectrag:{file:root+'defectrag-frontpage.webp',label:'Demo website front page',alt:'DefectRAG quality review workspace front page with Review with clarity Trace the evidence heading',caption:'DefectRAG website front page, from the screenshot supplied by Wilbert. This shows the inspection interface, not a measured anomaly result.',source:'https://huggingface.co/spaces/Wizzas/defectrag-inference',width:1582,height:832}
   };
   Object.entries(frontpages).forEach(([id,m])=>{media[id+'Site']=m;});
   const missing={marine:{label:'Recorded research results',source:'https://github.com/WAYTECHG/GhostConv-and-SimSPPF-Integration-for-Marine-Organism-Detection'},paddy:{label:'Recorded thesis results',source:'https://github.com/WAYTECHG/PaddyLiteX-demo/blob/main/config/models.json'}};
@@ -32,16 +30,4 @@
   // Retained call signature keeps every existing project interaction working.
   window.projectIllustration=window.projectVisual;
   window.projectPhotoFigure=id=>{const m=frontpages[id]||media[id];return m?`<figure class="dialog-media">${photo(m,'dialog')}<figcaption>${esc(m.caption)} <a href="${esc(m.source)}" target="_blank" rel="noopener noreferrer">${id==='dpickleball'?'Watch competition':frontpages[id]?'Visit demo':'Original source'}</a></figcaption></figure>`:'';};
-  const gallery=[['objects','YOLO, in the frame'],['fer','What the CNN sees'],['defectrag','The normal reference'],['resucn','Following the training'],['faces','Faces, decomposed'],['alzheimer','Evaluating a classifier'],['ferMatrix','Beyond overall accuracy'],['marineSite','Marine Vision Lab'],['paddySite','PaddyLiteX studio'],['defectragSite','DefectRAG workspace'],['dpickleball','dPickleball competition']];
-  if(typeof document==='undefined')return;
-  const $=s=>document.querySelector(s);
-  $('#evidence-gallery').innerHTML=gallery.map(([id,title])=>{const m=media[id];return `<button class="evidence-card" data-evidence="${id}" aria-label="Enlarge ${esc(title)}"><span class="evidence-image">${photo(m,'gallery')}</span><span class="evidence-copy"><span>${esc(m.label)}</span><strong>${esc(title)} <i aria-hidden="true">↗</i></strong></span></button>`;}).join('');
-  const dialog=$('#media-dialog');let current=0,focus=null;
-  function render(){const [id,title]=gallery[current],m=media[id];$('#media-title').textContent=title;$('#media-content').innerHTML=photo(m,'dialog');$('#media-caption').textContent=m.caption;$('#media-source').href=m.source;$('#media-position').textContent=`${current+1} / ${gallery.length}`;}
-  function select(i){current=(i+gallery.length)%gallery.length;render();}
-  document.querySelectorAll('[data-evidence]').forEach(b=>b.addEventListener('click',()=>{current=gallery.findIndex(([id])=>id===b.dataset.evidence);focus=b;render();dialog.showModal();document.body.style.overflow='hidden';$('#media-close').focus();}));
-  $('#media-close').addEventListener('click',()=>dialog.close());$('#media-prev').addEventListener('click',()=>select(current-1));$('#media-next').addEventListener('click',()=>select(current+1));
-  dialog.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){e.preventDefault();select(current+1);}else if(e.key==='ArrowLeft'){e.preventDefault();select(current-1);}});
-  dialog.addEventListener('close',()=>{document.body.style.overflow='';focus?.focus();});
-  dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();}});
 })();

@@ -15,28 +15,6 @@
       return words.every(word=>text.includes(word));
     });
   }
-  const metrics={map50:{row:1,label:'mAP@0.5',unit:'%',kind:'accuracy',better:'higher'},map5095:{row:2,label:'mAP@0.5:0.95',unit:'%',kind:'accuracy',better:'higher'},params:{row:3,label:'Parameters',unit:'M',kind:'cost',better:'lower'},gflops:{row:4,label:'GFLOPs',unit:'',kind:'cost',better:'lower'},precision:{row:5,label:'Precision',unit:'%',kind:'accuracy',better:'higher'},recall:{row:6,label:'Recall',unit:'%',kind:'accuracy',better:'higher'}};
-  function benchmarkInfo(key,projectId='marine',baselineId='yolo'){
-    if(!Object.hasOwn(metrics,key))key='map50';
-    if(!['marine','paddy'].includes(projectId))projectId='marine';
-    const paddy=projectId==='paddy';
-    const metric=metrics[key];const project=projects.find(p=>p.id===projectId);const row=project.table[metric.row];
-    const column=paddy&&baselineId==='dense'?2:1;
-    const baselineLabel=project.table[0][column]+' baseline';
-    const proposedLabel=project.table[0][paddy?3:2];
-    // Exact counts from PaddyLiteX config/models.json avoid rounding the
-    // efficiency percentages from the compact labels shown in the chart.
-    const parameterCounts=[0,3007403,10027275,3905069];
-    const baseline=paddy&&key==='params'?parameterCounts[column]/1e6:parseFloat(row[column]);
-    const proposed=paddy&&key==='params'?parameterCounts[3]/1e6:parseFloat(row[paddy?3:2]);const delta=proposed-baseline;
-    const axisMax=metric.kind==='accuracy'?100:Math.ceil(Math.max(baseline,proposed)*1.16*10)/10;
-    let insight;
-    const comparison=paddy?baselineLabel:'the retrained baseline';
-    if(metric.kind==='accuracy')insight=`${Math.abs(delta).toFixed(2)} percentage points ${delta>=0?'higher':'lower'} ${metric.label} than ${comparison}. ${delta>=0?'An improvement on this metric.':'A trade-off to consider alongside efficiency.'}`;
-    else insight=`${(Math.abs(baseline-proposed)/baseline*100).toFixed(1)}% ${delta<=0?'fewer':'more'} ${key==='params'?'parameters':'GFLOPs'} than ${comparison}. ${metric.label} ${delta<=0?'decrease':'increase'} from ${row[column]} to ${row[paddy?3:2]}.`;
-    if(paddy)insight+=' One recorded run per model; this does not measure run-to-run variation.';
-    return {...metric,projectId,baselineLabel,proposedLabel,baseline,proposed,baselineText:row[column],proposedText:row[paddy?3:2],axisMax,baselineWidth:baseline/axisMax*100,proposedWidth:proposed/axisMax*100,insight};
-  }
   function shortlistMail(ids){
     const selected=projects.filter(p=>validSaved(Array.from(ids)).has(p.id));
     if(!selected.length)return null;
@@ -48,7 +26,7 @@
     const q=String(query).toLowerCase().trim();
     return [...sections.map(([id,title,detail])=>({type:'section',id,title,detail})),...projects.map(p=>({type:'project',id:p.id,title:p.title,detail:p.tags.join(' · ')}))].filter(item=>!q||(item.title+' '+item.detail).toLowerCase().includes(q));
   }
-  window.PortfolioTools={filterProjects,benchmarkInfo,shortlistMail,commandEntries,validSaved};
+  window.PortfolioTools={filterProjects,shortlistMail,commandEntries,validSaved};
   if(typeof document==='undefined')return;
   const $=selector=>document.querySelector(selector);
   const $$=selector=>Array.from(document.querySelectorAll(selector));
@@ -83,28 +61,6 @@
     button.addEventListener('click',()=>{resetFilters();$('#project-search').value=query;applyFilters();$('#projects').scrollIntoView({behavior:document.documentElement.classList.contains('no-motion')?'instant':'smooth'});});
     tag.replaceWith(button);
   });
-  let benchmarkProject='marine',benchmarkBaseline='yolo',benchmarkMetric='map50';
-  function showBenchmark(key){
-    benchmarkMetric=Object.hasOwn(metrics,key)?key:'map50';
-    const b=benchmarkInfo(benchmarkMetric,benchmarkProject,benchmarkBaseline);
-    $('#benchmark-title').textContent=benchmarkProject==='paddy'?'Inside the paddy experiment.':'Inside the marine experiment.';
-    $('#benchmark-description').textContent=benchmarkProject==='paddy'?'Compare PaddyLiteX with default YOLOv8n or the DenseNet121 backbone. Switch metrics to explore accuracy and computational cost.':'Switch metrics to compare the retrained DU-MobileYOLO baseline with my GhostConv + SimSPPF adaptation.';
-    $('.benchmark-source').textContent=benchmarkProject==='paddy'?'803 test images · 9 classes · one run per model · recorded repository results':'URPC2020 test split · reported project results';
-    $('#benchmark-baselines').hidden=benchmarkProject!=='paddy';
-    $('#benchmark-details').dataset.project=benchmarkProject;
-    $$('[data-benchmark-project]').forEach(button=>button.setAttribute('aria-pressed',button.dataset.benchmarkProject===benchmarkProject));
-    $$('[data-benchmark-baseline]').forEach(button=>button.setAttribute('aria-pressed',button.dataset.benchmarkBaseline===benchmarkBaseline));
-    $('#benchmark-chart').setAttribute('aria-label',`${b.label}: ${b.baselineLabel} ${b.baselineText}, ${b.proposedLabel} ${b.proposedText}. ${b.better} is better.`);
-    $('#benchmark-chart').innerHTML=`<div class="benchmark-row"><div><span>${escape(b.baselineLabel)}</span><strong>${escape(b.baselineText)}</strong></div><div class="bar-track"><div class="bar-baseline" style="width:${b.baselineWidth}%"></div></div></div><div class="benchmark-row"><div><span>${escape(b.proposedLabel)}</span><strong>${escape(b.proposedText)}</strong></div><div class="bar-track"><div class="bar-proposed" style="width:${b.proposedWidth}%"></div></div></div><div class="benchmark-axis"><span>0</span><span>${b.axisMax}${escape(b.unit)} · ${b.better} is better</span></div>`;
-    $('#benchmark-insight').textContent=b.insight;
-  }
-  $$('[data-benchmark-project]').forEach(button=>button.addEventListener('click',()=>{benchmarkProject=button.dataset.benchmarkProject;showBenchmark(benchmarkMetric);}));
-  $$('[data-benchmark-baseline]').forEach(button=>button.addEventListener('click',()=>{benchmarkBaseline=button.dataset.benchmarkBaseline;showBenchmark(benchmarkMetric);}));
-  $('#benchmark-metric').addEventListener('change',event=>showBenchmark(event.target.value));showBenchmark('map50');
-  const labDescriptions={objects:'YOLO — real annotated validation predictions from my object detection project.',fer:'FER2013 — actual Grad-CAM outputs showing where the CNN focuses.',defectrag:'DefectRAG — a real breakfast-box photo from the normal reference bank.'};
-  function switchLab(id){$('#lab-art').innerHTML=window.projectVisual(id,'hero')+'<span class="lab-sweep" aria-hidden="true"></span>';if(!document.documentElement.classList.contains('no-motion')&&$('#lab-art').animate)$('#lab-art').animate([{opacity:.2,transform:'translateX(22px)'},{opacity:1,transform:'translateX(0)'}],{duration:400,easing:'cubic-bezier(.2,.7,.2,1)'});$('#lab-note').textContent=labDescriptions[id];$$('[data-lab]').forEach(b=>{const active=b.dataset.lab===id;b.classList.toggle('active',active);b.setAttribute('aria-pressed',active);});}
-  $$('[data-lab]').forEach(b=>b.addEventListener('click',()=>switchLab(b.dataset.lab)));switchLab('objects');
-  const lab=$('#lab-preview');lab.addEventListener('pointermove',event=>{const r=lab.getBoundingClientRect();lab.style.setProperty('--pointer-x',(event.clientX-r.left)+'px');lab.style.setProperty('--pointer-y',(event.clientY-r.top)+'px');lab.classList.add('pointer-active');},{passive:true});lab.addEventListener('pointerleave',()=>lab.classList.remove('pointer-active'));
   const quick=$('#quick-dialog');const recruiter=$('#recruiter-dialog');let quickFocus,recruiterFocus;
   function renderCommands(){const entries=commandEntries($('#quick-search').value);$('#quick-results').innerHTML=entries.length?entries.map(item=>`<button class="quick-result" data-command-type="${item.type}" data-command-id="${item.id}"><span class="command-symbol" aria-hidden="true">${item.type==='section'?'↳':'◇'}</span><span>${escape(item.title)}<small>${escape(item.detail)}</small></span><span aria-hidden="true">↗</span></button>`).join(''):'<p class="command-empty">No matches. Try a project name or a skill.</p>';}
   function openQuick(){if(document.querySelector('dialog[open]'))return;quickFocus=document.activeElement;$('#quick-search').value='';renderCommands();quick.showModal();document.body.style.overflow='hidden';$('#quick-search').focus();}
