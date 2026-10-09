@@ -78,7 +78,18 @@ window.PORTFOLIO_PROJECTS = [
         "67.18%"
       ]
     ],
-    "repository": "https://github.com/WAYTECHG/GhostConv-and-SimSPPF-Integration-for-Marine-Organism-Detection"
+    "repository": "https://github.com/WAYTECHG/GhostConv-and-SimSPPF-Integration-for-Marine-Organism-Detection",
+    "searchTerms": [
+      "Git",
+      "GitHub",
+      "Python",
+      "YOLO",
+      "NumPy",
+      "Matplotlib",
+      "Gradio",
+      "Docker",
+      "Render"
+    ]
   },
   {
     "id": "paddy",
@@ -168,7 +179,18 @@ window.PORTFOLIO_PROJECTS = [
         "79.23%"
       ]
     ],
-    "evidence": "https://github.com/WAYTECHG/PaddyLiteX-demo/blob/main/config/models.json"
+    "evidence": "https://github.com/WAYTECHG/PaddyLiteX-demo/blob/main/config/models.json",
+    "searchTerms": [
+      "Git",
+      "GitHub",
+      "Python",
+      "OpenCV",
+      "NumPy",
+      "Matplotlib",
+      "Gradio",
+      "Hugging Face",
+      "DenseNet"
+    ]
   },
   {
     "id": "defectrag",
@@ -213,7 +235,16 @@ window.PORTFOLIO_PROJECTS = [
     "learning": "A working AI application requires the full path to behave consistently: image handling, model inference, retrieved context, API responses, and the visitor interface.",
     "credit": "Uses established DINOv3 features and MVTec LOCO AD data. Visual localization and explanation quality depend on the completed model and reference-memory pipeline.",
     "repository": "https://github.com/WAYTECHG/DefectRAG",
-    "demo": "https://huggingface.co/spaces/Wizzas/defectrag-inference"
+    "demo": "https://huggingface.co/spaces/Wizzas/defectrag-inference",
+    "searchTerms": [
+      "Git",
+      "GitHub",
+      "Python",
+      "PyTorch",
+      "NumPy",
+      "Cloudinary",
+      "Hugging Face"
+    ]
   },
   {
     "id": "dpickleball",
@@ -258,7 +289,16 @@ window.PORTFOLIO_PROJECTS = [
     "credit": "Collaborative XMUM coursework. The environment is provided by the original dPickleBall project; my contribution focused on agent training, experimentation and evaluation.",
     "upstream": "https://github.com/dPickleball/dPickleBallEnv",
     "repository": "https://github.com/WAYTECHG/dpickleball-reinforcement-learning-agent",
-    "video": "https://www.youtube.com/live/CitFn9FK12s"
+    "video": "https://www.youtube.com/live/CitFn9FK12s",
+    "searchTerms": [
+      "Git",
+      "GitHub",
+      "NumPy",
+      "Conda",
+      "Reward shaping",
+      "Curriculum learning",
+      "Policy evaluation"
+    ]
   },
   {
     "id": "resucn",
@@ -299,7 +339,16 @@ window.PORTFOLIO_PROJECTS = [
     "outcome": "The project reported 91.45% classification accuracy on CIFAR-10 and a 69% reduction in model parameters relative to the ResNet-18 baseline used in the coursework.",
     "learning": "Compression needs to be evaluated alongside predictive performance. Architectural changes should be supported by controlled comparisons and clear reporting.",
     "credit": "Group authors: Wilbert Andrew Yonathan, Chua Kian Hoong, Edward Ooi Wee Xue, Derol Chong Chung Kit, Wang Xinyi, and Siah Jieh Sheng. Outcomes are reported in the group repository, building on established residual-network ideas.",
-    "repository": "https://github.com/WAYTECHG/Res_UCN-Resnet-Unified-Convolution-Network"
+    "repository": "https://github.com/WAYTECHG/Res_UCN-Resnet-Unified-Convolution-Network",
+    "searchTerms": [
+      "Git",
+      "GitHub",
+      "Python",
+      "CNN",
+      "ResNet",
+      "Matplotlib",
+      "NumPy"
+    ]
   },
   {
     "id": "fer",
@@ -342,7 +391,16 @@ window.PORTFOLIO_PROJECTS = [
     "learning": "Model comparisons need consistent preprocessing and class-level analysis. Live input also makes cropping and image handling part of the prediction pipeline.",
     "credit": "FER2013 is the established dataset used for the coursework. Predictions describe dataset expression categories; they are not a reliable reading of a person’s internal emotional state.",
     "repository": "https://github.com/WAYTECHG/FER2013-Project",
-    "evidence": "https://github.com/WAYTECHG/FER2013-Project/blob/main/json_files/test_results_CNN.json"
+    "evidence": "https://github.com/WAYTECHG/FER2013-Project/blob/main/json_files/test_results_CNN.json",
+    "searchTerms": [
+      "Git",
+      "GitHub",
+      "Python",
+      "CNNs",
+      "ResNet",
+      "Matplotlib",
+      "NumPy"
+    ]
   },
   {
     "id": "mri",
@@ -383,6 +441,13 @@ window.PORTFOLIO_PROJECTS = [
     "outcome": "An educational prototype and model-comparison repository. The MRI input path needs further implementation validation; this portfolio does not present it as a clinically validated or deployment-ready diagnostic tool.",
     "learning": "A clear input and output flow helps people inspect a model’s behavior, but a usable interface does not establish clinical reliability.",
     "credit": "Educational machine-learning coursework and interface work. Clinical validation and real medical use are outside its scope.",
-    "repository": "https://github.com/WAYTECHG/Alzheimer-Detection"
+    "repository": "https://github.com/WAYTECHG/Alzheimer-Detection",
+    "searchTerms": [
+      "Git",
+      "GitHub",
+      "NumPy",
+      "Pandas",
+      "Matplotlib"
+    ]
   }
 ];

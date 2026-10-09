@@ -11,7 +11,7 @@
     return projects.filter(p=>{
       if(category!=='all'&&p.category!==category)return false;
       if(savedOnly&&!savedIds.has(p.id))return false;
-      const text=[p.title,p.short,p.description,p.summary,p.status,...p.tags].join(' ').toLowerCase();
+      const text=[p.title,p.short,p.description,p.summary,p.status,...p.tags,...(p.searchTerms||[])].join(' ').toLowerCase();
       return words.every(word=>text.includes(word));
     });
   }
@@ -43,7 +43,7 @@
     const body=`Hi Wilbert,\n\nI explored your portfolio and would like to discuss:\n\n${selected.map(p=>'• '+p.title).join('\n')}\n\nPlease let me know your availability for a conversation.\n\nBest regards,\n`;
     return 'mailto:'+email+'?subject='+encodeURIComponent('Let’s discuss your portfolio projects')+'&body='+encodeURIComponent(body);
   }
-  const sections=[['home','Start here','Introduction & availability'],['about','About Wilbert','Background & education'],['projects','Project collection','Research & applications'],['skills','Skills & tools','Vision, code & deployment'],['milestones','Milestones','Scholarship & leadership'],['contact','Get in touch','Internships & part-time opportunities']];
+  const sections=[['home','Start here','Introduction & availability'],['about','About Wilbert','Background & education'],['coursework','Relevant coursework','Academic foundations & practical purpose'],['projects','Project collection','Research & applications'],['skills','Skills & tools','Vision, reinforcement learning, code & deployment'],['milestones','Milestones','Scholarship & leadership'],['contact','Get in touch','Internships & part-time opportunities']];
   function commandEntries(query=''){
     const q=String(query).toLowerCase().trim();
     return [...sections.map(([id,title,detail])=>({type:'section',id,title,detail})),...projects.map(p=>({type:'project',id:p.id,title:p.title,detail:p.tags.join(' · ')}))].filter(item=>!q||(item.title+' '+item.detail).toLowerCase().includes(q));
@@ -78,9 +78,9 @@
   $('#reset-search').addEventListener('click',resetFilters);
   $('#share-shortlist').addEventListener('click',()=>{const href=shortlistMail(saved);if(href)window.location.href=href;});
   updateSaved();
-  $$('.skill-card .tags span').forEach(tag=>{
-    const text=tag.textContent;const button=document.createElement('button');button.textContent=text;button.className='skill-tag';button.setAttribute('aria-label','Find projects mentioning '+text);
-    button.addEventListener('click',()=>{resetFilters();$('#project-search').value=text;applyFilters();$('#projects').scrollIntoView({behavior:document.documentElement.classList.contains('no-motion')?'instant':'smooth'});});
+  $$('.skill-card .tags span:not([data-static])').forEach(tag=>{
+    const text=tag.textContent;const query=tag.dataset.query||text;const button=document.createElement('button');button.textContent=text;button.className='skill-tag';button.setAttribute('aria-label','Find projects mentioning '+text);
+    button.addEventListener('click',()=>{resetFilters();$('#project-search').value=query;applyFilters();$('#projects').scrollIntoView({behavior:document.documentElement.classList.contains('no-motion')?'instant':'smooth'});});
     tag.replaceWith(button);
   });
   let benchmarkProject='marine',benchmarkBaseline='yolo',benchmarkMetric='map50';

@@ -1,0 +1,18 @@
+/* Academic foundations and the expanded toolkit share the existing palette. */
+.coursework-section{border-top:1px solid var(--border-dark)}
+.coursework-section .section-heading p{max-width:780px}
+.coursework-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.course-card{position:relative;display:flex;flex-direction:column;align-items:flex-start;padding:27px;border:1px solid var(--border-dark);border-radius:24px;background:var(--navy)}
+.course-index{color:var(--accent);font-size:12px;letter-spacing:1.3px;margin-bottom:18px}
+.course-card h3{color:var(--white);font-size:22px;line-height:1.35;letter-spacing:-.4px;margin:0 0 14px}
+.course-card p{color:var(--slate-light);font-size:15px;line-height:1.75;margin:0 0 22px}
+.course-link{margin-top:auto;padding:0;background:transparent;color:var(--white);font-size:13px;line-height:1.7;text-align:left;border-bottom:1px solid var(--royal)}
+.course-link span{color:var(--accent);margin-left:5px}
+.course-link:hover{color:var(--slate-light);border-color:var(--accent)}
+.skills-grid{grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch}
+.skill-card h3{padding-right:30px}
+.skill-card .tags{gap:8px}
+.skill-card .tags [data-static]{font-size:14px;min-height:38px;padding:7px 10px;border-radius:9px;display:inline-flex;align-items:center}
+@media(max-width:1100px){.coursework-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.skills-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:850px){.course-card{padding:25px}.skills-grid{grid-template-columns:1fr}}
+@media(max-width:560px){.coursework-grid{grid-template-columns:1fr;gap:16px}.course-card{padding:24px;border-radius:20px}.course-card h3{font-size:22px}.course-card p{font-size:16px}.course-link{font-size:14px}.course-index{margin-bottom:13px}}

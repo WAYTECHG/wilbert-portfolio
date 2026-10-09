@@ -4,8 +4,9 @@ A public, responsive internship portfolio built with HTML, CSS and JavaScript. N
 
 ## Content and appearance
 
-- `dist/index.html`: profile, education, leadership, scholarship, availability and contact.
-- `dist/projects.js`: six verified case studies, reported metrics, contributions, credits and demo links.
+- `dist/index.html`: profile, relevant coursework, education, leadership, scholarship, availability and contact.
+- `dist/projects.js`: seven verified case studies, reported metrics, contributions, credits, demo links and searchable tools.
+- `dist/coursework.css`: nine course cards above Projects and a responsive four-card toolkit, with a separate reinforcement learning category.
 - `styles.css`, `identity.css`, `motion.css`: foundational layout, typography, project orbit and transitions.
 - `studio.css`: soft white reading surfaces, blue/orange accents, solid outlines, gallery and chatbot.
 - `palette.css`: the exact user-defined navy, royal blue, warm orange and soft white palette across every surface, label, control, search field and chatbot. Orange is reserved for small accents; body text retains readable contrast.
@@ -38,3 +39,11 @@ Semantic landmarks, skip link, visible focus, keyboard tabs/carousel, native ima
 Static output: `dist`. Config: `vercel.json`. See `DEPLOY-VERCEL.md` to update the existing Vercel project. Packages exclude hosting identity, Git metadata and credentials.
 
 Validated syntax, assets, IDs, anchors and configuration; existing search/filter/shortlist/modal flows; carousel keyboard/swipe synchronization; chatbot answers, follow-ups, safe text rendering and links; image viewer navigation/focus; default-on animation and reduced-motion/visibility lifecycle. Interaction checks use a DOM and mocked canvas. Actual browser layout and real-device touch were not verified in this session.
+
+## Latest update — 9 October 2026
+
+Reinforcement learning is a dedicated toolkit category: PPO, Unity ML-Agents, reward shaping, curriculum learning, self-play and policy evaluation. Additional used tools include Keras, Conda, Seaborn, FAISS, BM25, Cloudinary, Render and Vercel. General programming and hosting tools without a matching AI case study remain informational labels; clickable skills filter the related projects.
+
+Relevant coursework uses the nine names confirmed by Wilbert: Linear Algebra, Principle of AI, Natural Language Processing, Deep Learning, Advanced Machine Learning, Computer Vision, Deep Reinforcement Learning, Advanced Data Analysis and Software Engineering. Each course includes its practical purpose and a related-work link; these links show applications of the foundations and do not assert that every linked project was assessed in that particular course.
+
+Internship duration is 3–5 months across the website, recruiter introduction and assistant. The start date remains 29 March 2027. Checks passed for all JavaScript syntax, assets, anchors, coursework placement, all 33 clickable skill searches, coursework search/assistant responses and availability consistency. Browser layout testing was unavailable. The production website has not been redeployed from this session.

@@ -57,3 +57,13 @@ Marine demo links now point to https://marine-object-detection.onrender.com, inc
 Replace the complete dist folder in the GitHub repository linked to your existing Vercel project. Keep root vercel.json. New asset: dist/assets/project-images/dpickleball-competition.png.
 
 The current Vercel connection could not locate the production project. This package has been prepared and checked locally; it has not been deployed to https://wilbert-andrew-yonathan.vercel.app/. No new Vercel project was created.
+
+## Skills, coursework, and availability update — 9 October 2026
+
+- Four toolkit cards now separate vision, reinforcement learning, code/experiments, and applications/retrieval.
+- Verified additions include reward shaping, curriculum learning, self-play, policy evaluation, Keras, Conda, Seaborn, FAISS, BM25, Cloudinary, Render, and Vercel.
+- Nine relevant courses confirmed by Wilbert appear immediately before Projects, each with a practical purpose and related-work link. Navigation, quick search, and the assistant include coursework.
+- Internship duration is 3–5 months throughout the website and assistant. Start date remains 29 March 2027.
+- Upload the complete updated dist folder, including the new coursework.css. No build or install step is required.
+
+The connected Vercel account has no visible projects or teams. The existing production website has not been redeployed from this session.
