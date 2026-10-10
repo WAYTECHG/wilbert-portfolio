@@ -20,3 +20,5 @@ The projects are Marine detection, PaddyLiteX, dPickleball, Res UCN, facial expr
 See `CERTIFICATES.md` for the document inventory and `DEPLOY-VERCEL.md` for deployment. The supplied review HTML embeds necessary assets for local review. This package has not changed the live Vercel site.
 
 Project order: PaddyLiteX, Marine, dPickleball, Res UCN, FER, Alzheimer classification. Periods follow Wilbert’s supplied dates. Languages: English, Mandarin, Indonesian, Malay and Hokkien; proficiency ratings are not inferred.
+
+Latest demo destinations: PaddyLiteX — https://paddylitex.onrender.com/ ; FER2013 — https://fer2013-project.onrender.com/ . FER2013 uses the supplied FER LAB screenshot for its card and case-study cover, retaining Grad-CAM and confusion-matrix evidence in the gallery. GitHub: https://github.com/WAYTECHG/FER2013-Project .

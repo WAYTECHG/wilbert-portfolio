@@ -42,7 +42,7 @@ window.PORTFOLIO_PROJECTS = [
     "learning": "A fair architecture comparison depends on more than a promising model: consistent training, clean splits, and clearly scoped ablations are essential.",
     "credit": "YOLOv8 and DenseNet are established architectures. My work adapts their backbone path with DenseLiteX, SPPF, and C2PSA for paddy detection. Figures are recorded in config/models.json in my demo repository; research and documentation continue.",
     "repository": "https://github.com/WAYTECHG/PaddyLiteX-demo",
-    "demo": "https://huggingface.co/spaces/Wizzas/PaddyLiteX",
+    "demo": "https://paddylitex.onrender.com/",
     "tableCaption": "PaddyLiteX held-out test results, 803 images and nine classes; one run per model",
     "table": [
       [
@@ -298,11 +298,11 @@ window.PORTFOLIO_PROJECTS = [
   },
   {
     "id": "fer",
-    "title": "Facial expression recognition",
-    "short": "Expression recognition",
+    "title": "FER2013 — Facial expression recognition",
+    "short": "FER2013",
     "category": "application",
     "year": "May 2025 – Jul 2025",
-    "status": "Completed coursework · webcam pipeline",
+    "status": "Completed coursework · web demo",
     "kicker": "REAL-TIME VISION / EMOTION CLASSIFICATION",
     "description": "A custom TensorFlow/Keras CNN compared with VGG16, MobileNetV2 and ResNet50 on FER2013, with Grad-CAM and an OpenCV inference workflow.",
     "tags": [
@@ -346,7 +346,8 @@ window.PORTFOLIO_PROJECTS = [
       "ResNet",
       "Matplotlib",
       "NumPy"
-    ]
+    ],
+    "demo": "https://fer2013-project.onrender.com/"
   },
   {
     "id": "mri",

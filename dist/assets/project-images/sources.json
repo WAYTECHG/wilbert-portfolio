@@ -71,12 +71,22 @@
   },
   {
     "file": "assets/project-images/paddy-frontpage.webp",
-    "source": "https://huggingface.co/spaces/Wizzas/PaddyLiteX",
-    "page": "https://huggingface.co/spaces/Wizzas/PaddyLiteX",
+    "source": "https://paddylitex.onrender.com/",
+    "page": "https://paddylitex.onrender.com/",
     "label": "paddy demo front page",
     "caption": "Website front-page screenshot supplied by Wilbert on 5 October 2026; interface preview, not inference output.",
     "width": 1600,
     "height": 778,
     "bytes": 52826
+  },
+  {
+    "file": "assets/project-images/fer-frontpage.png",
+    "source": "User-supplied screenshot, 10 October 2026",
+    "page": "https://fer2013-project.onrender.com/",
+    "label": "FER2013 demo front page",
+    "caption": "Unmodified screenshot supplied by Wilbert; website interface preview.",
+    "width": 1817,
+    "height": 797,
+    "bytes": 315030
   }
 ]

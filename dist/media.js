@@ -13,8 +13,9 @@
   };
   media.mri=media.alzheimer;
   const frontpages={
+    fer:{file:root+'fer-frontpage.png',label:'Demo website front page',alt:'FER LAB website front page showing A face. Seven expressions. and a seven-class expression atlas',caption:'FER2013 demo website front page supplied by Wilbert. Explore the live interface, or use the gallery to inspect recorded Grad-CAM and evaluation outputs.',source:'https://fer2013-project.onrender.com/',width:1817,height:797},
     marine:{file:root+'marine-frontpage.webp',label:'Demo website front page',alt:'Marine Vision Lab front page with Intelligence Below the surface heading and underwater research preview',caption:'Marine Vision Lab website front page, from the screenshot supplied by Wilbert. This shows the demo interface, not a detection result.',source:'https://marine-object-detection.onrender.com',width:1600,height:834},
-    paddy:{file:root+'paddy-frontpage.webp',label:'Demo website front page',alt:'PaddyLiteX detection studio front page with A closer look A clearer comparison heading',caption:'PaddyLiteX website front page, from the screenshot supplied by Wilbert. The leaf graphic belongs to the demo interface; it is not a model prediction.',source:'https://huggingface.co/spaces/Wizzas/PaddyLiteX',width:1600,height:778},
+    paddy:{file:root+'paddy-frontpage.webp',label:'Demo website front page',alt:'PaddyLiteX detection studio front page with A closer look A clearer comparison heading',caption:'PaddyLiteX website front page, from the screenshot supplied by Wilbert. The leaf graphic belongs to the demo interface; it is not a model prediction.',source:'https://paddylitex.onrender.com/',width:1600,height:778},
   };
   Object.entries(frontpages).forEach(([id,m])=>{media[id+'Site']=m;});
   const missing={marine:{label:'Recorded research results',source:'https://github.com/WAYTECHG/GhostConv-and-SimSPPF-Integration-for-Marine-Organism-Detection'},paddy:{label:'Recorded thesis results',source:'https://github.com/WAYTECHG/PaddyLiteX-demo/blob/main/config/models.json'}};

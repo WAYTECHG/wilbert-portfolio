@@ -3,7 +3,7 @@
   const $=s=>document.querySelector(s), esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const projects=window.PORTFOLIO_PROJECTS, dialog=$('#project-dialog');
   let current=null,lastFocus=null,returnHash='#projects';
-  const mediaIds={marine:['marineSite'],paddy:['paddySite'],dpickleball:['dpickleball'],resucn:['resucn'],fer:['fer','ferMatrix'],mri:['mri']};
+  const mediaIds={marine:['marineSite'],paddy:['paddySite'],dpickleball:['dpickleball'],resucn:['resucn'],fer:['ferSite','fer','ferMatrix'],mri:['mri']};
   const link=(url,label,primary=false)=>`<a class="${primary?'case-button':'demo-link'}" href="${esc(url)}" target="_blank" rel="noopener noreferrer">${label} <span aria-hidden="true">↗</span></a>`;
   const nav=[['overview','Overview'],['work','My contribution'],['results','Results'],['evidence','Evidence'],['reflection','Lessons & credits']];
   function render(p){
@@ -23,7 +23,7 @@
     const section=e.target.closest('[data-story-section]');
     if(section){$('#story-'+section.dataset.storySection).scrollIntoView({behavior:document.documentElement.classList.contains('no-motion')?'auto':'smooth',block:'start'});dialog.querySelectorAll('[data-story-section]').forEach(b=>{if(b===section)b.setAttribute('aria-current','location');else b.removeAttribute('aria-current');});}
     const photo=e.target.closest('[data-story-photo]');
-    if(photo){const m=window.PortfolioMedia[photo.dataset.storyPhoto];$('#story-photo').innerHTML=`<figure class="dialog-media"><img src="${esc(m.file)}" alt="${esc(m.alt)}" width="${m.width}" height="${m.height}"><figcaption>${esc(m.caption)} ${link(m.source,'Original source')}</figcaption></figure>`;dialog.querySelectorAll('[data-story-photo]').forEach(b=>b.setAttribute('aria-pressed',b===photo));}
+    if(photo){const m=window.PortfolioMedia[photo.dataset.storyPhoto];$('#story-photo').innerHTML=`<figure class="dialog-media"><img src="${esc(m.file)}" alt="${esc(m.alt)}" width="${m.width}" height="${m.height}"><figcaption>${esc(m.caption)} ${link(m.source,photo.dataset.storyPhoto.endsWith('Site')?'Visit demo':'Original source')}</figcaption></figure>`;dialog.querySelectorAll('[data-story-photo]').forEach(b=>b.setAttribute('aria-pressed',b===photo));}
     const next=e.target.closest('[data-story-project]');if(next)open(next.dataset.storyProject,null);
     if(e.target.closest('#project-copy')){try{await navigator.clipboard.writeText(location.href);$('#story-status').textContent='Project link copied.';}catch{$('#story-status').textContent='Copy this project link from your address bar.';}}
     if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();}

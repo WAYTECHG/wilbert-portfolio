@@ -28,3 +28,6 @@
 @media(max-width:700px){.stack-ribbon{gap:14px}.stack-ribbon>.stack-label{font-size:8px}.stack-set{gap:30px;padding-right:30px}.stack-item{font-size:12px}.stack-ribbon>a{font-size:9px}.metric-orbit{width:68px;height:68px;left:-7px}.benchmark-projects button{font-size:10px}}
 @media(prefers-reduced-motion:reduce){.stack-track,.stack-item i,.metric-orbit i,.result-orbit i{animation:none}.stack-track{width:100%}.stack-set{flex-wrap:wrap;gap:12px;padding:0}.stack-set[aria-hidden]{display:none}.stack-window{mask-image:none}.benchmark-projects button:hover{transform:none}}
 .no-motion .stack-track{animation:none;transform:none;width:100%}.no-motion .stack-set{flex-wrap:wrap;gap:12px;padding:0}.no-motion .stack-set[aria-hidden]{display:none}.no-motion .stack-window{mask-image:none}
+
+/* Direct project destinations, using the existing link style. */
+.card-links{display:flex;gap:16px;flex-wrap:wrap;margin-top:18px}
