@@ -31,3 +31,12 @@
 
 /* Direct project destinations, using the existing link style. */
 .card-links{display:flex;gap:16px;flex-wrap:wrap;margin-top:18px}
+
+/* Fill FER preview frames; retain the full screenshot in the detail gallery. */
+.card-art:has(img[alt*="FER LAB"]),
+.deck-art:has(img[alt*="FER LAB"]),
+.feature-art:has(img[alt*="FER LAB"]){overflow:hidden}
+.card-art img.project-photo[alt*="FER LAB"],
+.deck-art img.project-photo[alt*="FER LAB"],
+.feature-art img.project-photo[alt*="FER LAB"]{display:block;width:100%;height:100%;max-height:none;object-fit:cover;object-position:top center}
+.snapshot-window img[alt*="FER LAB"]{object-fit:cover;object-position:top center}
