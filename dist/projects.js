@@ -409,6 +409,7 @@ window.PORTFOLIO_PROJECTS = [
       "Bayesian optimization"
     ],
     "evidence": "https://canva.link/xng3za0us10hzki",
-    "evidenceLabel": "Project presentation"
+    "evidenceLabel": "Project presentation",
+    "demo": "https://alzheimer-classification-l7s2.onrender.com/#home"
   }
 ];
