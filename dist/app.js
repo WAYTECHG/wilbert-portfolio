@@ -39,7 +39,7 @@
   let toastTimeout;
   function toast(message){const node=$('.toast');node.textContent=message;node.classList.add('visible');clearTimeout(toastTimeout);toastTimeout=setTimeout(()=>node.classList.remove('visible'),2800);}
   $('#copy-email').addEventListener('click',async()=>{
-    const email='30587wilbertandrewtyonathan@gmail.com';
+    const email='wilbertyonathan@gmail.com';
     try{if(!navigator.clipboard?.writeText)throw new Error('No clipboard');await navigator.clipboard.writeText(email);toast('Email copied. Let’s connect!');}
     catch{const range=document.createRange();range.selectNodeContents($('.email-address'));const selection=window.getSelection();selection.removeAllRanges();selection.addRange(range);toast('Email selected — press Ctrl/Cmd + C to copy.');}
   });

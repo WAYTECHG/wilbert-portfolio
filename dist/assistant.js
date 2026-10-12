@@ -1,7 +1,7 @@
 'use strict';
 (() => {
   const projects=window.PORTFOLIO_PROJECTS;
-  const email='30587wilbertandrewtyonathan@gmail.com';
+  const email='wilbertyonathan@gmail.com';
   const normalize=s=>String(s).toLowerCase().normalize('NFKD').replace(/[–—]/g,' ').replace(/[^a-z0-9+.% ]/g,' ').replace(/\s+/g,' ').trim();
   const section=(id,label)=>({href:'#'+id,label});
   const projectLink=p=>({project:p.id,label:p.short+' case study'});
