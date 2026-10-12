@@ -11,7 +11,9 @@ A responsive internship portfolio preserving the navy, royal blue, orange and so
 - Search, filters, local shortlist, command menu, curated portfolio assistant and mobile navigation.
 - Skippable WAY laser opening, word detection outlines, navigation reticle and stars. Reduced-motion preferences and hidden tabs pause decorative motion.
 
-The projects are Marine detection, PaddyLiteX, dPickleball, Res UCN, facial expression recognition and educational Alzheimer classification. The three expandable exploration sections are removed. Each project's case study retains its own evidence and results.
+The projects are Marine detection, PaddyLiteX, dPickleball, Res UCN, facial expression recognition and NeuroInsight Alzheimer’s disease classification. The three expandable exploration sections are removed. Each project's case study retains its own evidence and results.
+
+October 12 update: PaddyLiteX reports 81.67% mAP@0.5, 55.83% mAP@0.5:0.95, 2,879,917 parameters and 14.2 reported GFLOPs. Its comparison distinguishes the DenseNet-121 baseline from original YOLOv8n. NeuroInsight uses the supplied Streamlit home-page screenshot, with the original evaluation image available in its gallery. Its revised case study describes the nine classifier families and three labels documented in the renamed Alzheimer-Disease-Classification repository. The Canva presentation could not be read; presentation-specific results are not added.
 
 ## Main files
 
