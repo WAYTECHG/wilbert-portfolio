@@ -351,45 +351,45 @@ window.PORTFOLIO_PROJECTS = [
   },
   {
     "id": "mri",
-    "title": "NeuroInsight · Alzheimer’s disease classification",
+    "title": "NeuroInsight · Alzheimer’s MRI & Clinical Classification",
     "short": "NeuroInsight",
     "category": "application",
     "year": "Oct 2024 – Dec 2024",
     "status": "Educational prototype · further validation needed",
     "kicker": "APPLIED MACHINE LEARNING / CLASSIFICATION",
-    "description": "Compared nine classifier families for three Alzheimer’s-related classification labels and built a multi-page Streamlit application for exploring data and model outputs.",
+    "description": "Developed the MRI prediction and Streamlit interface for a team project combining VGG16 image classification with clinical-data machine learning; the presentation reports 91% MRI test accuracy.",
     "tags": [
+      "VGG16",
+      "TensorFlow",
       "Streamlit",
       "scikit-learn",
-      "GridSearchCV",
-      "Python",
-      "Classification"
+      "GPyOpt"
     ],
     "metrics": [
       [
-        "9",
-        "Classifier families"
+        "91%",
+        "Reported MRI accuracy"
       ],
       [
-        "3",
-        "Classification labels"
+        "92%",
+        "Reported MRI F1"
       ],
       [
-        "Streamlit",
-        "Interactive application"
+        "72%",
+        "Reported clinical accuracy"
       ]
     ],
-    "summary": "This coursework explores classification of Alzheimer’s disease (AD), late mild cognitive impairment (LMCI), and cognitively normal (CN) labels using structured clinical features. The experiments compare classical machine-learning approaches, while the application brings explanatory content, prediction views and data exploration into one interface.",
+    "summary": "Two complementary classification workflows bring brain MRI images and structured clinical features into one Streamlit application. The team compared nine clinical classifier families on ADNI data and explored VGG16 for a Kaggle MRI dataset containing more than 6,400 images. My contribution focused on MRI prediction and interface development.",
     "contributions": [
-      "Prepared structured data with missing-value handling and categorical encoding, and explored SMOTE for class imbalance.",
-      "Compared LDA, logistic regression, random forest, ridge, gradient boosting, MLP, XGBoost, SVM and SGD classifiers.",
-      "Used GridSearchCV for hyperparameter tuning and examined accuracy, precision, recall, F1-score, confusion matrices and feature importance.",
-      "Built a multi-page Streamlit interface with explanatory content, structured-data prediction, MRI upload, chatbot and about pages."
+      "Contributed MRI prediction using VGG16, with image resizing, normalization and augmentation explored in the training workflow.",
+      "Explored MRI hyperparameter tuning with Bayesian optimization using GPyOpt, alongside Adam-based training.",
+      "Developed the Streamlit interface to present MRI uploads, predictions and project information.",
+      "Collaborated on a team application combining clinical-data classification, MRI prediction, explanatory pages and a chatbot."
     ],
-    "outcome": "Compared nine classifier families across three labels and brought the coursework experiments into a five-page Streamlit application. The repository records baseline and tuned-model evaluations, including Random Forest confusion matrices and feature-importance analysis. The notebook applies SMOTE before its train/test split, so those recorded scores need re-evaluation with resampling restricted to training folds before they can support a reliable generalisation claim. The MRI inference path also needs further validation; this remains an educational project.",
+    "outcome": "The project presentation reports VGG16 MRI test accuracy of 91%, precision of 92%, recall of 92% and F1 of 92%. Clinical Logistic Regression reports 72% accuracy, 72% precision, 71% recall and 71% F1. GridSearchCV tuning reduced clinical accuracy from 72% to 69%, so tuning is not presented as an improvement. These are recorded coursework results, not independently reproduced scores. The clinical notebook applies SMOTE before its train/test split and needs evaluation with training-only resampling. The current MRI application preprocessing also needs correction and validation before its predictions can be considered reliable.",
     "learning": "Model selection requires checking the evaluation pipeline as carefully as the classifier. Resampling should stay within training data, cross-validation and held-out scores should be distinguished, and an interface should clearly communicate its educational scope.",
-    "credit": "Educational coursework and Streamlit interface work. The repository contains the original experiments and application source. The linked presentation is supplementary evidence; clinical validation is outside the project scope.",
-    "repository": "https://github.com/WAYTECHG/Alzheimer-Disease-Classification",
+    "credit": "Team coursework. The presentation credits Wilbert Andrew Yonathan with MRI prediction and interface development. Clinical experiments and other team contributions are distinguished from my personal work.",
+    "repository": "https://github.com/WAYTECHG/alzheimer-classification",
     "searchTerms": [
       "Git",
       "GitHub",
@@ -403,7 +403,10 @@ window.PORTFOLIO_PROJECTS = [
       "LDA",
       "SVM",
       "MLP",
-      "NeuroInsight"
+      "NeuroInsight",
+      "VGG16",
+      "MRI",
+      "Bayesian optimization"
     ],
     "evidence": "https://canva.link/xng3za0us10hzki",
     "evidenceLabel": "Project presentation"

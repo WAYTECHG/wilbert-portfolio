@@ -52,7 +52,7 @@
   {
     "file": "assets/project-images/alzheimer-evaluation.webp",
     "source": "https://raw.githubusercontent.com/WAYTECHG/Alzheimer-Detection/main/alzheimer_prediction.ipynb",
-    "page": "https://github.com/WAYTECHG/Alzheimer-Detection/blob/main/alzheimer_prediction.ipynb",
+    "page": "https://github.com/WAYTECHG/alzheimer-classification/blob/main/alzheimer_prediction.ipynb",
     "label": "Clinical ML coursework evaluation",
     "caption": "Random Forest confusion matrix embedded in the project notebook; educational model evaluation, not clinical validation.",
     "width": 533,
