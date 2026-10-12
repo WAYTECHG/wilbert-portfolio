@@ -1,0 +1,24 @@
+/* A quiet, deep starfield. Reading cards retain their light surfaces. */
+:root{--bg:#050a12;--text:#edf3fb;--muted:#b9c8d9;--line:#748fa34f;--cyan:#9cd3ff;color-scheme:dark}
+body{background:#050a12;color:var(--text)}
+.space-nebula{background:radial-gradient(ellipse at 14% 15%,#17437016,transparent 48%),radial-gradient(ellipse at 88% 75%,#213a5710,transparent 42%)}
+.space-contours{display:none}
+#particles{opacity:.85}.no-motion #particles{opacity:.72}
+.header{background:#081321e8;border-bottom-color:#7098be45;box-shadow:0 5px 24px #02060e38}
+.header .monogram,.header .brand-copy{color:#e5f0ff}.header .brand-copy small,.header .resume-link,.desktop-nav a{color:#c0d2e7}.desktop-nav a.active,.desktop-nav a:hover{color:#a9d5ff;background:#19304b}
+.menu-toggle span{background:#d5e6f8}.hero-eyebrow{color:#bdcce0}.hero-foot>span:first-child,.hero-foot a{color:#a2b9d2}
+.gradient,.hero h1 .gradient{background-image:linear-gradient(105deg,#79b3ff 0%,#b6e0ff 58%,#eab18c 100%)}
+.hero-description,.about-grid p:not(.large-copy),.section-heading p,.milestone-intro p,.timeline-item p,.contact-section>p{color:#bdcce0}
+.build-line{color:#cbd9eb}.build-symbol{color:#e1a77d}.hero-credentials>span{color:#e0ebf8}.hero-credentials small{color:#acc1db}
+.section-label,.section-count{color:#b7cbe1}.label-line,.eyebrow-rule{background:#7490ac60}.section-label:before{background:#e0a276}
+.intro-replay{color:#e2b18d;border-bottom-color:#b879506b}.intro-replay span{color:#edbe97}.intro-replay:hover{color:#ffcfab}
+.about-stats strong{color:#a8d1ff}.about-stats small,.about-stats strong span{color:#b4c8df}.about-links,.text-link,.contact-socials{color:#b2d5fc}.text-link span{color:#edb98e}.about-links a:hover,.contact-socials a:hover{color:#c8e4ff;background:#18314e}
+.evidence-heading .project-kicker,.deck-header .project-kicker{color:#e0ac88}.evidence-heading h3{color:#ecf3fd}.evidence-heading p,.evidence-footnote,.deck-hint,#deck-status,.toolbar-hint,.collection-footnote{color:#b0c6df}.evidence-count{color:#e0ac88}
+.section-heading>.code-label{color:#afd0ef}.timeline-date{color:#a5caf0}.role-label{color:#d6e4f4}.scholarship-note>span{color:#efbc8e}.scholarship-note small{color:#b3c9e1}
+.contact-section{background:radial-gradient(ellipse at 50% 60%,#21436616,transparent 65%)}.contact-section p strong{color:#d7e9ff}.email-address{color:#b4d9ff}.footer,.footer a:last-child{color:#b0c4db}.footer-brand{color:#c4e1ff}
+.section-dots a{background:#7894af;border-color:#a5c0da}.section-dots a span{color:#c8e2fc}.section-dots a.active{background:#e7ae83;border-color:#edc6a5}
+/* Local variables keep light cards and their paragraphs readable. */
+.identity-card,.skill-card,.benchmark-lab,.github-more,.project-card,.featured-shell,.deck-card,.evidence-card,.assistant-panel,dialog{--text:#18344e;--muted:#486078;--line:#9eafbe;--cyan:#125c9d;color:#18344e;color-scheme:light}
+.assistant-header{color:#eef5fc}.vision-lab{--line:#6384a3}
+.detection-intro{--text:#18344e;--muted:#486078}
+@media(prefers-reduced-motion:reduce){#particles{opacity:.72}}

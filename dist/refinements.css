@@ -1,0 +1,33 @@
+/* Upright labels, rotating accents, and a seamless toolkit loop. */
+.stack-ribbon{overflow:hidden;gap:24px}
+.stack-ribbon>.stack-label,.stack-ribbon>a{flex:none;position:relative;z-index:1}
+.stack-window{flex:1;min-width:0;overflow:hidden;mask-image:linear-gradient(90deg,transparent,var(--white) 4%,var(--white) 96%,transparent)}
+.stack-track{display:flex;width:max-content;animation:toolkit-loop 42s linear infinite}
+.stack-set{display:flex;align-items:center;gap:52px;padding-right:52px;flex:none}
+.stack-ribbon .stack-item{display:inline-flex!important;align-items:center;gap:10px;white-space:nowrap}
+.stack-item i{width:16px;height:16px;display:block;position:relative;border:1px solid var(--border-dark);border-top-color:var(--accent);border-right-color:var(--royal);border-radius:50%;animation:orbital-turn 9s linear infinite}
+.stack-item i:after{content:"";position:absolute;top:-2px;left:5px;width:3px;height:3px;border-radius:50%;background:var(--accent)}
+.stack-item:nth-child(even) i{animation-direction:reverse;animation-duration:13s}
+.stack-ribbon:hover .stack-track,.stack-ribbon:focus-within .stack-track{animation-play-state:paused}
+@keyframes toolkit-loop{to{transform:translateX(-50%)}}
+.feature-metrics>div{position:relative;isolation:isolate}
+.feature-metrics strong,.feature-metrics small{position:relative;z-index:1}
+.metric-orbit{position:absolute;left:-11px;top:50%;width:84px;height:84px;transform:translateY(-50%);pointer-events:none;z-index:-1}
+.metric-orbit i{position:absolute;inset:0;border:1px solid var(--border-light);border-radius:50%;border-top-color:var(--royal);animation:orbital-turn 12s linear infinite}
+.metric-orbit i:after{content:"";position:absolute;left:10px;top:10px;width:4px;height:4px;background:var(--accent);border-radius:50%}
+.metric-orbit i:nth-child(2){inset:8px;animation-duration:18s;animation-direction:reverse;border-top-color:var(--border-light)}
+.result-orbit i{animation-duration:12s}.result-orbit i:nth-child(2){animation-duration:18s}.result-orbit i:nth-child(3){animation-duration:24s}
+.benchmark-projects{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+.benchmark-projects button{font:inherit;font-size:11px;padding:9px 13px;border:1px solid var(--border-dark);border-radius:6px;background:var(--navy);color:var(--white);transition:background .2s,transform .2s}
+.benchmark-projects button[aria-pressed=true]{background:var(--royal);border-color:var(--royal)}
+.benchmark-projects button:hover{background:var(--royal-hover);transform:scale(1.025)}
+.benchmark-projects button:focus-visible{outline:2px solid var(--royal);outline-offset:3px}
+.baseline-caption{display:block;font-size:10px;color:var(--slate);margin-bottom:9px}
+#benchmark-baselines[hidden]{display:none}
+.deck-art .project-photo{object-fit:contain}
+@media(max-width:700px){.stack-ribbon{gap:14px}.stack-ribbon>.stack-label{font-size:8px}.stack-set{gap:30px;padding-right:30px}.stack-item{font-size:12px}.stack-ribbon>a{font-size:9px}.metric-orbit{width:68px;height:68px;left:-7px}.benchmark-projects button{font-size:10px}}
+@media(prefers-reduced-motion:reduce){.stack-track,.stack-item i,.metric-orbit i,.result-orbit i{animation:none}.stack-track{width:100%}.stack-set{flex-wrap:wrap;gap:12px;padding:0}.stack-set[aria-hidden]{display:none}.stack-window{mask-image:none}.benchmark-projects button:hover{transform:none}}
+.no-motion .stack-track{animation:none;transform:none;width:100%}.no-motion .stack-set{flex-wrap:wrap;gap:12px;padding:0}.no-motion .stack-set[aria-hidden]{display:none}.no-motion .stack-window{mask-image:none}
+
+/* Direct project destinations, using the existing link style. */
+.card-links{display:flex;gap:16px;flex-wrap:wrap;margin-top:18px}
