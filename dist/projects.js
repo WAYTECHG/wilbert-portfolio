@@ -294,7 +294,8 @@ window.PORTFOLIO_PROJECTS = [
       "ResNet",
       "Matplotlib",
       "NumPy"
-    ]
+    ],
+    "demo": "https://res-ucn.onrender.com/"
   },
   {
     "id": "fer",
