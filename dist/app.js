@@ -9,7 +9,7 @@
   const metrics=project=>`<div class="feature-metrics">${project.metrics.map(([value,label],i)=>`<div>${i===0&&['marine','paddy'].includes(project.id)?'<span class="metric-orbit" aria-hidden="true"><i></i><i></i></span>':''}<strong>${escape(value)}</strong><small>${escape(label)}</small></div>`).join('')}</div>`;
   const projectById=id=>projects.find(p=>p.id===id);
   const previews={
-    dpickleball:{title:'dPickleball',role:'Deep reinforcement learning project',description:'PPO agent training, reward shaping and competitive self-play in Unity.',result:'2nd / 13',label:'Team competition finish · AIT306 coursework'},
+    dpickleball:{title:'dPickleball',role:'Deep reinforcement learning project',description:'PPO agent training, reward shaping and competitive self-play in Unity.',result:'2nd place in team competition',label:'Team competition finish · AIT306 coursework'},
     marine:{title:'Marine detection',role:'Computer vision project',description:'GhostConv + SimSPPF for lightweight underwater organism detection.',result:'75.36%',label:'mAP@0.5 · +1.13 percentage points versus baseline'},
     paddy:{title:'PaddyLiteX',role:'Final-year thesis',description:'A compact DenseLiteX backbone for paddy disease detection.',result:'81.67%',label:'mAP@0.5 · 803 test images · one run per model'},
     resucn:{title:'Res UCN',role:'Advanced machine learning project',description:'An efficient residual network explored through custom convolution and normalization.',result:'91.45%',label:'CIFAR-10 accuracy · completed group coursework'},
