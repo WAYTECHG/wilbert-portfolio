@@ -53,17 +53,92 @@
     const reveal=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');reveal.unobserve(e.target);}}),{threshold:.08});
     $$('.reveal').forEach(el=>reveal.observe(el));document.documentElement.classList.add('js-reveal');
   }
-  let ticking=false;
+  const navigationSections=$$('main section[id]');
+  const sectionById=new Map(navigationSections.map(section=>[section.id,section]));
+  const navigationLinks=$$('.section-dots a,.desktop-nav a,#mobile-nav a');
+  let ticking=false,navigation=null,navigationFrame=0;
+  const number=value=>parseFloat(value)||0;
+  function setActiveSection(id){
+    navigationLinks.forEach(link=>{
+      const active=link.getAttribute('href')==='#'+id;
+      link.classList.toggle('active',active);
+      if(active)link.setAttribute('aria-current','location');else link.removeAttribute('aria-current');
+    });
+  }
+  function sectionPosition(section){
+    const padding=number(getComputedStyle(document.documentElement).scrollPaddingTop);
+    const margin=number(getComputedStyle(section).scrollMarginTop);
+    const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+    return Math.min(max,Math.max(0,window.scrollY+section.getBoundingClientRect().top-padding-margin));
+  }
   function updateScroll(){
     const max=document.documentElement.scrollHeight-window.innerHeight;
     $('.scroll-progress').style.width=(max>0?Math.min(100,window.scrollY/max*100):0)+'%';
-    const sections=$$('main section[id]');let current=sections[0].id;
-    sections.forEach(s=>{if(s.getBoundingClientRect().top<=window.innerHeight*.35)current=s.id;});
-    if(window.innerHeight+window.scrollY>=document.documentElement.scrollHeight-30)current='contact';
-    $$('.section-dots a,.desktop-nav a').forEach(a=>{const active=a.getAttribute('href')==='#'+current;a.classList.toggle('active',active);if(active)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current');});
+    let current=navigationSections[0]?.id;
+    const padding=number(getComputedStyle(document.documentElement).scrollPaddingTop);
+    const headerBottom=$('.header')?.getBoundingClientRect().bottom||0;
+    navigationSections.forEach(section=>{
+      const marker=Math.max(headerBottom+12,padding+number(getComputedStyle(section).scrollMarginTop)+2);
+      if(section.getBoundingClientRect().top<=marker)current=section.id;
+    });
+    if(max>0&&window.scrollY>=max-2)current='contact';
+    setActiveSection(navigation?.id||current);
     ticking=false;
   }
-  window.addEventListener('scroll',()=>{if(!ticking){ticking=true;requestAnimationFrame(updateScroll);}},{passive:true});window.addEventListener('resize',updateScroll);updateScroll();
+  function scheduleScrollUpdate(){
+    if(!ticking){ticking=true;requestAnimationFrame(updateScroll);}
+  }
+  function stopNavigation(){
+    if(navigationFrame)cancelAnimationFrame(navigationFrame);
+    navigationFrame=0;navigation=null;
+  }
+  function navigateTo(id,writeHistory=true){
+    const section=sectionById.get(id);if(!section)return;
+    stopNavigation();
+    // Cancel any native smooth scroll before starting a single owned animation.
+    window.scrollTo({top:window.scrollY,behavior:'instant'});
+    const start=window.scrollY,target=sectionPosition(section),distance=target-start;
+    const movement={id,start,target,distance,started:performance.now(),duration:Math.min(650,Math.max(220,Math.abs(distance)*.15))};
+    navigation=movement;setActiveSection(id);
+    if(writeHistory&&location.hash!=='#'+id)history.pushState(null,'','#'+id);
+    if(document.documentElement.classList.contains('no-motion')||Math.abs(distance)<2){
+      window.scrollTo({top:target,behavior:'instant'});stopNavigation();updateScroll();return;
+    }
+    function step(now){
+      if(navigation!==movement)return;
+      const progress=Math.min(1,Math.max(0,(now-movement.started)/movement.duration));
+      const eased=1-Math.pow(1-progress,3);
+      window.scrollTo({top:movement.start+movement.distance*eased,behavior:'instant'});
+      updateScroll();
+      if(progress<1)navigationFrame=requestAnimationFrame(step);
+      else{stopNavigation();updateScroll();}
+    }
+    navigationFrame=requestAnimationFrame(step);
+  }
+  document.addEventListener('click',event=>{
+    if(event.defaultPrevented||event.button!==0||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;
+    const link=event.target.closest('a[href^="#"]');
+    const id=link?.getAttribute('href').slice(1);
+    if(!sectionById.has(id))return;
+    event.preventDefault();navigateTo(id);
+  });
+  function interruptNavigation(){
+    if(!navigation)return;
+    stopNavigation();scheduleScrollUpdate();
+  }
+  window.addEventListener('wheel',interruptNavigation,{passive:true});
+  window.addEventListener('touchstart',interruptNavigation,{passive:true});
+  window.addEventListener('pointerdown',interruptNavigation,{passive:true});
+  window.addEventListener('keydown',event=>{
+    if(['ArrowUp','ArrowDown','PageUp','PageDown','Home','End',' '].includes(event.key))interruptNavigation();
+  });
+  window.addEventListener('scroll',scheduleScrollUpdate,{passive:true});
+  window.addEventListener('resize',()=>{stopNavigation();scheduleScrollUpdate();});
+  window.addEventListener('popstate',()=>{stopNavigation();navigateTo(location.hash.slice(1),false);});
+  document.addEventListener('portfolio:motion',()=>{
+    if(navigation&&document.documentElement.classList.contains('no-motion'))navigateTo(navigation.id,false);
+  });
+  updateScroll();
   const canvas=$('#particles');const ctx=canvas.getContext('2d');
   let dots=[],width=0,height=0,raf=0,lastFrame=0;
   const pointer={x:0,y:0,active:false,sx:0,sy:0};
