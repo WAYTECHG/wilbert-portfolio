@@ -1,7 +1,7 @@
 'use strict';
 (() => {
   const projects=window.PORTFOLIO_PROJECTS;
-  const email='30587wilbertandrewtyonathan@gmail.com';
+  const email='wilbertyonathan@gmail.com';
   const escape=text=>String(text).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const knownIds=new Set(projects.map(p=>p.id));
   const validSaved=values=>new Set(Array.isArray(values)?values.filter(id=>knownIds.has(id)):[]);
@@ -21,7 +21,7 @@
     const body=`Hi Wilbert,\n\nI explored your portfolio and would like to discuss:\n\n${selected.map(p=>'• '+p.title).join('\n')}\n\nPlease let me know your availability for a conversation.\n\nBest regards,\n`;
     return 'mailto:'+email+'?subject='+encodeURIComponent('Let’s discuss your portfolio projects')+'&body='+encodeURIComponent(body);
   }
-  const sections=[['home','Start here','Introduction & availability'],['about','About Wilbert','Background & education'],['coursework','Relevant coursework','Academic foundations & practical purpose'],['projects','Project collection','Research & applications'],['skills','Skills & tools','Vision, reinforcement learning, code & deployment'],['languages','Language capabilities','English, Mandarin, Indonesian, Malay & Hokkien'],['milestones','Milestones','Scholarship & leadership'],['contact','Get in touch','Internships & part-time opportunities']];
+  const sections=[['home','Start here','Introduction & availability'],['about','About Wilbert','Background & education'],['coursework','Relevant coursework','Academic foundations & practical purpose'],['projects','Project collection','Research & applications'],['skills','Skills & tools','Vision, RAG, reinforcement learning, applications & deployment'],['languages','Language capabilities','English, Mandarin, Indonesian, Malay & Hokkien'],['milestones','Milestones','Scholarship & leadership'],['contact','Get in touch','Internships & part-time opportunities']];
   function commandEntries(query=''){
     const q=String(query).toLowerCase().trim();
     return [...sections.map(([id,title,detail])=>({type:'section',id,title,detail})),...projects.map(p=>({type:'project',id:p.id,title:p.title,detail:p.tags.join(' · ')}))].filter(item=>!q||(item.title+' '+item.detail).toLowerCase().includes(q));

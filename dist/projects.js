@@ -1,6 +1,117 @@
 'use strict';
 window.PORTFOLIO_PROJECTS = [
   {
+    "id": "defectrag",
+    "title": "DefectRAG · visual anomaly inspection & RAG",
+    "short": "DefectRAG",
+    "category": "application",
+    "year": "Aug 2026 – Oct 2026",
+    "status": "Personal project · live cloud demo",
+    "kicker": "COMPUTER VISION / GENERATIVE AI / APPLICATION ENGINEERING",
+    "description": "Built an industrial visual inspection application combining DINOv2 anomaly heatmaps, an evidence-grounded RAG assistant, and a shared review dashboard.",
+    "tags": [
+      "DINOv2",
+      "LangGraph",
+      "RAG",
+      "PyTorch",
+      "React",
+      "Supabase",
+      "FastAPI",
+      "ZeroGPU"
+    ],
+    "metrics": [
+      [
+        "95.13%",
+        "Mean image AUROC"
+      ],
+      [
+        "98.60%",
+        "Mean pixel AUROC"
+      ],
+      [
+        "12",
+        "VisA product categories"
+      ]
+    ],
+    "summary": "Anomaly scores alone do not explain what an inspection measures or help people review it. DefectRAG connects nearest-normal visual inspection to saved measurements, attributed reference documents, and a React review interface. The goal is to make model evidence inspectable while keeping image measurements separate from generated explanations.",
+    "contributions": [
+      "Implemented frozen DINOv2 features, category-specific normal-reference banks, anomaly scoring and coarse patch-distance heatmaps.",
+      "Compared the original DINOv3 profile with a higher-resolution DINOv2 profile across all 12 VisA products, and examined threshold sensitivity and false-alarm trade-offs.",
+      "Integrated LangChain document processing, BGE retrieval, LangGraph routing and Qwen generation with citation, quote and numeric checks.",
+      "Built React/FastAPI inspection and review workflows, including batch history, staff notes, review alerts and reports.",
+      "Connected Supabase authentication and private shared records, and deployed queued model inference on Hugging Face ZeroGPU."
+    ],
+    "outcome": "The retrospective comparison reports mean image AUROC of 95.13%, versus 85.38% for the original DINOv3 profile, and mean pixel AUROC of 98.60%. The comparison covers 12 VisA products, 8,659 training-normal images, 2,162 test images and three seeds. Earlier test results informed development, so these are retrospective development results, not an untouched external validation. Normal-only threshold calibration improves sensitivity at the cost of more false alarms. Model scores are distances rather than defect probabilities; heatmaps are coarse localization, and the assistant does not diagnose defect types, causes or repairs.",
+    "learning": "A useful inspection application needs both model evaluation and clear evidence boundaries. I learned to separate ranking metrics from operating thresholds, preserve review history, validate retrieved citations, and manage the practical constraints of queued cloud inference.",
+    "credit": "DINOv2, DINOv3, BGE, Qwen, LangChain and LangGraph are established upstream models and tools. My work combines their integration, comparative evaluation, threshold calibration, evidence validation and review workflows. The visual encoders remain frozen; normal images populate memory banks rather than fine-tuning the backbone.",
+    "repository": "https://github.com/WAYTECHG/DefectRAG",
+    "demo": "https://huggingface.co/spaces/Wizzas/DefectRAG",
+    "evidence": "https://github.com/WAYTECHG/DefectRAG/blob/main/docs/ACCURACY_RESULTS.md",
+    "evidenceLabel": "Retrospective evaluation",
+    "tableCaption": "Retrospective macro means over 12 VisA products; three seeds; official train/test identities",
+    "table": [
+      [
+        "Metric",
+        "Original DINOv3",
+        "DINOv2 high resolution"
+      ],
+      [
+        "Image AUROC",
+        "85.38%",
+        "95.13%"
+      ],
+      [
+        "Image AU-PR",
+        "86.47%",
+        "95.74%"
+      ],
+      [
+        "Pixel AUROC",
+        "92.96%",
+        "98.60%"
+      ],
+      [
+        "Pixel AU-PR",
+        "33.29%",
+        "43.04%"
+      ]
+    ],
+    "searchTerms": [
+      "anomaly detection",
+      "visual inspection",
+      "generative AI",
+      "LLM",
+      "LangChain",
+      "BGE",
+      "Qwen",
+      "embeddings",
+      "retrieval",
+      "citations",
+      "VisA",
+      "memory bank",
+      "heatmaps",
+      "normal reference",
+      "Python",
+      "NumPy",
+      "SQLite",
+      "Docker",
+      "Git",
+      "GitHub",
+      "Hugging Face",
+      "Gradio",
+      "JavaScript",
+      "Vite",
+      "RLS",
+      "SQL",
+      "cloud deployment",
+      "Computer Vision",
+      "Deep Learning",
+      "evaluation",
+      "visual anomaly detection",
+      "generative AI"
+    ]
+  },
+  {
     "id": "paddy",
     "title": "PaddyLiteX · paddy disease detection",
     "short": "PaddyLiteX",

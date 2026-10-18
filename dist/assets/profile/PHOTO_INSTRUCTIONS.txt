@@ -1,0 +1,14 @@
+Add your portrait here and name the actual image file:
+
+profile.jpg
+
+Repository path: dist/assets/profile/profile.jpg
+
+Use your JPG portrait, not the screenshot of the file's Properties window.
+Your current 399 x 559 pixel image is supported. No resizing is required.
+The portrait frame preserves the image proportions and does not stretch it.
+Until you add the photo, the portfolio keeps a W / AY monogram.
+
+If Windows hides file extensions, rename the file to profile and confirm its
+type is JPG, so it becomes profile.jpg rather than profile.jpg.jpg.
+Commit the image along with the portfolio update. No further code edit is needed.

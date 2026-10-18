@@ -5,7 +5,7 @@
   const reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
   const moving=()=>!document.documentElement.classList.contains('no-motion')&&!reduced.matches&&!document.hidden;
   const escape=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  const phrases=['lightweight detectors','reinforcement learning agents','interactive AI applications','models worth exploring'];
+  const phrases=['lightweight detectors','visual inspection tools','RAG applications','reinforcement learning agents'];
   let wordIndex=0,wordTimer=0,wordAnimation=null;
   const word=$('#build-word');
   function stopWords(){clearTimeout(wordTimer);wordTimer=0;if(wordAnimation){wordAnimation.cancel();wordAnimation=null;}}

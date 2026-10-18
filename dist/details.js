@@ -3,7 +3,7 @@
   const $=s=>document.querySelector(s), esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const projects=window.PORTFOLIO_PROJECTS, dialog=$('#project-dialog');
   let current=null,lastFocus=null,returnHash='#projects';
-  const mediaIds={marine:['marineSite'],paddy:['paddySite'],dpickleball:['dpickleball'],resucn:['resucnSite','resucn'],fer:['ferSite','fer','ferMatrix'],mri:['mriSite','mri']};
+  const mediaIds={defectrag:['defectragSite','defectragBenchmark'],marine:['marineSite'],paddy:['paddySite'],dpickleball:['dpickleball'],resucn:['resucnSite','resucn'],fer:['ferSite','fer','ferMatrix'],mri:['mriSite','mri']};
   const link=(url,label,primary=false)=>`<a class="${primary?'case-button':'demo-link'}" href="${esc(url)}" target="_blank" rel="noopener noreferrer">${label} <span aria-hidden="true">↗</span></a>`;
   const nav=[['overview','Overview'],['work','My contribution'],['results','Results'],['evidence','Evidence'],['reflection','Lessons & credits']];
   function render(p){
