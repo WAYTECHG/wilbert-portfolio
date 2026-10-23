@@ -18,9 +18,8 @@
   };
   if(!showcase||!slide||!projects?.length)return;
   let index=Math.max(0,projects.findIndex(p=>p.id==='paddy'));
-  let timer=0,animation=null,revision=0,paused=false,hovered=false,visible=false;
+  let timer=0,animation=null,revision=0,visible=false;
   const dots=showcase.querySelector('.showcase-dots');
-  const play=showcase.querySelector('.showcase-play');
   projects.forEach((p,i)=>{
     const button=document.createElement('button');button.type='button';
     button.className='showcase-dot';button.setAttribute('aria-label','Show '+p.short);
@@ -31,7 +30,7 @@
     const p=projects[index],config=details[p.id],media=window.projectMedia(p.id);
     const metrics=config.metrics.map(i=>p.metrics[i]);
     slide.dataset.projectId=p.id;
-    slide.innerHTML=`<div class="snapshot-window"><div class="snapshot-toolbar"><span class="window-controls" aria-hidden="true"><i></i><i></i><i></i></span><span>${escape(p.short)} · ${p.id==='dpickleball'?'competition':'project preview'}</span><span aria-hidden="true">◈</span></div><img src="${escape(media.file)}" width="${media.width}" height="${media.height}" alt="${escape(media.alt)}" decoding="async"></div><div class="snapshot-caption"><div><span class="snapshot-kicker">${config.label}</span><h3>${escape(p.short)}</h3><p>${escape(config.copy)}</p></div><button type="button" data-project="${p.id}" class="snapshot-open">View project</button></div><div class="snapshot-metrics">${metrics.map(([value,label])=>`<div><strong>${escape(value)}</strong><small>${escape(label)}</small></div>`).join('')}<span class="snapshot-note">${escape(config.note)}</span></div>`;
+    slide.innerHTML=`<div class="snapshot-window"><img src="${escape(media.file)}" width="${media.width}" height="${media.height}" alt="${escape(media.alt)}" decoding="async"></div><div class="snapshot-caption"><div><span class="snapshot-kicker">${config.label}</span><h3>${escape(p.short)}</h3><p>${escape(config.copy)}</p></div><button type="button" data-project="${p.id}" class="snapshot-open">View project</button></div><div class="snapshot-metrics">${metrics.map(([value,label])=>`<div><strong>${escape(value)}</strong><small>${escape(label)}</small></div>`).join('')}<span class="snapshot-note">${escape(config.note)}</span></div>`;
     showcase.querySelector('.showcase-index').textContent=String(index+1).padStart(2,'0')+' / '+String(projects.length).padStart(2,'0');
     Array.from(dots.children).forEach((button,i)=>button.setAttribute('aria-pressed',String(i===index)));
   }
@@ -39,7 +38,7 @@
   function cancelAnimation(){if(animation){animation.cancel();animation=null;}}
   function schedule(){
     stop();
-    if(moving()&&visible&&!paused&&!hovered&&!showcase.contains(document.activeElement)&&!document.querySelector('dialog[open]'))timer=setTimeout(()=>show(index+1),6000);
+    if(moving()&&visible&&!slide.contains(document.activeElement)&&!document.querySelector('dialog[open]'))timer=setTimeout(()=>show(index+1),6000);
   }
   async function show(next,manual=false){
     const token=++revision;stop();cancelAnimation();
@@ -61,18 +60,12 @@
   }
   showcase.querySelector('.showcase-prev').addEventListener('click',()=>show(index-1,true));
   showcase.querySelector('.showcase-next').addEventListener('click',()=>show(index+1,true));
-  play.addEventListener('click',()=>{
-    paused=!paused;play.textContent=paused?'▶':'Ⅱ';play.setAttribute('aria-pressed',String(paused));
-    play.setAttribute('aria-label',paused?'Resume project animations':'Pause project animations');schedule();scheduleCards();
-  });
   showcase.addEventListener('keydown',event=>{
     if(!event.target.closest('.showcase-controls'))return;
     if(event.key==='ArrowRight'||event.key==='ArrowLeft'){event.preventDefault();show(index+(event.key==='ArrowRight'?1:-1),true);}
     if(event.key==='Home'){event.preventDefault();show(0,true);}
     if(event.key==='End'){event.preventDefault();show(projects.length-1,true);}
   });
-  showcase.addEventListener('pointerenter',event=>{if(event.pointerType==='mouse'){hovered=true;schedule();}});
-  showcase.addEventListener('pointerleave',()=>{hovered=false;schedule();});
   showcase.addEventListener('focusin',schedule);
   showcase.addEventListener('focusout',()=>queueMicrotask(schedule));
   new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;schedule();},{threshold:.2}).observe(showcase);
@@ -87,7 +80,7 @@
   function candidates(){return cards.filter(card=>!card.hidden&&inView.has(card));}
   function scheduleCards(){
     clearTimeout(cardTimer);
-    if(!moving()||paused){clearSpotlight();return;}
+    if(!moving()){clearSpotlight();return;}
     const available=candidates();
     if(!available.length){clearSpotlight();return;}
     if(held&&available.includes(held)){setSpotlight(held);return;}

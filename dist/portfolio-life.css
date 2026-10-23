@@ -32,7 +32,6 @@
 .showcase-dot{border:0;min-width:25px;width:25px;border-radius:6px;background:transparent}
 .showcase-dot:before{content:'';width:6px;height:6px;border-radius:6px;background:#8ca6c4;transition:background .25s,width .25s}
 .showcase-dot[aria-pressed=true]:before{width:17px;background:#f59a57}
-.showcase-controls>.showcase-play{margin-left:4px;font-size:13px}
 .project-card{transition:transform .55s cubic-bezier(.2,.75,.25,1),border-color .55s,box-shadow .55s}
 .project-card.is-spotlit{transform:translateY(-4px);border-color:#4b8be5;box-shadow:0 16px 38px #07162b30,0 0 0 1px #4b8be526}
 .project-card.is-spotlit .card-result strong{color:#215dc0;transition:color .5s}
