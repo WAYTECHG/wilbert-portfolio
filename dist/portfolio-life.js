@@ -38,25 +38,24 @@
   function cancelAnimation(){if(animation){animation.cancel();animation=null;}}
   function schedule(){
     stop();
-    if(moving()&&visible&&!slide.contains(document.activeElement)&&!document.querySelector('dialog[open]'))timer=setTimeout(()=>show(index+1),2000);
+    if(moving()&&visible&&!slide.contains(document.activeElement)&&!document.querySelector('dialog[open]'))timer=setTimeout(()=>show(index+1),1500);
   }
   async function show(next,manual=false){
     const token=++revision;stop();cancelAnimation();
     const previous=index;index=(next+projects.length)%projects.length;
     // Update state immediately so fast clicks always use the latest requested index.
-    render();
+    render();schedule();
     if(manual)showcase.querySelector('.showcase-status').textContent=projects[index].short+', project '+(index+1)+' of '+projects.length;
     if(previous!==index&&moving()&&slide.animate){
       const direction=next>=previous?1:-1;
       animation=slide.animate([
-        {opacity:.18,transform:`perspective(1100px) translateX(${direction*15}px) rotateY(${direction*7}deg) rotateZ(${direction*.5}deg) scale(.98)`},
-        {opacity:1,transform:'perspective(1100px) translateX(0) rotateY(0) rotateZ(0) scale(1)'}
-      ],{duration:540,easing:'cubic-bezier(.2,.75,.25,1)'});
+        {opacity:.75,transform:`translateX(${direction*18}px)`},
+        {opacity:1,transform:'translateX(0)'}
+      ],{duration:420,easing:'cubic-bezier(.2,.75,.25,1)'});
       try{await animation.finished;}catch{}
       if(token!==revision)return;
       animation=null;
     }
-    schedule();
   }
   showcase.querySelector('.showcase-prev').addEventListener('click',()=>show(index-1,true));
   showcase.querySelector('.showcase-next').addEventListener('click',()=>show(index+1,true));

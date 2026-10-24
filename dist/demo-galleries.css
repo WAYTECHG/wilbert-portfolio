@@ -1,0 +1,21 @@
+/* Quiet, clipped horizontal slides. No rotation, zoom, or layout movement. */
+.hero-showcase{perspective:none;overflow:hidden}
+#showcase-slide{transform-origin:center;overflow:hidden}
+.screenshot-gallery{min-width:0;overflow:hidden}
+.gallery-image-stage{height:auto;aspect-ratio:1348/926;display:grid;place-items:center;overflow:hidden;background:#e6edf6}
+#story-photo .gallery-image-stage img{display:block;width:100%;height:100%;object-fit:contain;max-height:none;padding:0;border:0}
+#story-photo .dialog-media{overflow:hidden}
+#story-photo figcaption>span{display:block;font-weight:600;color:#2454a1}
+#story-photo figcaption p{margin:6px 0;font-size:13px;line-height:1.5}
+.reader-gallery{max-width:100%;overflow-x:auto;flex-wrap:nowrap;padding:6px 4px 12px;scrollbar-width:thin}
+.reader-gallery button{flex:0 0 auto;max-width:260px}
+.card-screenshot-tour{width:100%;height:100%;position:relative;border-radius:8px;overflow:hidden;background:#e5edf6}
+.card-art .card-screenshot-tour .project-photo{width:100%;height:100%;object-fit:contain;border:0;border-radius:0}
+.gallery-card-label{position:absolute;bottom:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:7px 10px;background:#0b1628ed;color:#e7f0fc;font-size:10px;line-height:1.35;pointer-events:none}
+.gallery-card-label small{white-space:nowrap;color:#afc8ed;font-size:10px}
+@media(max-width:600px){.gallery-image-stage{aspect-ratio:1348/926}.reader-gallery button{max-width:215px}.gallery-card-label{font-size:10px}}
+@media(prefers-reduced-motion:reduce){.screenshot-gallery img{animation:none!important;transition:none!important;transform:none!important}}
+
+#story-photo .gallery-image-stage{max-height:460px}
+#story-photo figcaption{height:140px;box-sizing:border-box;overflow:auto}
+@media(max-width:600px){#story-photo figcaption{height:170px}}
