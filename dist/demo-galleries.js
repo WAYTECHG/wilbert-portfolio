@@ -1,6 +1,6 @@
 'use strict';
 (() => {
-  const INTERVAL=3000;
+  const INTERVAL=5000;
   const reduced=matchMedia('(prefers-reduced-motion: reduce)');
   const moving=()=>!reduced.matches&&!document.hidden&&!document.documentElement.classList.contains('no-motion');
   const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
