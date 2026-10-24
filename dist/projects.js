@@ -12,6 +12,7 @@ window.PORTFOLIO_PROJECTS = [
     "tags": [
       "DINOv2",
       "LangGraph",
+      "LangChain",
       "RAG",
       "PyTorch",
       "React",
