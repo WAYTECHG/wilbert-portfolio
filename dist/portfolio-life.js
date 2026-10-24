@@ -38,7 +38,7 @@
   function cancelAnimation(){if(animation){animation.cancel();animation=null;}}
   function schedule(){
     stop();
-    if(moving()&&visible&&!slide.contains(document.activeElement)&&!document.querySelector('dialog[open]'))timer=setTimeout(()=>show(index+1),1500);
+    if(moving()&&visible&&!slide.contains(document.activeElement)&&!document.querySelector('dialog[open]'))timer=setTimeout(()=>show(index+1),3000);
   }
   async function show(next,manual=false){
     const token=++revision;stop();cancelAnimation();
