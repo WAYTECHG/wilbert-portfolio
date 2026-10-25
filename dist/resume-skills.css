@@ -1,0 +1,7 @@
+/* Resume technical skills — 25 October 2026. */
+.skills-grid.resume-toolkit{grid-template-columns:repeat(3,minmax(0,1fr))}
+.skills-grid.resume-toolkit .skill-card:nth-child(n){grid-column:span 1;min-width:0}
+.skills-grid.resume-toolkit .skill-card h3{font-size:22px;line-height:1.3;overflow-wrap:anywhere}
+.skills-grid.resume-toolkit .tech-label{min-width:0;overflow-wrap:anywhere;white-space:normal}
+@media(max-width:1050px){.skills-grid.resume-toolkit{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.skills-grid.resume-toolkit{grid-template-columns:minmax(0,1fr)}}
