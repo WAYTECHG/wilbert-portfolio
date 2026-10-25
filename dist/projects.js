@@ -8,7 +8,7 @@ window.PORTFOLIO_PROJECTS = [
     "year": "Aug 2026 – Oct 2026",
     "status": "Personal project · live cloud demo",
     "kicker": "COMPUTER VISION / GENERATIVE AI / APPLICATION ENGINEERING",
-    "description": "Built an industrial visual inspection application combining DINOv2 anomaly heatmaps, an evidence-grounded RAG assistant, and a shared review dashboard.",
+    "description": "Built an industrial visual inspection application combining DINOv2 anomaly heatmaps, cited RAG explanations, a shared review dashboard and n8n case-event workflows.",
     "tags": [
       "DINOv2",
       "LangGraph",
@@ -18,7 +18,9 @@ window.PORTFOLIO_PROJECTS = [
       "React",
       "Supabase",
       "FastAPI",
-      "ZeroGPU"
+      "ZeroGPU",
+      "n8n",
+      "Docker"
     ],
     "metrics": [
       [
@@ -34,17 +36,19 @@ window.PORTFOLIO_PROJECTS = [
         "VisA product categories"
       ]
     ],
-    "summary": "Anomaly scores alone do not explain what an inspection measures or help people review it. DefectRAG connects nearest-normal visual inspection to saved measurements, attributed reference documents, and a React review interface. The goal is to make model evidence inspectable while keeping image measurements separate from generated explanations.",
+    "summary": "Anomaly scores alone do not explain what an inspection measures or help people review it. DefectRAG connects nearest-normal visual inspection to saved measurements, attributed reference documents, and a React review interface. The goal is to make model evidence inspectable while keeping image measurements separate from generated explanations. The case workflow connects inspection evidence and Supabase review records to n8n event validation, authorization checks, supervisor notifications and delivery receipts.",
     "contributions": [
       "Implemented frozen DINOv2 features, category-specific normal-reference banks, anomaly scoring and coarse patch-distance heatmaps.",
       "Compared the original DINOv3 profile with a higher-resolution DINOv2 profile across all 12 VisA products, and examined threshold sensitivity and false-alarm trade-offs.",
       "Integrated LangChain document processing, BGE retrieval, LangGraph routing and Qwen generation with citation, quote and numeric checks.",
       "Built React/FastAPI inspection and review workflows, including batch history, staff notes, review alerts and reports.",
-      "Connected Supabase authentication and private shared records, and deployed queued model inference on Hugging Face ZeroGPU."
+      "Connected Supabase authentication and private shared records, and deployed queued model inference on Hugging Face ZeroGPU.",
+      "Packaged the application locally with Docker and deployed the React/FastAPI and Hugging Face ZeroGPU workflow.",
+      "Integrated n8n workflows for case-event validation, authorization checks, supervisor notifications and delivery receipts, with guarded service operations. Corrective-action follow-up remains development work; this portfolio does not claim that its production automation is activated."
     ],
     "outcome": "The retrospective comparison reports mean image AUROC of 95.13%, versus 85.38% for the original DINOv3 profile, and mean pixel AUROC of 98.60%. The comparison covers 12 VisA products, 8,659 training-normal images, 2,162 test images and three seeds. Earlier test results informed development, so these are retrospective development results, not an untouched external validation. Normal-only threshold calibration improves sensitivity at the cost of more false alarms. Model scores are distances rather than defect probabilities; heatmaps are coarse localization, and the assistant does not diagnose defect types, causes or repairs.",
-    "learning": "A useful inspection application needs both model evaluation and clear evidence boundaries. I learned to separate ranking metrics from operating thresholds, preserve review history, validate retrieved citations, and manage the practical constraints of queued cloud inference.",
-    "credit": "DINOv2, DINOv3, BGE, Qwen, LangChain and LangGraph are established upstream models and tools. My work combines their integration, comparative evaluation, threshold calibration, evidence validation and review workflows. The visual encoders remain frozen; normal images populate memory banks rather than fine-tuning the backbone.",
+    "learning": "A useful inspection application needs both model evaluation and clear evidence boundaries. I learned to separate ranking metrics from operating thresholds, preserve review history, validate retrieved citations, and manage the practical constraints of queued cloud inference. Automation also needs a clear boundary between model evidence, human review decisions and authorized workflow effects.",
+    "credit": "DINOv2, DINOv3, BGE, Qwen, LangChain and LangGraph are established upstream models and tools. My work combines their integration, comparative evaluation, threshold calibration, evidence validation and review workflows. The visual encoders remain frozen; normal images populate memory banks rather than fine-tuning the backbone. n8n orchestrates case-event handling and notifications; it does not perform the visual inspection or replace the RAG pipeline.",
     "repository": "https://github.com/WAYTECHG/DefectRAG",
     "demo": "https://huggingface.co/spaces/Wizzas/DefectRAG",
     "evidence": "https://github.com/WAYTECHG/DefectRAG/blob/main/docs/ACCURACY_RESULTS.md",
@@ -109,7 +113,13 @@ window.PORTFOLIO_PROJECTS = [
       "Deep Learning",
       "evaluation",
       "visual anomaly detection",
-      "generative AI"
+      "generative AI",
+      "n8n",
+      "workflow automation",
+      "case events",
+      "notifications",
+      "authorization",
+      "Docker"
     ]
   },
   {
