@@ -9,12 +9,15 @@
   function gallery(host,ids,{dialog=false,card=false}={}){
     if(!host||ids.length<2)return null;
     let index=0,timer=0,animation=null,version=0,onscreen=false,destroyed=false;
-    ids.forEach(id=>{const img=new Image();img.src=media[id].file;});
+    // Preload only the first two screenshots; each later one is fetched just before it is shown.
+    const preloaded=new Set();const preload=id=>{if(!id||preloaded.has(id))return;preloaded.add(id);const img=new Image();img.src=media[id].file;};
+    ids.slice(0,2).forEach(preload);
     host.classList.add('screenshot-gallery');host.setAttribute('aria-label',dialog?'Project screenshot tour':'Project preview screenshots');
     function render(next,animate=true){
       ++version;clearTimeout(timer);animation?.cancel();const token=version;
       index=(next+ids.length)%ids.length;
       const m=media[ids[index]];
+      preload(ids[index]);preload(ids[(index+1)%ids.length]);
       if(card){host.innerHTML=`<img class="project-photo" src="${esc(m.file)}" alt="${esc(m.alt)}" width="${m.width}" height="${m.height}" loading="lazy"><span class="gallery-card-label">${esc(m.label)} <small>${index+1} / ${ids.length}</small></span>`;}
       else{host.innerHTML=`<figure class="dialog-media"><div class="gallery-image-stage"><img src="${esc(m.file)}" alt="${esc(m.alt)}" width="${m.width}" height="${m.height}" decoding="async"></div><figcaption><span>${esc(m.label)} · ${index+1} / ${ids.length}</span><p>${esc(m.caption)}</p><a href="${esc(m.source)}" target="_blank" rel="noopener noreferrer">View source ↗</a></figcaption></figure>`;
         document.querySelectorAll('[data-story-photo]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.storyPhoto===ids[index])));

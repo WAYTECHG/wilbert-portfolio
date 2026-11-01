@@ -1,0 +1,14 @@
+/* Plain presentation overrides: skills list, compact coursework, larger tap targets. */
+
+/* Skills as a simple grouped list (same groups as the résumé) */
+.skills-plain{margin:0;display:grid;gap:0;border-top:1px solid var(--border-dark,rgba(156,182,227,.18))}
+.skills-plain>div{display:grid;grid-template-columns:minmax(150px,230px) 1fr;gap:6px 28px;padding:16px 4px;border-bottom:1px solid var(--border-dark,rgba(156,182,227,.18));scroll-margin-top:115px}
+.skills-plain dt{margin:0;font-weight:700;color:#e9f0fb}
+.skills-plain dd{margin:0;color:#c3cfe3;line-height:1.7}
+@media(max-width:680px){.skills-plain>div{grid-template-columns:1fr;gap:4px;padding:14px 2px}}
+
+/* Coursework as one line instead of nine cards */
+.coursework-compact .section-heading p{max-width:none;line-height:1.9}
+
+/* Tap targets: at least 24px for the carousel dots and small controls */
+.showcase-dots button,.showcase-dots [role="button"]{min-width:24px;min-height:24px}

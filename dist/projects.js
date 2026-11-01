@@ -177,7 +177,7 @@ window.PORTFOLIO_PROJECTS = [
     "outcome": "PaddyLiteX achieves 81.67% mAP@0.5, 55.83% mAP@0.5:0.95, 2,879,917 parameters and 14.2 reported GFLOPs. Compared with the DenseNet-121-based baseline, mAP@0.5 rises from 80.69% to 81.67%, with 68.01% fewer parameters and 72.59% lower reported GFLOPs. Compared with original YOLOv8n, mAP@0.5 improves by 0.88 percentage points and parameters decrease by 4.24%; GFLOPs increase from 8.1 to 14.2. The stricter mAP@0.5:0.95 remains 0.25 percentage points below the DenseNet-121 baseline. These are single-run results; the reported FLOP profiling convention awaits confirmation.",
     "learning": "A fair architecture comparison depends on more than a promising model: consistent training, clean splits, and clearly scoped ablations are essential.",
     "credit": "YOLOv8 and DenseNet are established architectures. My contribution is the DenseLiteX backbone and its SPPF/C2PSA integration, supported by baseline comparisons and ablations. Updated figures are published in PaddyLiteX_HF_Static/results.json in my PaddyLiteX repository.",
-    "repository": "https://github.com/WAYTECHG/PaddyLiteX",
+    "repository": "https://github.com/WAYTECHG/paddylitex-disease-detection",
     "demo": "https://paddylitex.onrender.com/",
     "tableCaption": "Updated held-out test evaluation: 803 images, 2,466 objects, nine classes; one run per model",
     "table": [
@@ -224,7 +224,7 @@ window.PORTFOLIO_PROJECTS = [
         "75.67%"
       ]
     ],
-    "evidence": "https://github.com/WAYTECHG/PaddyLiteX/blob/main/PaddyLiteX_HF_Static/results.json",
+    "evidence": "https://github.com/WAYTECHG/paddylitex-disease-detection/blob/main/PaddyLiteX_HF_Static/results.json",
     "searchTerms": [
       "Git",
       "GitHub",
@@ -315,7 +315,7 @@ window.PORTFOLIO_PROJECTS = [
         "67.18%"
       ]
     ],
-    "repository": "https://github.com/WAYTECHG/GhostConv-and-SimSPPF-Integration-for-Marine-Organism-Detection",
+    "repository": "https://github.com/WAYTECHG/marinelite-organism-detection",
     "searchTerms": [
       "Git",
       "GitHub",
@@ -370,7 +370,7 @@ window.PORTFOLIO_PROJECTS = [
     "learning": "Reward design, curriculum difficulty and opponent diversity shape the behaviors an agent learns. Candidate policies need competitive evaluation alongside training rewards.",
     "credit": "Collaborative XMUM coursework. The environment is provided by the original dPickleBall project; my contribution focused on agent training, experimentation and evaluation.",
     "upstream": "https://github.com/dPickleball/dPickleBallEnv",
-    "repository": "https://github.com/WAYTECHG/dpickleball-reinforcement-learning-agent",
+    "repository": "https://github.com/WAYTECHG/dpickleball-rl-agent",
     "video": "https://www.youtube.com/live/CitFn9FK12s",
     "searchTerms": [
       "Git",

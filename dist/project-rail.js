@@ -73,6 +73,6 @@
 
 (() => {
   const thread=document.getElementById('assistant-thread');if(!thread)return;
-  function welcome(){if(thread.children.length!==1)return;const bubble=thread.querySelector('.assistant .chat-bubble');if(bubble&&bubble.textContent.startsWith('Welcome!'))bubble.textContent="Hi, welcome in! I’m your guide to Wilbert’s work. Curious about a project, his skills or internship availability? Pick a question below, or ask me your own — I’ll point you to the details.";}
+  function welcome(){if(thread.children.length!==1)return;const bubble=thread.querySelector('.assistant .chat-bubble');if(bubble&&bubble.textContent.startsWith('Welcome!'))bubble.textContent="Hi! These are pre-written answers about Wilbert’s work. Pick a question below or type your own about a project, his skills or his internship availability.";}
   new MutationObserver(welcome).observe(thread,{childList:true});welcome();
 })();

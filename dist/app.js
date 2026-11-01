@@ -140,10 +140,11 @@
     if(navigation&&document.documentElement.classList.contains('no-motion'))navigateTo(navigation.id,false);
   });
   updateScroll();
-  const canvas=$('#particles');const ctx=canvas.getContext('2d');
+  const canvas=$('#particles');const ctx=canvas?canvas.getContext('2d'):null;
   let dots=[],width=0,height=0,raf=0,lastFrame=0;
   const pointer={x:0,y:0,active:false,sx:0,sy:0};
   function resizeCanvas(){
+    if(!canvas)return;
     width=window.innerWidth;height=window.innerHeight;
     const dpr=Math.min(devicePixelRatio||1,2);canvas.width=width*dpr;canvas.height=height*dpr;ctx?.setTransform(dpr,0,0,dpr,0,0);
     dots=Array.from({length:Math.min(650,Math.max(90,Math.floor(width*height/1800)))},()=>{

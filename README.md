@@ -1,16 +1,16 @@
 # Wilbert Andrew Yonathan — Personal Portfolio
 
-**Computer Vision · Efficient Deep Learning · RAG Applications**
+**Final-year AI Engineering student · Computer vision · Efficient deep learning · RAG**
 
-A responsive portfolio presenting my AI engineering projects, research, technical skills and academic journey. Built with HTML, CSS and vanilla JavaScript, with a navy, royal blue and warm orange palette, subtle motion and screenshot-led project case studies.
+A responsive portfolio presenting my AI engineering projects, skills and academic record. Built with HTML, CSS and vanilla JavaScript, with screenshot-led project case studies.
 
 [View Portfolio](https://wilbert-andrew-yonathan.vercel.app/) · [GitHub](https://github.com/WAYTECHG) · [LinkedIn](https://www.linkedin.com/in/wilbert-andrew-yonathan-85562326a/) · [Contact](mailto:wilbertyonathan@gmail.com)
 
 ## About
 
-I am a fourth-year Artificial Intelligence Engineering student at **Xiamen University Malaysia**, with a **CGPA of 3.77/4.00**. My work focuses on computer vision, lightweight detection models, visual anomaly inspection and applications that connect model outputs with useful explanations and interfaces.
+I am a final-year Artificial Intelligence Engineering student at **Xiamen University Malaysia**, with a **CGPA of 3.77/4.00**. My work focuses on computer vision, lightweight detection models, visual anomaly inspection and applications that connect model outputs with useful explanations and interfaces.
 
-I am seeking an **AI Engineering or Computer Vision internship from 29 March 2027**, for **3–5 months**, with Malaysia as my preferred location.
+I am seeking an **AI/ML internship (computer vision, deep learning, generative AI) from 29 March 2027**, for **3–5 months**, with Malaysia as my preferred location.
 
 ## Features
 
@@ -20,21 +20,21 @@ I am seeking an **AI Engineering or Computer Vision internship from 29 March 202
 - **Detailed case studies:** project context, contributions, results, evidence, lessons and links to source repositories and available demos.
 - **Screenshot galleries:** automatic slides and a full-size viewer let visitors understand the applications without opening every demo.
 - **Interactive journey:** selectable years connect academic progress, projects, leadership and certificates.
-- **Technical skills:** six skill groups with restrained visual icons, alongside relevant coursework and language capabilities.
-- **Portfolio guide:** a chat interface with starter questions about projects, skills, achievements, internship availability and DefectRAG’s n8n workflow.
+- **Skills:** a plain list grouped like my résumé, plus a one-line coursework list and spoken languages.
+- **Quick answers:** a small chat panel with pre-written, rule-based answers about projects, skills, achievements, internship availability and DefectRAG’s n8n workflow. It does not call an AI model.
 - **Recruiter shortcuts:** a 30-second introduction, downloadable résumé, contact links and a searchable command menu.
 - **Responsive interaction:** mobile navigation, visible keyboard focus, dialog controls and support for reduced-motion preferences.
 
-The presentation combines a short WAY opening animation, subtle background effects and gentle highlights while keeping the project evidence easy to explore.
+The page order is hero, projects, about, coursework, skills, achievements and contact, so the project evidence comes first.
 
 ## Projects
 
 | Project | Focus | Links |
 | --- | --- | --- |
 | **DefectRAG** | Visual anomaly inspection, cited RAG explanations, shared review and n8n case-event workflows. | [Source](https://github.com/WAYTECHG/DefectRAG) · [Demo](https://huggingface.co/spaces/Wizzas/DefectRAG) |
-| **PaddyLiteX** | Lightweight YOLOv8n backbone research using DenseLiteX, SPPF and C2PSA for paddy disease detection. | [Source](https://github.com/WAYTECHG/PaddyLiteX) · [Demo](https://paddylitex.onrender.com/) |
-| **Marine Organism Detection** | Adaptation of DU-MobileYOLO using GhostConv and SimSPPF for underwater detection. | [Source](https://github.com/WAYTECHG/GhostConv-and-SimSPPF-Integration-for-Marine-Organism-Detection) · [Demo](https://marine-object-detection.onrender.com) |
-| **dPickleball** | PPO agent training with curriculum learning, reward shaping and league self-play. | [Source](https://github.com/WAYTECHG/dpickleball-reinforcement-learning-agent) · Competition recording available in the portfolio |
+| **PaddyLiteX** | Lightweight YOLOv8n backbone research using DenseLiteX, SPPF and C2PSA for paddy disease detection. | [Source](https://github.com/WAYTECHG/paddylitex-disease-detection) · [Demo](https://paddylitex.onrender.com/) |
+| **Marine Organism Detection** | Adaptation of DU-MobileYOLO using GhostConv and SimSPPF for underwater detection. | [Source](https://github.com/WAYTECHG/marinelite-organism-detection) · [Demo](https://marine-object-detection.onrender.com) |
+| **dPickleball** | PPO agent training with curriculum learning, reward shaping and league self-play. | [Source](https://github.com/WAYTECHG/dpickleball-rl-agent) · Competition recording available in the portfolio |
 | **Res UCN** | Group research on residual image classification and convolutional architecture components. | [Source](https://github.com/WAYTECHG/Res_UCN-Resnet-Unified-Convolution-Network) · [Demo](https://res-ucn.onrender.com/) |
 | **FER2013** | Facial expression classification, model comparisons and Grad-CAM visualizations. | [Source](https://github.com/WAYTECHG/FER2013-Project) · [Demo](https://fer2013-project.onrender.com/) |
 | **NeuroInsight** | Educational Alzheimer’s MRI and clinical-data classification with a Streamlit interface. | [Source](https://github.com/WAYTECHG/alzheimer-classification) · [Demo](https://alzheimer-classification-l7s2.onrender.com/#home) |
@@ -86,8 +86,7 @@ All paths below are relative to the repository root.
 | `dist/assistant.js` | Curated chatbot answers and conversation behavior |
 | `dist/credentials.js` | Certificate metadata and attachment references |
 | `dist/details.js` / `.css` | Case-study readers and evidence viewers |
-| `dist/resume-skills.css` | Technical skills presentation |
-| `dist/opening.js` / `.css` | WAY opening animation |
+| `dist/plain.css` | Skills list, compact coursework and tap-target overrides |
 | `dist/styles.css` and supporting stylesheets | Base layout, palette, responsive rules and visual effects |
 | `dist/assets/` | Profile photo, project images, demo screenshots and certificates |
 | `dist/Wilbert_Yonathan_Resume.pdf` | Downloadable résumé |
@@ -114,14 +113,14 @@ When adding a project, also update the featured-project configuration in `dist/p
 | Behavior | File | Current setting |
 | --- | --- | --- |
 | Project collection drift | `dist/project-rail.js` | `const SPEED=14;` — pixels per second; lower is slower |
-| Screenshot gallery interval | `dist/demo-galleries.js` | `const INTERVAL=1500;` — milliseconds |
-| Featured-project interval | `dist/portfolio-life.js` | `setTimeout(() => show(index+1),1500)` in `schedule()` |
+| Screenshot gallery interval | `dist/demo-galleries.js` | `const INTERVAL=5000;` — milliseconds |
+| Featured-project interval | `dist/portfolio-life.js` | `setTimeout(() => show(index+1),5000)` in `schedule()` |
 
-For example, change `1500` to `2000` for a two-second slide interval. The collection drift uses continuous movement rather than a timed slide interval; setting `SPEED` to `0` makes it manual-only.
+For example, change `5000` to `6000` for a six-second slide interval. The collection drift uses continuous movement rather than a timed slide interval; setting `SPEED` to `0` makes it manual-only.
 
 ### Portfolio guide
 
-The guide uses curated, rule-based answers from `dist/assistant.js` and the project records. It runs in the browser without a paid AI API or server-side language model. Messages are handled locally, and the conversation is not saved across page reloads.
+The quick-answers panel uses curated, rule-based answers from `dist/assistant.js` and the project records. It runs in the browser without a paid AI API or server-side language model. Messages are handled locally, and the conversation is not saved across page reloads.
 
 Edit starter-question buttons in `dist/index.html`. The refreshed welcome message and panel styling are in `dist/project-rail.js` and `dist/project-rail.css`.
 
