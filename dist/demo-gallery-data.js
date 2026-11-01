@@ -27,11 +27,11 @@ window.PortfolioDemoGalleries={
     "live-mri-chatbot"
   ],
   "defectrag": [
-    "live-defectrag-overview",
-    "live-defectrag-inspection",
-    "live-defectrag-result",
-    "live-defectrag-assistant",
-    "live-defectrag-performance"
+    "saved-defectrag-overview",
+    "saved-defectrag-result",
+    "saved-defectrag-history",
+    "saved-defectrag-assistant",
+    "saved-defectrag-case-email"
   ]
 };
 Object.assign(window.PortfolioMedia,{
@@ -179,50 +179,50 @@ Object.assign(window.PortfolioMedia,{
     "width": 1363,
     "height": 936
   },
-  "live-defectrag-overview": {
-    "file": "assets/demo-screenshots/defectrag-overview.jpg",
-    "label": "Inspection dashboard and evidence workflow",
-    "alt": "Inspection dashboard and evidence workflow \u2014 defectrag live application screenshot",
-    "caption": "Captured from the public live demo on 24 October 2026. Inspection dashboard and evidence workflow.",
-    "source": "https://wizzas-defectrag.hf.space/?__theme=system",
-    "width": 1348,
-    "height": 926
+  "saved-defectrag-overview": {
+    "file": "assets/demo-screenshots/defectrag-v2-overview.jpg",
+    "label": "Dashboard overview",
+    "alt": "Overview page of the DefectRAG dashboard showing inspection counts and the inspections-over-time chart",
+    "caption": "DefectRAG dashboard overview, from the application's React frontend running its saved-example build (25 saved VisA inspections), captured on 1 November 2026. VisA, Zou et al., ECCV 2022, CC BY 4.0.",
+    "source": "https://github.com/WAYTECHG/DefectRAG",
+    "width": 1440,
+    "height": 900
   },
-  "live-defectrag-inspection": {
-    "file": "assets/demo-screenshots/defectrag-inspection.jpg",
-    "label": "Image input and category selection",
-    "alt": "Image input and category selection \u2014 defectrag live application screenshot",
-    "caption": "Captured from the public live demo on 24 October 2026. Image input and category selection.",
-    "source": "https://wizzas-defectrag.hf.space/?__theme=system#inspect",
-    "width": 1348,
-    "height": 926
+  "saved-defectrag-result": {
+    "file": "assets/demo-screenshots/defectrag-v2-result.jpg",
+    "label": "Inspection result with anomaly heatmap",
+    "alt": "Saved PCB 2 inspection showing an anomaly heatmap, difference score 0.0873 and review limit 0.0341",
+    "caption": "Saved PCB 2 example from the DefectRAG dashboard: highlighted unusual area, difference score 0.0873 against a review limit of 0.0341. Scores are distances, not defect probabilities. The saved examples were generated with the original DINOv3 profile; the deployed application uses the DINOv2 profile. VisA, Zou et al., ECCV 2022, CC BY 4.0.",
+    "source": "https://github.com/WAYTECHG/DefectRAG",
+    "width": 1440,
+    "height": 900
   },
-  "live-defectrag-result": {
-    "file": "assets/demo-screenshots/defectrag-result.jpg",
-    "label": "Actual public PCB 1 sample result and anomaly heatmap \u2014 VisA CC BY 4.0",
-    "alt": "Actual public PCB 1 sample result and anomaly heatmap \u2014 VisA CC BY 4.0 \u2014 defectrag live application screenshot",
-    "caption": "Captured from the public live demo on 24 October 2026. Actual public PCB 1 sample result and anomaly heatmap \u2014 VisA CC BY 4.0. Actual guest-workspace inspection of the built-in VisA PCB 1 sample; VisA, Zou et al., ECCV 2022, CC BY 4.0. No staff or personal workspace was used.",
-    "source": "https://wizzas-defectrag.hf.space/?__theme=system#inspect",
-    "width": 1348,
-    "height": 926
+  "saved-defectrag-history": {
+    "file": "assets/demo-screenshots/defectrag-v2-history.jpg",
+    "label": "Inspection history",
+    "alt": "Inspection history table with product, result, score against review limit and inference time",
+    "caption": "Inspection history in the DefectRAG dashboard: the 25 saved examples with product, result, score against review limit and inference time. VisA, Zou et al., ECCV 2022, CC BY 4.0.",
+    "source": "https://github.com/WAYTECHG/DefectRAG",
+    "width": 1440,
+    "height": 900
   },
-  "live-defectrag-assistant": {
-    "file": "assets/demo-screenshots/defectrag-assistant.jpg",
-    "label": "Inspection-linked evidence assistant",
-    "alt": "Inspection-linked evidence assistant \u2014 defectrag live application screenshot",
-    "caption": "Captured from the public live demo on 24 October 2026. Inspection-linked evidence assistant. Actual guest-workspace inspection of the built-in VisA PCB 1 sample; VisA, Zou et al., ECCV 2022, CC BY 4.0. No staff or personal workspace was used.",
-    "source": "https://wizzas-defectrag.hf.space/?__theme=system#inspect",
-    "width": 1348,
-    "height": 926
+  "saved-defectrag-assistant": {
+    "file": "assets/demo-screenshots/defectrag-v2-assistant.jpg",
+    "label": "Evidence assistant",
+    "alt": "Evidence Assistant answering questions about a saved PCB 1 result",
+    "caption": "Evidence Assistant answers about a saved PCB 1 result. It reports the score and review limit and states that a score is not an accuracy percentage or defect probability. The saved examples were generated with the original DINOv3 profile; the deployed application uses the DINOv2 profile. VisA, Zou et al., ECCV 2022, CC BY 4.0.",
+    "source": "https://github.com/WAYTECHG/DefectRAG",
+    "width": 1440,
+    "height": 900
   },
-  "live-defectrag-performance": {
-    "file": "assets/demo-screenshots/defectrag-performance.jpg",
-    "label": "Retrospective anomaly model evaluation",
-    "alt": "Retrospective anomaly model evaluation \u2014 defectrag live application screenshot",
-    "caption": "Captured from the public live demo on 24 October 2026. Retrospective anomaly model evaluation.",
-    "source": "https://wizzas-defectrag.hf.space/?__theme=system#performance",
-    "width": 1348,
-    "height": 926
+  "saved-defectrag-case-email": {
+    "file": "assets/demo-screenshots/defectrag-v2-case-email.jpg",
+    "label": "Corrective Action email (n8n)",
+    "alt": "Corrective Action notification email with case number, status, priority and due date",
+    "caption": "Corrective Action email sent by the n8n workflow when a case is created. The supervisor receives it and the person responsible is copied. Image from the DefectRAG repository documentation.",
+    "source": "https://github.com/WAYTECHG/DefectRAG/blob/main/docs/assets/case-email.png",
+    "width": 760,
+    "height": 629
   }
 });
 (() => {const original=window.projectPhotoFigure;const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));window.projectPhotoFigure=id=>{const key=window.PortfolioDemoGalleries[id]?.[0],m=window.PortfolioMedia[key];return m?`<figure class="dialog-media"><img src="${esc(m.file)}" alt="${esc(m.alt)}" width="${m.width}" height="${m.height}"><figcaption>${esc(m.caption)}</figcaption></figure>`:original(id);};})();
