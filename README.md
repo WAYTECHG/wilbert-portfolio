@@ -4,7 +4,7 @@
 
 A responsive portfolio presenting my AI engineering projects, skills and academic record. Built with HTML, CSS and vanilla JavaScript, with screenshot-led project case studies.
 
-[View Portfolio](https://wilbert-andrew-yonathan.vercel.app/) · [GitHub](https://github.com/WAYTECHG) · [LinkedIn](https://www.linkedin.com/in/wilbert-andrew-yonathan-85562326a/) · [Contact](mailto:wilbertyonathan@gmail.com)
+[View Portfolio](https://wilbert-andrew-yonathan.vercel.app/) · [GitHub](https://github.com/WAYTECHG) · [LinkedIn](https://www.linkedin.com/in/wilbert-andrew-yonathan/) · [Contact](mailto:wilbertyonathan@gmail.com)
 
 ## About
 

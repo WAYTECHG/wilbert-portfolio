@@ -46,14 +46,14 @@ window.PORTFOLIO_CREDENTIALS = {
       "title": "AIESEC XMUM",
       "kind": "Leadership",
       "period": "2023–2025",
-      "note": "General Affairs (2023–2024); Assistant of General Affairs (2024–2025).",
+      "note": "General Affairs (2023–2024); Assistant, General Affairs (2024–2025).",
       "attachments": [
         {
           "label": "General Affairs · 2023–2024",
           "file": "assets/certificates/aiesec-general-affairs-2023-2024.png"
         },
         {
-          "label": "Assistant of General Affairs · 2024–2025",
+          "label": "Assistant, General Affairs · 2024–2025",
           "file": "assets/certificates/aiesec-assistant-general-affairs-2024-2025.png"
         }
       ]
