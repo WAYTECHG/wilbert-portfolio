@@ -20,7 +20,10 @@ I am seeking an **AI/ML internship (computer vision, deep learning, generative A
 - **Detailed case studies:** project context, contributions, results, evidence, lessons and links to source repositories and available demos.
 - **Screenshot galleries:** automatic slides and a full-size viewer let visitors understand the applications without opening every demo.
 - **Interactive journey:** selectable years connect academic progress, projects, leadership and certificates.
-- **Skills:** a plain list grouped like my résumé, plus a one-line coursework list and spoken languages.
+- **Design:** a neo-brutalist look (grid background, Space Grotesk, thick borders, hard offset shadows) with three colour themes (Cream, Mocha, Navy) chosen from the header and remembered on the visitor’s device.
+- **Numbered project rows:** each project has a row with its key results, technologies, a case-study button, and demo and source links. The original search, filters, shortlist and drifting collection sit in a collapsible panel below.
+- **Skills:** chips grouped like my résumé, plus a one-line coursework list and languages.
+- **Achievements:** a sticky list that follows the cards as you scroll.
 - **Quick answers:** a small chat panel with pre-written, rule-based answers about projects, skills, achievements, internship availability and DefectRAG’s n8n workflow. It does not call an AI model.
 - **Recruiter shortcuts:** a 30-second introduction, downloadable résumé, contact links and a searchable command menu.
 - **Responsive interaction:** mobile navigation, visible keyboard focus, dialog controls and support for reduced-motion preferences.
