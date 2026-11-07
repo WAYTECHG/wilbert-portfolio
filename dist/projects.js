@@ -367,9 +367,9 @@ window.PORTFOLIO_PROJECTS = [
     ],
     "summary": "A group project for AIT306 Deep Reinforcement Learning at Xiamen University Malaysia. Agents learn movement and paddle rotation in the supplied dPickleBall simulation, progressing from wall-based curriculum training to competitive league self-play.",
     "contributions": [
-      "Trained and optimized an independent PPO-based agent.",
-      "Experimented with reward and penalty configurations to improve gameplay behavior.",
-      "Contributed candidate policies and compared their performance through iterative testing and team evaluation.",
+      "Trained an independent PPO agent in Unity ML-Agents in runs of about 90 minutes and delivered 4 checkpoints to the team.",
+      "Tested reward and penalty settings within the team's curriculum and league self-play pipeline.",
+      "Entered a candidate in the team's round-robin; it reached the top 4 (third of four, 4–4 in games), and the team placed 2nd of 13.",
       "Participated in selecting the strongest candidate for the final team submission."
     ],
     "outcome": "The team placed second among 13 competing teams, as reported in the project repository. RealFT was selected as the final competition agent after internal round-robin evaluation; my independently trained agent was one of the evaluated candidates.",
