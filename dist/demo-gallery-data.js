@@ -192,7 +192,7 @@ Object.assign(window.PortfolioMedia,{
     "file": "assets/demo-screenshots/defectrag-v2-result.jpg",
     "label": "Inspection result with anomaly heatmap",
     "alt": "Saved PCB 2 inspection showing an anomaly heatmap, difference score 0.0873 and review limit 0.0341",
-    "caption": "Saved PCB 2 example from the DefectRAG dashboard: highlighted unusual area, difference score 0.0873 against a review limit of 0.0341. Scores are distances, not defect probabilities. The saved examples were generated with the original DINOv3 profile; the deployed application uses the DINOv2 profile. VisA, Zou et al., ECCV 2022, CC BY 4.0.",
+    "caption": "Saved PCB 2 example from the DefectRAG dashboard: highlighted unusual area, difference score 0.0873 against a review limit of 0.0341. Scores are distances, not defect probabilities. The saved examples were generated with an earlier DINOv3 profile; the deployed application now uses a fine-tuned DINOv2 detector. VisA, Zou et al., ECCV 2022, CC BY 4.0.",
     "source": "https://github.com/WAYTECHG/DefectRAG",
     "width": 1440,
     "height": 900
@@ -210,7 +210,7 @@ Object.assign(window.PortfolioMedia,{
     "file": "assets/demo-screenshots/defectrag-v2-assistant.jpg",
     "label": "Evidence assistant",
     "alt": "Evidence Assistant answering questions about a saved PCB 1 result",
-    "caption": "Evidence Assistant answers about a saved PCB 1 result. It reports the score and review limit and states that a score is not an accuracy percentage or defect probability. The saved examples were generated with the original DINOv3 profile; the deployed application uses the DINOv2 profile. VisA, Zou et al., ECCV 2022, CC BY 4.0.",
+    "caption": "Evidence Assistant answers about a saved PCB 1 result. It reports the score and review limit and states that a score is not an accuracy percentage or defect probability. The saved examples were generated with an earlier DINOv3 profile; the deployed application now uses a fine-tuned DINOv2 detector. VisA, Zou et al., ECCV 2022, CC BY 4.0.",
     "source": "https://github.com/WAYTECHG/DefectRAG",
     "width": 1440,
     "height": 900

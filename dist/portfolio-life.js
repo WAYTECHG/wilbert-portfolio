@@ -8,7 +8,7 @@
   const slide=document.getElementById('showcase-slide');
   const projects=window.PORTFOLIO_PROJECTS;
   const details={
-    defectrag:{label:'VISUAL INSPECTION & RAG',copy:'Visual inspection, cited explanations and corrective-action workflows.',note:'Retrospective comparison · 12 VisA products',metrics:[0,1]},
+    defectrag:{label:'VISUAL INSPECTION & RAG',copy:'Visual inspection, cited explanations and corrective-action workflows.',note:'VisA test split · 12 products · MVTec AD check',metrics:[0,1]},
     paddy:{label:'FINAL-YEAR THESIS',copy:'A compact backbone for paddy disease detection.',note:'803 test images · One run per model',metrics:[0,2]},
     marine:{label:'COMPUTER VISION PROJECT',copy:'Lightweight detection for life below the surface.',note:'Recorded results · URPC2020',metrics:[0,1]},
     dpickleball:{label:'DEEP REINFORCEMENT LEARNING',copy:'Self-play agents trained for competitive pickleball.',note:'Team result · Final class competition',metrics:[0,1]},
