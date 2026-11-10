@@ -367,7 +367,7 @@ window.PORTFOLIO_PROJECTS = [
     ],
     "summary": "A group project for AIT306 Deep Reinforcement Learning at Xiamen University Malaysia. Agents learn movement and paddle rotation in the supplied dPickleBall simulation, progressing from wall-based curriculum training to competitive league self-play.",
     "contributions": [
-      "Trained an independent PPO agent in Unity ML-Agents in runs of about 90 minutes and delivered 4 checkpoints to the team.",
+      "Trained an independent reinforcement learning agent (PPO) in Unity ML-Agents in runs of about 90 minutes and delivered 4 checkpoints to the team.",
       "Tested reward and penalty settings within the team's curriculum and league self-play pipeline.",
       "Entered a candidate in the team's round-robin; it reached the top 4 (third of four, 4–4 in games), and the team placed 2nd of 13.",
       "Participated in selecting the strongest candidate for the final team submission."
