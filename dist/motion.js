@@ -5,18 +5,21 @@
   const reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
   const moving=()=>!document.documentElement.classList.contains('no-motion')&&!reduced.matches&&!document.hidden;
   const escape=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  const phrases=['lightweight detectors','visual inspection tools','RAG applications','reinforcement learning agents'];
+  // Each phrase is paired with the project the hero button opens, so the two change together.
+  const phrases=[['lightweight detectors','paddy','PaddyLiteX'],['generative AI inspection tools','defectrag','DefectRAG'],['underwater object detectors','marine','MarineLite'],['reinforcement learning agents','dpickleball','dPickleball']];
   let wordIndex=0,wordTimer=0,wordAnimation=null;
   const word=$('#build-word');
+  const explore=$('.latest-project');
+  function showPhrase(i){word.textContent=phrases[i][0];if(explore){explore.dataset.project=phrases[i][1];explore.textContent='Explore '+phrases[i][2]+' ↗';}}
   function stopWords(){clearTimeout(wordTimer);wordTimer=0;if(wordAnimation){wordAnimation.cancel();wordAnimation=null;}}
   function scheduleWord(){stopWords();if(moving())wordTimer=setTimeout(changeWord,3400);}
   function changeWord(){
     if(!moving())return;
     const next=(wordIndex+1)%phrases.length;
-    if(!word.animate){wordIndex=next;word.textContent=phrases[next];scheduleWord();return;}
+    if(!word.animate){wordIndex=next;showPhrase(next);scheduleWord();return;}
     wordAnimation=word.animate([{opacity:1,transform:'translateY(0)'},{opacity:0,transform:'translateY(-18px)',filter:'blur(3px)'}],{duration:200,easing:'ease-in',fill:'forwards'});
     wordAnimation.onfinish=()=>{
-      wordIndex=next;word.textContent=phrases[next];wordAnimation.cancel();
+      wordIndex=next;showPhrase(next);wordAnimation.cancel();
       wordAnimation=word.animate([{opacity:0,transform:'translateY(18px)',filter:'blur(3px)'},{opacity:1,transform:'translateY(0)',filter:'blur(0)'}],{duration:350,easing:'cubic-bezier(.2,.7,.2,1)'});
       wordAnimation.onfinish=()=>{wordAnimation=null;scheduleWord();};
     };
