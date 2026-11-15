@@ -8,6 +8,7 @@
   const slide=document.getElementById('showcase-slide');
   const projects=window.PORTFOLIO_PROJECTS;
   const details={
+    sumproof:{label:'GENERATIVE AI & RAG',copy:'Receipts whose numbers add up, and answers you can check.',note:'CORD-v2 test set · FinanceBench, 150 questions',metrics:[0,1]},
     defectrag:{label:'VISUAL INSPECTION & RAG',copy:'Visual inspection, cited explanations and corrective-action workflows.',note:'VisA test split · 12 products · MVTec AD check',metrics:[0,1]},
     paddy:{label:'FINAL-YEAR THESIS',copy:'A compact backbone for paddy disease detection.',note:'803 test images · One run per model',metrics:[0,2]},
     marine:{label:'COMPUTER VISION PROJECT',copy:'Lightweight detection for life below the surface.',note:'Recorded results · URPC2020',metrics:[0,1]},

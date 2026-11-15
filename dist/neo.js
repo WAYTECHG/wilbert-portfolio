@@ -58,7 +58,7 @@
       const metrics = (p.metrics || []).slice(0, 2).map(m => `<li><strong>${esc(m[0])}</strong><span>${esc(m[1])}</span></li>`).join('');
       const tags = (p.tags || []).slice(0, 5).map(t => `<li>${esc(t)}</li>`).join('');
       const demo = p.demo ? `<a class="neo-btn neo-btn-ghost" href="${esc(p.demo)}" target="_blank" rel="noopener noreferrer">Live demo <span aria-hidden="true">↗</span></a>` : '';
-      const repo = p.repository ? `<a class="neo-btn neo-btn-ghost" href="${esc(p.repository)}" target="_blank" rel="noopener noreferrer">Source <span aria-hidden="true">↗</span></a>` : '';
+      const repo = (p.repository ? `<a class="neo-btn neo-btn-ghost" href="${esc(p.repository)}" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>` : '') + (p.huggingface ? `<a class="neo-btn neo-btn-ghost" href="${esc(p.huggingface)}" target="_blank" rel="noopener noreferrer">Hugging Face <span aria-hidden="true">↗</span></a>` : '');
       const img = media.file ? `<img src="${esc(media.file)}" alt="${esc(media.alt || p.short + ' screenshot')}" loading="${i < 2 ? 'eager' : 'lazy'}" decoding="async"${media.width ? ` width="${esc(media.width)}" height="${esc(media.height)}"` : ''}>` : '';
       return `<article class="neo-row" aria-labelledby="neo-p-${esc(p.id)}">
         <div class="neo-row-copy">
