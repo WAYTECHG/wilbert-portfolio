@@ -1,130 +1,100 @@
 'use strict';
 window.PORTFOLIO_PROJECTS = [
   {
-      "id": "sumproof",
-      "title": "SumProof · receipt AI and financial filing search",
-      "short": "SumProof",
-      "category": "application",
-      "year": "Nov 2026",
-      "status": "Personal project · live demo",
-      "kicker": "GENERATIVE AI / VISION-LANGUAGE MODELS / RAG",
-      "description": "Fine-tuned Qwen3.5-4B to read real receipts and check that their numbers add up, and built cited question answering over 12,013 pages of real SEC filings, with a thinking-budget study and a local MCP agent. Real data, open models, one laptop GPU, $0.",
-      "tags": [
-          "Qwen3.5-4B",
-          "QLoRA",
-          "RAG",
-          "Qwen3-Reranker",
-          "pgvector",
-          "FAISS",
-          "MCP",
-          "Ollama",
-          "FastAPI",
-          "Next.js",
-          "TypeScript",
-          "pytest"
+    "id": "sumproof",
+    "title": "SumProof · receipt AI & financial filing search",
+    "short": "SumProof",
+    "category": "application",
+    "year": "Nov 2026",
+    "status": "Personal project · live demo",
+    "kicker": "GENERATIVE AI / VISION-LANGUAGE MODELS / RETRIEVAL",
+    "description": "Fine-tuned a vision-language model (Qwen3.5-4B, QLoRA) to read receipts into JSON with an accounting-rule checker, and built a cited RAG pipeline over 12,013 pages of 84 SEC filings with routing, reranking and pgvector, all on one 8 GB laptop GPU.",
+    "tags": [
+      "Qwen3.5-4B",
+      "QLoRA",
+      "RAG",
+      "Reranking",
+      "pgvector",
+      "FAISS",
+      "Next.js",
+      "TypeScript",
+      "PyTorch",
+      "Ollama",
+      "MCP"
+    ],
+    "metrics": [
+      [
+        "0.79 → 0.94",
+        "Receipt field F1 after QLoRA fine-tuning (100 test receipts)"
       ],
-      "metrics": [
-          [
-              "0.79 → 0.94",
-              "Receipt field F1, CORD-v2 test set (100 real receipts)"
-          ],
-          [
-              "0.53 → 0.71",
-              "Recall@5 on 150 FinanceBench analyst questions"
-          ],
-          [
-              "38% → 68%",
-              "Calculation questions answered correctly with budget-forced reasoning"
-          ]
+      [
+        "0.53 → 0.71",
+        "Recall@5 on 150 FinanceBench questions with routing and a reranker"
       ],
-      "summary": "SumProof has two parts. The receipt reader is Qwen3.5-4B, a vision-language model, fine-tuned with QLoRA on 800 CORD-v2 receipts; an accounting checker verifies that items, subtotal, tax and total agree, chooses among sampled readings, and sends receipts that do not add up to a person. The filing search answers FinanceBench analyst questions from 12,013 pages of 84 real SEC filings: it routes each question to the right company and year, searches with Qwen3-Embedding, reranks with Qwen3-Reranker, and writes an answer that cites its page. Page vectors are also stored in PostgreSQL with pgvector. A thinking-budget study measures how much reasoning is worth, and an MCP server exposes the tools to a local Qwen3.5-4B agent in Ollama. A Next.js interface shows every result, and a FastAPI server reads uploaded receipts on a local GPU.",
-      "contributions": [
-          "Fine-tuned Qwen3.5-4B with QLoRA (4-bit, 0.67% of weights) on an 8 GB laptop GPU, raising receipt field F1 from 0.79 to 0.94 and fully correct receipts from 6 to 62 out of 100.",
-          "Wrote an accounting-rule checker that picks the reading whose numbers add up among sampled candidates and flags receipts for human review.",
-          "Built retrieval over 12,013 pages of 84 SEC filings and measured each step: BM25 and hybrid search hurt on 10-K pages, while company/year routing and Qwen3-Reranker raised Recall@5 from 0.53 to 0.71.",
-          "Stored page vectors in PostgreSQL with pgvector, matching FAISS on all 150 questions; an HNSW index cut median query time from 26.5 to 2.2 ms.",
-          "Added cited answer generation graded against the analysts' answers by an exact numeric rule and an IBM Granite judge from a different model family (92.5% agreement): correct answers rose from 8% to 35%.",
-          "Measured thinking budgets with budget forcing: on 50 calculation questions, accuracy rose from 38% to 68% and wrong answers fell from 60% to 14% (McNemar p = 0.0001).",
-          "Built an MCP server with five tools and a local Qwen3.5-4B agent in Ollama, and measured it: 100% on 22 receipt tasks, but no gain on calculations because the model called the calculator in only 4% of tasks."
-      ],
-      "outcome": "Receipts: field F1 0.94 and 62 of 100 receipts fully correct on the CORD-v2 test set, which contains Indonesian restaurant receipts; other receipt styles are untested. Filing search: Recall@5 0.71 over 12,013 pages, and 35% of the 150 questions answered correctly with top-5 retrieval. With the analysts' own pages the model reaches 44%, so reasoning, not retrieval, is the main limit; a 4,096-token thinking budget lifts the 50 calculation questions to 68%, at about 13 times the time per question. The FinanceBench paper reports GPT-4-Turbo at 19% with one shared index and 50% with an index per filing; the setups and grading differ, so these figures give scale, not a ranking.",
-      "learning": "Defaults need measuring: hybrid search, the common choice, made retrieval worse on SEC filings. Checking the grader mattered as much as the model: comparing an exact rule with a model judge exposed a rule that accepted numbers from the working instead of the stated answer. And for a small model, room to reason helped far more than tools it did not choose to use.",
-      "credit": "Qwen3.5-4B, Qwen3-Embedding, Qwen3-Reranker and IBM Granite are open models used under their licences. CORD-v2 (CC-BY-4.0) and FinanceBench (CC-BY-NC-4.0) are existing datasets; budget forcing follows the s1 paper (Muennighoff et al., 2025). My work is the fine-tuning, the checker, the retrieval pipeline and its ablations, the evaluation and grading, the agent and the interface.",
-      "repository": "https://github.com/WAYTECHG/SumProof",
-      "huggingface": "https://huggingface.co/Wizzas/SumProof",
-      "demo": "https://sumproof.vercel.app",
-      "evidence": "https://sumproof.vercel.app/results/",
-      "evidenceLabel": "Model results",
-      "tableCaption": "Baseline vs SumProof on real test data (receipts: CORD-v2 test set; filings: FinanceBench)",
-      "table": [
-          [
-              "Measure",
-              "Baseline",
-              "SumProof"
-          ],
-          [
-              "Receipt field F1 (100 receipts)",
-              "0.791 zero-shot",
-              "0.940 fine-tuned + checker"
-          ],
-          [
-              "Receipts fully correct",
-              "6 / 100",
-              "62 / 100"
-          ],
-          [
-              "Recall@5 (150 questions)",
-              "0.527 dense search",
-              "0.713 routed + reranked"
-          ],
-          [
-              "Correct answers (150 questions)",
-              "8% without pages",
-              "35% with top-5 pages"
-          ],
-          [
-              "Calculation questions correct (50)",
-              "38% without thinking",
-              "68% with a 4,096-token budget"
-          ],
-          [
-              "Wrong answers on calculations",
-              "60%",
-              "14%"
-          ]
-      ],
-      "searchTerms": [
-          "receipts",
-          "vision-language model",
-          "VLM",
-          "Qwen",
-          "QLoRA",
-          "fine-tuning",
-          "RAG",
-          "retrieval",
-          "reranking",
-          "embeddings",
-          "SEC filings",
-          "FinanceBench",
-          "finance",
-          "pgvector",
-          "PostgreSQL",
-          "FAISS",
-          "vector database",
-          "LLM evaluation",
-          "LLM judge",
-          "thinking budget",
-          "reasoning",
-          "agents",
-          "MCP",
-          "Ollama",
-          "tool calling",
-          "FastAPI",
-          "Next.js",
-          "TypeScript",
-          "Generative AI",
-          "Python"
+      [
+        "8% → 35%",
+        "Correct cited answers with retrieved pages (150 questions)"
       ]
+    ],
+    "summary": "SumProof has two parts. The receipt reader sends a photo straight into a vision-language model that writes the receipt as JSON, then checks it against the receipt's own arithmetic and flags anything that does not add up. The filing search finds the right page in 84 real SEC filings using company and year routing, dense retrieval and a reranker, and answers with a citation.",
+    "contributions": [
+      "Fine-tuned Qwen3.5-4B, a vision-language model, with QLoRA on one 8 GB laptop GPU to read receipts into JSON, raising field F1 from 0.79 to 0.94 and fully correct receipts from 6 to 62 out of 100.",
+      "Added an accounting-rule checker that samples several readings and keeps the one whose items, subtotal, tax and total agree; readings that break a rule go to human review.",
+      "Built a RAG pipeline over 12,013 pages of 84 SEC filings: Qwen3 dense retrieval with company and year routing and a Qwen3 reranker raised Recall@5 from 0.53 to 0.71 against analyst-labelled evidence pages.",
+      "Compared FAISS and PostgreSQL with pgvector, which returned identical results; the HNSW index cut query time from 26.5 to 2.2 ms.",
+      "Added cited answer generation, raising correct answers from 8% to 35%; budget-forced reasoning lifted calculation questions from 38% to 68% correct and cut wrong answers from 60% to 14%.",
+      "Served the tools over the Model Context Protocol to a local Qwen agent in Ollama, and built the Next.js and TypeScript interface deployed on Vercel."
+    ],
+    "outcome": "On 100 real CORD-v2 receipts, QLoRA fine-tuning raised field F1 from 0.791 to 0.935 and fully correct receipts from 6 to 59; adding the accounting checker gave 0.940 F1 and 62 fully correct. On 150 FinanceBench questions, routing plus the reranker raised Recall@5 from 0.527 (dense alone) to 0.713. These are single runs on public benchmarks.",
+    "learning": "The biggest gains came from fine-tuning and from the reranker, not from the common hybrid BM25 default, which hurt on repetitive 10-K filings. Measuring each step on its own showed which parts were worth their cost.",
+    "credit": "Qwen3.5, Qwen3-Embedding and Qwen3-Reranker are open upstream models; CORD-v2 and FinanceBench are public datasets. My work is the fine-tuning, the accounting checker, the retrieval pipeline and its evaluation, and the application.",
+    "repository": "https://github.com/WAYTECHG/SumProof",
+    "demo": "https://sumproof.vercel.app",
+    "evidence": "https://github.com/WAYTECHG/SumProof#results",
+    "evidenceLabel": "Results and experiments",
+    "tableCaption": "CORD-v2 test set, 100 receipts",
+    "table": [
+      [
+        "Model",
+        "Field F1",
+        "Receipts fully correct"
+      ],
+      [
+        "Qwen3.5-4B zero-shot",
+        "0.791",
+        "6 / 100"
+      ],
+      [
+        "+ QLoRA fine-tune",
+        "0.935",
+        "59 / 100"
+      ],
+      [
+        "+ fine-tune + accounting checker",
+        "0.940",
+        "62 / 100"
+      ]
+    ],
+    "searchTerms": [
+      "SumProof",
+      "receipts",
+      "vision-language model",
+      "VLM",
+      "RAG",
+      "FinanceBench",
+      "SEC filings",
+      "reranker",
+      "pgvector",
+      "FAISS",
+      "Qwen3.5",
+      "QLoRA",
+      "Ollama",
+      "MCP",
+      "Next.js",
+      "TypeScript",
+      "Vercel",
+      "generative AI"
+    ]
   },
   {
     "id": "defectrag",
@@ -187,7 +157,6 @@ window.PORTFOLIO_PROJECTS = [
     "learning": "Changing one thing at a time showed that how the memory is chosen (the coreset) mattered more than fine-tuning the encoder, and that a small gain on one dataset does not automatically carry to another. I also learned to measure the same model before and after fine-tuning in each place it runs, because the runtime changes the result, and to state limits next to the numbers.",
     "credit": "DINOv2, BGE, Qwen2.5-3B, LangChain and LangGraph are established upstream models and tools; Qwen is used under its research licence with the required notice. Coreset selection and the VisA and MVTec AD benchmarks are existing methods and datasets. My work combines their integration, the fine-tuning, the comparative experiments, threshold calibration, evidence validation and the review workflows. n8n orchestrates case-event handling and notifications; it does not perform the visual inspection or replace the RAG pipeline. Supabase stores case and review records; AWS Lightsail hosts the n8n deployment.",
     "repository": "https://github.com/WAYTECHG/DefectRAG",
-    "huggingface": "https://huggingface.co/Wizzas/DefectRAG",
     "demo": "https://huggingface.co/spaces/Wizzas/DefectRAG",
     "evidence": "https://github.com/WAYTECHG/DefectRAG#results",
     "evidenceLabel": "Results and experiments",
@@ -307,11 +276,10 @@ window.PORTFOLIO_PROJECTS = [
       "Kept the detector neck unchanged so comparisons focus on backbone modifications.",
       "Compared default YOLOv8n, DenseNet121, and the proposed backbone, plus component ablations; built an interactive detection demo."
     ],
-    "outcome": "PaddyLiteX achieves 81.67% mAP@0.5, 55.83% mAP@0.5:0.95, 2,879,917 parameters and 14.2 reported GFLOPs. Compared with the DenseNet-121-based baseline, mAP@0.5 rises from 80.69% to 81.67%, with 68.01% fewer parameters and 72.59% lower reported GFLOPs. Compared with original YOLOv8n, mAP@0.5 improves by 0.88 percentage points and parameters decrease by 4.24%; GFLOPs increase from 8.1 to 14.2. The stricter mAP@0.5:0.95 remains 0.25 percentage points below the DenseNet-121 baseline. These are single-run results; the reported FLOP profiling convention awaits confirmation.",
+    "outcome": "PaddyLiteX achieves 81.67% mAP@0.5, 55.83% mAP@0.5:0.95, 2,879,917 parameters and 14.2 reported GFLOPs. Compared with the DenseNet-121-based baseline, mAP@0.5 rises from 80.69% to 81.67%, with 68.01% fewer parameters and 72.59% lower reported GFLOPs. Compared with original YOLOv8n, mAP@0.5 improves by 0.73 percentage points and parameters decrease by 4.24%; GFLOPs increase from 8.1 to 14.2. The stricter mAP@0.5:0.95 remains 0.25 percentage points below the DenseNet-121 baseline. These are single-run results; the reported FLOP profiling convention awaits confirmation.",
     "learning": "A fair architecture comparison depends on more than a promising model: consistent training, clean splits, and clearly scoped ablations are essential.",
     "credit": "YOLOv8 and DenseNet are established architectures. My contribution is the DenseLiteX backbone and its SPPF/C2PSA integration, supported by baseline comparisons and ablations. Updated figures are published in PaddyLiteX_HF_Static/results.json in my PaddyLiteX repository.",
     "repository": "https://github.com/WAYTECHG/paddylitex-disease-detection",
-    "huggingface": "https://huggingface.co/Wizzas/paddylitex-disease-detection",
     "demo": "https://paddylitex.onrender.com/",
     "tableCaption": "Updated held-out test evaluation: 803 images, 2,466 objects, nine classes; one run per model",
     "table": [
@@ -323,7 +291,7 @@ window.PORTFOLIO_PROJECTS = [
       ],
       [
         "mAP@0.5",
-        "80.79%",
+        "80.94%",
         "80.69%",
         "81.67%"
       ],
@@ -450,7 +418,6 @@ window.PORTFOLIO_PROJECTS = [
       ]
     ],
     "repository": "https://github.com/WAYTECHG/marinelite-organism-detection",
-    "huggingface": "https://huggingface.co/Wizzas/marinelite-organism-detection",
     "searchTerms": [
       "Git",
       "GitHub",
@@ -506,7 +473,6 @@ window.PORTFOLIO_PROJECTS = [
     "credit": "Collaborative XMUM coursework. The environment is provided by the original dPickleBall project; my contribution focused on agent training, experimentation and evaluation.",
     "upstream": "https://github.com/dPickleball/dPickleBallEnv",
     "repository": "https://github.com/WAYTECHG/dpickleball-rl-agent",
-    "huggingface": "https://huggingface.co/Wizzas/dpickleball-rl-agent",
     "video": "https://www.youtube.com/live/CitFn9FK12s",
     "searchTerms": [
       "Git",
@@ -558,7 +524,6 @@ window.PORTFOLIO_PROJECTS = [
     "learning": "Compression needs to be evaluated alongside predictive performance. Architectural changes should be supported by controlled comparisons and clear reporting.",
     "credit": "Group authors: Wilbert Andrew Yonathan, Chua Kian Hoong, Edward Ooi Wee Xue, Derol Chong Chung Kit, Wang Xinyi, and Siah Jieh Sheng. Outcomes are reported in the group repository, building on established residual-network ideas.",
     "repository": "https://github.com/WAYTECHG/Res_UCN-Resnet-Unified-Convolution-Network",
-    "huggingface": "https://huggingface.co/Wizzas/Res_UCN-Resnet-Unified-Convolution-Network",
     "searchTerms": [
       "Git",
       "GitHub",
@@ -611,7 +576,6 @@ window.PORTFOLIO_PROJECTS = [
     "learning": "Model comparisons need consistent preprocessing and class-level analysis. Live input also makes cropping and image handling part of the prediction pipeline.",
     "credit": "FER2013 is the established dataset used for the coursework. Predictions describe dataset expression categories; they are not a reliable reading of a person’s internal emotional state.",
     "repository": "https://github.com/WAYTECHG/FER2013-Project",
-    "huggingface": "https://huggingface.co/Wizzas/FER2013-Project",
     "evidence": "https://github.com/WAYTECHG/FER2013-Project/blob/main/json_files/test_results_CNN.json",
     "searchTerms": [
       "Git",
@@ -665,7 +629,6 @@ window.PORTFOLIO_PROJECTS = [
     "learning": "Model selection requires checking the evaluation pipeline as carefully as the classifier. Resampling should stay within training data, cross-validation and held-out scores should be distinguished, and an interface should clearly communicate its educational scope.",
     "credit": "Team coursework. The presentation credits Wilbert Andrew Yonathan with MRI prediction and interface development. Clinical experiments and other team contributions are distinguished from my personal work.",
     "repository": "https://github.com/WAYTECHG/alzheimer-classification",
-    "huggingface": "https://huggingface.co/Wizzas/alzheimer-classification",
     "searchTerms": [
       "Git",
       "GitHub",
